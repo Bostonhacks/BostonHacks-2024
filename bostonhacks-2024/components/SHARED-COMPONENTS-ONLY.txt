@@ -1,0 +1,4 @@
+Put shared components that are used across multiple directories
+aka: Footer, navbar, etc.
+
+Components used for specific pages should be put within their respective directories.
