@@ -8,6 +8,12 @@ Currently temporary, soon to be official 2024 Landing Site
 4) Go to your browser `http://localhost:3000`
 5) Any changes will auto-update without needing to restart the server
 
+# Important
+- Push your changes to branches. No commits should be directly made to `main` (unless minor fix)
+- Create a pull request for your branch to merge into `main`
+- Someone with approval permissions will approve the merge or give feedback
+
+
 # Notes
 * This repository uses Typescript. Typescript is not a different language but adds extra functionality on top of Javascript. Typescript code will still run even if it flags an error as long as the Javascript code is correct.
 * Try not to add insane dependencies with `npm install <package>`. Add dependencies that are necessary, remove those that you aren't using anymore. By default packages are not stored on GitHub, but the `package.json` keeps track of dependencies instead. Check that JSON file to ensure you added/removed packages. `package-lock.json` is a much more detailed but verbose overview.
