@@ -22,12 +22,26 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background-image: url(../public/images/Laptop\ background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+
+
+  /* commenting this out to try my stuff */
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-starst-rgb)); */
+}
+
+/*for mobile...? */
+@media (max-width <= 600) {
+  body {
+    background-image: url(../public/images/iPhone\ background.png);
+  }
 }
 
 @layer utilities {
