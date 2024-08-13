@@ -37,10 +37,13 @@ body {
     rgb(var(--background-starst-rgb)); */
 }
 
-/*for mobile...? */
-@media (max-width <= 600) {
+/*for mobile (width of background is 226) */
+@media (width <= 226px) {
   body {
-    background-image: url(../public/images/iPhone\ background.png);
+    background-image: url(../public/images/new\ iPhone.png);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
