@@ -5,6 +5,9 @@ import { React, useState } from 'react';
 import DownToggle from '../../public/images/DownToggle.png';
 import UpToggle from '../../public/images/UpToggle.png';
 
+// this should probabaly be in main/app root file but idk if i have the authority to do that so im just gonna put this here first
+import '../../public/fonts/fonts.css';
+
 const faq =[
         {
             question: 'q1',
@@ -96,7 +99,7 @@ const FAQColumn = ({ questionAnswers }) => {
 
     return (
       <div className="">
-        <ul className="divide-y-4 md:border-y-4 border-t-4 border-text-primary">
+        <ul className="">
           {questionAnswers.map((qa, index) => (
             <Question question={qa.question} answer={qa.answer} key={index} />
           ))}
@@ -114,25 +117,26 @@ const FAQColumn = ({ questionAnswers }) => {
 
 
     return (
-      <div>
+      <div className="flex items-center justify-center max-h-xl">
         {/* <div className="flex justify-end md:hidden mt-10">
           <img src={chestIsland} alt="chestIsland" className="h-64" />
         </div> */}
-        <section id="faq" className="w-full flex flex-col items-center justify-center text-text-primary px-5 my-40 mt-80">
-            <h2 className="text-center text-3xl md:text-5xl pb-1">FAQ</h2>
-            <div className="mt-20 w-full grid md:grid-cols-2 grid-cols-1 gap-x-20 lg:gap-x-40 md:px-20">
-                <div className="w-full grid md:grid-cols-2 grid-cols-1 gap-x-[5rem] z-20 lg:gap-x-[10rem] md:px-[5rem]">
-                    {/* this is the code that was in the code last year but when i do it now it says .map does not exist */}
-                    {/* <FAQColumn questionAnswers={faq[0]}/>
-                    <FAQColumn questionAnswers={faq[1]} /> */}
-                    <FAQColumn questionAnswers={col1}/>
-                    <FAQColumn questionAnswers={col2} />
+        <div className="bg-black bg-opacity-20 w-[95%] h-[50%]]">
+            <section id="faq" className="font-pp ssw-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-80 max-sm:mt-0">
+            <div className="flex items-center w-full max-w-xl relative">
+                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
+                    <h2 className="text-center text-3xl md:text-5xl pb-1 px-12">FAQ</h2>
+                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
                 </div>
-                <div className="border-b-4 border-text-primary md:hidden" />
-            </div>
-        </section>
+                    <div className="mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[5rem] z-20 lg:gap-x-[10rem] md:px-[5rem]">
+                        <FAQColumn questionAnswers={col1}/>
+                        <FAQColumn questionAnswers={col2} />
+                    </div>
+                    <div className="border-b-4 border-text-primary md:hidden" />
+            </section>
+        </div>
       </div>
-    );
+    );c
   };
   
   export default FAQ;
