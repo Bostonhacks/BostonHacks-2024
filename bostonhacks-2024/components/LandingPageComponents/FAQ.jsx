@@ -133,7 +133,7 @@ const FAQColumn = ({ questionAnswers }) => {
                     <h2 className="text-center text-3xl md:text-5xl pb-1 px-12">FAQ</h2>
                     <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
                 </div>
-                    <div className="mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[5rem] z-20 lg:gap-x-[10rem] md:px-[5rem]">
+                    <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[5rem] z-20 lg:gap-x-[10rem] md:px-[5rem]">
                         <FAQColumn questionAnswers={col1}/>
                         <FAQColumn questionAnswers={col2} />
                     </div>

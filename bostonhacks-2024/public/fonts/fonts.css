@@ -2,3 +2,8 @@
     font-family: 'pp-reg'; /* name to use in tailwind */
     src: url('./PPSupplyMono-Regular.otf') format('opentype');
   }
+
+@font-face {
+  font-family:'carrois gothic'; /*name in tailwind*/
+  src: url('./CarroisGothic-Regular.ttf') format('truetype');
+}

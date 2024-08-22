@@ -17,7 +17,8 @@ const config: Config = {
         'text-primary': '#FFFFFF',
       },
       fontFamily: {
-        pp: ['pp-reg', 'sans-serif'],
+        pp: ['pp-reg', 'sans-serif'], //pp is then what u use in the actual code file
+        cg: ['carrois gothic', 'sans-serif'],
       }
     },
   },
