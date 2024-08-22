@@ -11,27 +11,27 @@ import '../../public/fonts/fonts.css';
 
 const faq =[
         {
-            question: 'q1',
+            question: 'question about bhacks',
             answer: 'a1'
         },
         {
-            question: 'q2',
+            question: 'another question about bhacks',
             answer: 'a2'
         },
         {
-            question: 'q3',
+            question: 'more question',
             answer: 'a3'
         },
         {
-            question: 'q4',
+            question: 'another question??',
             answer: 'a4'
         },
         {
-            question: 'q5',
+            question: 'another one.',
             answer: 'a5'
         },
         {
-            question: 'q6',
+            question: 'final question',
             answer: 'a6'
         }
     ];
@@ -51,9 +51,12 @@ const Question = ({ question, answer }) => {
     return (
         <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
             <div className="flex mt-2 justify-between">
-                <h3 className="text-lg md:text-xl">
-                    {question}
-                </h3>
+                <div className="flex w-full">
+                    <img src="/images/Q.svg" alt="Q: "/>
+                    <h3 className="text-lg md:text-xl">
+                        {question}
+                    </h3>
+                </div>
                 <img
                 src={expanded ? "/images/UpToggle.svg" : "/images/DownToggle.svg"} 
                 alt="toggle arrows"

@@ -1,11 +1,11 @@
 <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="28" height="18" fill="#1E1E1E"/>
+<!-- <rect width="28" height="18" fill="#1E1E1E"/>
 <g clip-path="url(#clip0_936_537)">
 <rect width="1440" height="10892" transform="translate(-648 -3759)" fill="white"/>
 <rect x="-648" y="-10056" width="1440" height="21246.7" fill="url(#pattern0_936_537)"/>
-<rect x="-597" y="-248" width="1339" height="1012" fill="black" fill-opacity="0.4"/>
+<rect x="-597" y="-248" width="1339" height="1012" fill="black" fill-opacity="0.4"/> -->
 <path d="M14.1346 0L27.4977 17.4823H0.77139L14.1346 0Z" fill="white"/>
-</g>
+<!-- </g> -->
 <defs>
 <pattern id="pattern0_936_537" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_936_537" transform="matrix(0.00442478 0 0 0.000299891 0 -0.114176)"/>
