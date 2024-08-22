@@ -2,8 +2,9 @@
 // okay i dont think this is showing up anywhere because there literally is no landing page component
 
 import { React, useState } from 'react';
-import DownToggle from '../../public/images/DownToggle.png';
-import UpToggle from '../../public/images/UpToggle.png';
+//i literally dont know whyt his isnt working
+//import DownToggle from "/images/DownToggle.png";
+//import UpToggle from '../../public/images/UpToggle.png';
 
 // this should probabaly be in main/app root file but idk if i have the authority to do that so im just gonna put this here first
 import '../../public/fonts/fonts.css';
@@ -48,15 +49,13 @@ const Question = ({ question, answer }) => {
     }
 
     return (
-        <li className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
-            <div className="flex flex-col mt-2">
-                <h3 onClick={handleClick} className="text-lg md:text-xl">
+        <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
+            <div className="flex mt-2 justify-between">
+                <h3 className="text-lg md:text-xl">
                     {question}
                 </h3>
-                {expanded && <p>{answer}</p>}
-            </div>
-            <img
-                src={expanded ? UpToggle : DownToggle} 
+                <img
+                src={expanded ? "/images/UpToggle.svg" : "/images/DownToggle.svg"} 
                 alt="toggle arrows"
                 className={`w-[48px] h-[41px] ${animate && 'animate-wiggle'}`}
                 onAnimationEnd={() => {
@@ -64,6 +63,9 @@ const Question = ({ question, answer }) => {
                     setAnimate(false);
                 }}
                 />  
+
+            </div>
+                {expanded && <p>{answer}</p>}
         </li>
 
     // the below is previous bhacks
