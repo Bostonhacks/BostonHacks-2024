@@ -68,7 +68,11 @@ const Question = ({ question, answer }) => {
                 />  
 
             </div>
-                {expanded && <p>{answer}</p>}
+                {expanded && 
+                    <div className="border-t-2 border-white/25">
+                        <p className="px-12 pt-5">{answer}</p>
+                    </div>
+                }
         </li>
 
     // the below is previous bhacks
