@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'pp-reg'; /* name to use in tailwind */
+    src: url('./PPSupplyMono-Regular.otf') format('opentype');
+    }
