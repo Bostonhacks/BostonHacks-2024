@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 //import Logo from '../public/images/bhacks-logo.svg';
 import Logo from '/public/images/bhacks-logo.svg';
 
@@ -15,7 +16,7 @@ const Navbar = () => {
     <div className="p-5 sticky top-0 z-[100000] w-full">
       <div className="flex flex-row items-center justify-between">
         <a href="/">
-          <img src={Logo} alt="Bostonhacks Logo" height={34} width={39} />
+          <Image src={Logo} alt="Bostonhacks Logo" height={68} width={78} />
         </a>
         {/* Desktop Menu */}
         <ul className="hidden sm:flex flex-row justify-around w-[45vw]">
