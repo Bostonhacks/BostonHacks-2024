@@ -3,9 +3,17 @@ import Hero from "./Hero";
 import Link from 'next/link'
 import Navbar from "@/components/Navbar";
 
+import Welcome from "@/components/LandingComponents/Welcome";
+import Signal from "@/components/LandingComponents/Signal";
+import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
+
+
 const Home = () => {
   return (
     <main>
+      <Welcome />
+      <Signal />
+      <ThemeOfTheYear />
       {/* This is how you add components to a page */}
       {/* <Hero /> */}
 
