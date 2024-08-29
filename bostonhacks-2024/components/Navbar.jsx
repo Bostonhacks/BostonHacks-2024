@@ -13,7 +13,7 @@ const Navbar = () => {
   const [openBurger, setOpenBurger] = useState(false);
 
   return (
-    <div className="p-5 sticky top-0 z-[100000] w-full">
+    <div className="p-5 top-0 z-[100000] w-full">
       <div className="flex flex-row items-center justify-between">
         <a href="/">
           <Image src={Logo} alt="Bostonhacks Logo" height={68} width={78} />

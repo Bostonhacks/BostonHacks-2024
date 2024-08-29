@@ -4,6 +4,9 @@ import Image from 'next/image'
 
 import BostonHacks from '@/public/images/bostonhacks.svg'
 
+import ApplyButton from "@/public/images/ApplyButton.svg";
+import SponsorButton from "@/public/images/SponsorButton.svg";
+
 function Welcome() {
     return (
         <div className="relative h-screen bg-cover bg-center">
@@ -16,7 +19,7 @@ function Welcome() {
                 />
             </div>
 
-            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-white text-center transform translate-y-[-200px]">
+            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-white text-center transform translate-y-[-100px]">
                 <div className="relative">
                     <div className="absolute -top-20 left-0 font-carrois">
                         <p className="text-xl md:text-3xl lg:text-5xl font-carrois">NOVEMBER 2 - 3</p>
@@ -37,7 +40,28 @@ function Welcome() {
                         <br></br>
                         <p className="text-5xl md:text-7xl lg:text-9xl font-carrois">2024</p>
                     </div>
+
+                    <div className="mt-32 flex justify-center space-x-12 transform translate-y-[400px]"> {/* Increased margin-top for spacing */}
+                        <div className="cursor-pointer">
+                            <Image
+                                src={ApplyButton}
+                                alt="Apply Button"
+                                width={250}  // Adjust based on your SVG size
+                                height={200}  // Adjust based on your SVG size
+                            />
+                        </div>
+                        <div className="cursor-pointer">
+                            <Image
+                                src={SponsorButton}
+                                alt="Sponsor Button"
+                                width={250}  // Adjust based on your SVG size
+                                height={200}  // Adjust based on your SVG size
+                            />
+                        </div>
+                    </div>
                 </div>
+
+                
             </div>
         </div>
     )
