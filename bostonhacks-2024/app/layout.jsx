@@ -2,6 +2,9 @@ import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Welcome from "@/components/LandingComponents/Welcome";
+import Signal from "@/components/LandingComponents/Signal";
+import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +20,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
+        <Welcome />
+        <Signal />
+        <ThemeOfTheYear />
         {children}
       </body>
     </html>
