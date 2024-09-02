@@ -2,7 +2,7 @@ import Image from "next/image";
 import Hero from "./Hero";
 import Link from 'next/link'
 import Navbar from "@/components/Navbar";
-import Tracks from "@/app/Tracks";
+import Tracks from "@/components/LandingComponents/Tracks";
 
 const Home = () => {
   return (
