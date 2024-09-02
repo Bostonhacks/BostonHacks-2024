@@ -5,7 +5,7 @@ import planet3 from "../public/images/tracks/planet3.svg";
 import Image from "next/image";
 
 function Tracks() {
-  
+
   const planetsTextBoxStyle = {
     "--background": "0,0,0,0.5",
     "--highlight": "69 232 113",
@@ -28,19 +28,19 @@ function Tracks() {
         __________ TRACKS __________
       </h1>
       <div className="flex flex-col">
-        <div className="w-1/3 flex flex-col items-center self-end">
+        <div className="w-1/3 flex flex-col items-center self-end mr-20">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Reimagine Reality
           </h1>
           <Image src={planet1} alt="planet1" />
         </div>
-        <div className="w-1/3 items-center flex flex-col">
+        <div className="w-1/3 items-center flex flex-col ml-32">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Cometcare
           </h1>
           <Image src={planet2} alt="planet2" />
         </div>
-        <div className="w-1/3 flex flex-col items-center self-end mr-32">
+        <div className="w-1/3 flex flex-col items-center self-end mr-60">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Interstellar Intelligence
           </h1>
