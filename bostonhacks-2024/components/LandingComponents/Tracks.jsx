@@ -5,6 +5,7 @@ import planet2 from "../../public/images/tracks/planet2.svg";
 import planet3 from "../../public/images/tracks/planet3.svg";
 import Image from "next/image";
 import { useState } from "react";
+import tracksBackground from "../../public/images/tracks/TracksBackground.svg";
 
 function Tracks() {
   const [modalContent, setModalContent] = useState(null);
@@ -48,7 +49,16 @@ function Tracks() {
       <h1 className="text-center text-4xl mb-52 pt-5">
         __________ TRACKS __________
       </h1>
-      <div className="flex flex-col">
+      <div
+        className="flex flex-col"
+        style={{
+          backgroundImage: `url(${tracksBackground.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          position: "relative",
+        }}
+      >
         <div className="w-1/3 flex flex-col items-center self-end mr-20">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Reimagine Reality
