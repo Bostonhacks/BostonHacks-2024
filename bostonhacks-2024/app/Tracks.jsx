@@ -5,21 +5,22 @@ import planet3 from "../public/images/tracks/planet3.svg";
 import Image from "next/image";
 
 function Tracks() {
-
   const planetsTextBoxStyle = {
-    "--background": "0,0,0,0.5",
+    "--background": "0, 0, 0, 1",
     "--highlight": "69 232 113",
     "--bg-color":
       "linear-gradient(rgb(var(--background)), rgb(var(--background)))",
-    "--border-color": `linear-gradient(145deg,
+    "--border-color": `linear-gradient(160deg,
           rgb(var(--highlight)) 0%,
-          rgb(var(--highlight) / 0.3) 33.33%,
-          rgb(var(--highlight) / 0.14) 66.67%,
-          rgb(var(--highlight) / 0.1) 5100%)
+          rgb(var(--highlight) / 1) 40%,
+          rgb(var(--highlight) / 0.3) 66.660%,
+          rgb(var(--highlight) / 0.1) 100%)
         `,
   };
 
-  const planetsTextBoxCSS = `rounded-lg border border-transparent text-center p-4 text-2xl
+  const planetsTextBoxCSS = `
+      rounded-lg border border-transparent text-center p-4 text-2xl 
+      backdrop-filter backdrop-blur-3xl
       [background:padding-box_var(--bg-color),border-box_var(--border-color)]`;
 
   return (
