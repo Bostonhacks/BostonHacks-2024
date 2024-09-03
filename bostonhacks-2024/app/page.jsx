@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "./Hero";
 import Link from 'next/link'
 import Navbar from "@/components/Navbar";
+import Tracks from "@/components/LandingComponents/Tracks";
 
 import Welcome from "@/components/LandingComponents/Welcome";
 import Signal from "@/components/LandingComponents/Signal";
@@ -29,6 +30,10 @@ const Home = () => {
 
       {/* or parameters (or elements as well) like this */}
       {/* <Hero child1={} child2={} child3={} /> */}
+      <div id="tracks">
+        <Tracks/>
+      </div>
+
     </main>
   );
 }
