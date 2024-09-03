@@ -20,9 +20,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <Welcome />
-        <Signal />
-        <ThemeOfTheYear />
         {children}
       </body>
     </html>
