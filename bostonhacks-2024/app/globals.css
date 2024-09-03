@@ -25,7 +25,7 @@ body {
   background-image: url(../public/images/Laptop\ background.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 33.3%;
+  background-position: 50% 36.5%;
 
 
   /* commenting this out to try my stuff */
@@ -37,10 +37,13 @@ body {
     rgb(var(--background-starst-rgb)); */
 }
 
-/*for mobile...? */
-@media (max-width <= 600) {
+/*for mobile (width of background is 226) */
+@media (width <= 226px) {
   body {
-    background-image: url(../public/images/iPhone\ background.png);
+    background-image: url(../public/images/new\ iPhone.png);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
