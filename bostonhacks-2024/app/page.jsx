@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Welcome from "@/components/LandingComponents/Welcome";
 import Signal from "@/components/LandingComponents/Signal";
 import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
+import Schedule from "@/components/LandingComponents/Schedule";
 
 
 const Home = () => {
@@ -14,6 +15,8 @@ const Home = () => {
       <Welcome />
       <Signal />
       <ThemeOfTheYear />
+      <Schedule />
+
       {/* This is how you add components to a page */}
       {/* <Hero /> */}
 
