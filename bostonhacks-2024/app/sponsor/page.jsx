@@ -6,6 +6,7 @@ import TwilloQuote from '@/components/SponsorComponents/TwilloQuote.jsx'
 import WhoWeAre from '@/components/SponsorComponents/WhoWeAre.jsx'
 import WhyUs from '@/components/SponsorComponents/WhyUs.jsx'
 import Perks from '@/components/SponsorComponents/Perks.jsx'
+import Stats from '@/components/SponsorComponents/Stats.jsx'
 
 function Sponsor() {
   return (
@@ -16,6 +17,7 @@ function Sponsor() {
       <WhoWeAre />
       <WhyUs />
       <Perks />
+      <Stats />
 
     </main>
   )

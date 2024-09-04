@@ -17,6 +17,7 @@ const Home = () => {
       <Welcome />
       <Signal />
       <ThemeOfTheYear />
+      <Tracks/>
       <FAQ />
       <Schedule />
 
@@ -30,9 +31,9 @@ const Home = () => {
 
       {/* or parameters (or elements as well) like this */}
       {/* <Hero child1={} child2={} child3={} /> */}
-      <div id="tracks">
+      {/* <div id="tracks">
         <Tracks/>
-      </div>
+      </div> */}
 
     </main>
   );
