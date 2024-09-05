@@ -1,8 +1,9 @@
 import { React } from 'react';
 import '../../public/fonts/fonts.css';
+import Image from 'next/image';
 
-import hold from '../../public/images/Q.svg';
-import sponsorBackground from '../../public/images/sponsorBackground.svg';
+import hold from '@/public/images/Q.svg';
+import sponsorBackground from '@/public/images/sponsorBackground.svg';
 
 const Sponsors = () => {
     const sponsors = [
@@ -49,13 +50,13 @@ const Sponsors = () => {
             <div className="grid z-10 grid-cols-2 lg:grid-cols-2 gap-14 lg:gap-20 mt-20 mx-[5vw]">
             {sponsors.map((sponsor) => (
             <div key={sponsor.id} className="relative flex items-center justify-center">
-                <img
-                src={"/images/sponsorBackground.svg"}
+                <Image
+                src={sponsorBackground}
                 alt="sponsor"
                 className="w-32 h-32 mx-auto"
                 />
-                <img
-                src={sponsor.image}
+                <Image
+                src={sponsor.images}
                 alt={`Sponsor ${sponsor.id}`}
                 className="absolute w-auto h-auto top-0 left-0 object-cover scale-75"
                 />
