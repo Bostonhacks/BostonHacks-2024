@@ -20,6 +20,21 @@ const Sponsors = () => {
             id: 3,
             name: 'Sponsor Three',
             images: hold
+        },
+        {
+            id: 4,
+            name: 'Sponsor Four',
+            images: hold
+        },
+        {
+            id: 5,
+            name: 'Sponsor Five',
+            images: hold
+        },
+        {
+            id: 6,
+            name: 'Sponsor Six',
+            images: hold
         }
     ]
 
@@ -33,7 +48,7 @@ const Sponsors = () => {
                 </div>
             <div className="grid z-10 grid-cols-2 lg:grid-cols-2 gap-14 lg:gap-20 mt-20 mx-[5vw]">
             {sponsors.map((sponsor) => (
-            <div key={sponsor.id} className="relative">
+            <div key={sponsor.id} className="relative flex items-center justify-center">
                 <img
                 src={"/images/sponsorBackground.svg"}
                 alt="sponsor"
@@ -44,9 +59,9 @@ const Sponsors = () => {
                 alt={`Sponsor ${sponsor.id}`}
                 className="absolute w-auto h-auto top-0 left-0 object-cover scale-75"
                 />
-                <span className={`absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-xs text-center ${sponsor.id % 2 === 1 ? 'left-[-20px]' : 'right-[-20px]'}`}  style={{writingMode: 'vertical-rl', transform: 'rotate(180deg)', whiteSpace: 'nowrap'}}>
-                    {sponsor.name}
-                </span>
+                    <span className={`absolute right-[-20px] top-50% transform -translate-y-1/2  text-xs text-center ${sponsor.id % 2 === 1 ? 'left-[-20px]' : 'right-[-20px]'}`}  style={{writingMode: 'vertical-rl', transform: 'rotate(180deg)', whiteSpace: 'nowrap'}}>
+                        {sponsor.name}
+                    </span>
             </div>
             ))}
         </div>
