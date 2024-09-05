@@ -43,7 +43,7 @@ const Footer = () => {
       {/* Countdown Timer */}
       <div className="text-center mb-12">
         <h2 className="text-3xl lg:text-8xl font-ppSupplyMono mb-32">Launching in..</h2>
-        <div className="text-green-500 text-8xl font-sevenSegment">
+        <div className="font-sevenSegment text-green-500 text-8xl">
           {timeLeft.days}:{timeLeft.hours.toString().padStart(2, '0')}:
           {timeLeft.minutes.toString().padStart(2, '0')}:
           {timeLeft.seconds.toString().padStart(2, '0')}

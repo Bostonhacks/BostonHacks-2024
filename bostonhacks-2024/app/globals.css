@@ -22,10 +22,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-image: url(../public/images/Laptop\ background.png);
+  background-image: url(../public/images/LaptopBackgroundNew.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 36.5%;
+  background-position: 50% 0%;
 
 
   /* commenting this out to try my stuff */
@@ -68,6 +68,7 @@ body {
   src: url('/fonts/7SEGMENTALDIGITALDISPLAY.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
