@@ -2,9 +2,11 @@
 // okay i dont think this is showing up anywhere because there literally is no landing page component
 
 import { React, useState } from 'react';
+import Image from 'next/image';
 //i literally dont know whyt his isnt working
-//import DownToggle from "/images/DownToggle.png";
-//import UpToggle from '../../public/images/UpToggle.png';
+import DownToggle from "@/public/images/DownToggle.svg";
+import UpToggle from '@/public/images/UpToggle.svg';
+import Astroid from '@/public/images/Q.svg'
 
 // this should probabaly be in main/app root file but idk if i have the authority to do that so im just gonna put this here first
 import '../../public/fonts/fonts.css';
@@ -52,13 +54,13 @@ const Question = ({ question, answer }) => {
         <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
             <div className="flex mt-2 justify-between">
                 <div className="flex w-full">
-                    <img src="/images/Q.svg" alt="Q: "/>
-                    <h3 className="text-lg md:text-xl">
+                    <Image src= {Astroid} alt="Q: "/>
+                    <h3 className="text-3xl md:text-2xl">
                         {question}
                     </h3>
                 </div>
-                <img
-                src={expanded ? "/images/UpToggle.svg" : "/images/DownToggle.svg"} 
+                <Image
+                src={expanded ? UpToggle : DownToggle} 
                 alt="toggle arrows"
                 className={`w-[48px] h-[41px] ${animate && 'animate-wiggle'}`}
                 onAnimationEnd={() => {
@@ -126,26 +128,23 @@ const FAQColumn = ({ questionAnswers }) => {
 
 
     return (
-      <div className="flex items-center justify-center max-h-xl">
-        {/* <div className="flex justify-end md:hidden mt-10">
-          <img src={chestIsland} alt="chestIsland" className="h-64" />
-        </div> */}
-        <div className="bg-black bg-opacity-20 w-[95%] h-[50%]]">
-            <section id="faq" className="font-pp ssw-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-80 max-sm:mt-0">
-            <div className="flex items-center w-full max-w-xl relative">
+    <div className="flex items-center justify-center max-h-xl">
+        <div className="bg-black bg-opacity-20 w-[95%] h-auto pt-16"> 
+            <section id="faq" className="font-ppSupplyMono w-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-0">
+                <div className="flex items-center w-full max-w-xl relative">
                     <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
-                    <h2 className="text-center text-3xl md:text-5xl pb-1 px-12">FAQ</h2>
+                    <h2 className="text-center text-4xl md:text-6xl pb-1 px-12">FAQ</h2>
                     <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
                 </div>
-                    <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
-                        <FAQColumn questionAnswers={col1}/>
-                        <FAQColumn questionAnswers={col2} />
-                    </div>
-                    <div className="border-b-4 border-text-primary md:hidden" />
+                <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
+                    <FAQColumn questionAnswers={col1}/>
+                    <FAQColumn questionAnswers={col2} />
+                </div>
+                <div className="border-b-4 border-text-primary md:hidden" />
             </section>
         </div>
-      </div>
-    );c
+    </div>
+    );
   };
   
   export default FAQ;
