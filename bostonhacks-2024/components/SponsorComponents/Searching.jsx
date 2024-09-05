@@ -17,13 +17,13 @@ function Searching() {
         </div>
 
         <div className="text-center mt-5"> {/* Added margin for better spacing */}
-            <p className="text-xl md:text-3xl lg:text-5xl font-pp-reg" style={{ color: '#888888' }}> 
+            <p className="text-xl md:text-3xl lg:text-5xl font-ppSupplyMono" style={{ color: '#888888' }}> 
                 Searching   for   Sponsors . . . .
             </p>
         </div>
         
         <div className="mt-16 flex items-center justify-center"> {/* Added margin-top for spacing */}
-            <h1 className="text-8xl font-bold">SPONSOR INFORMATION</h1> {/* Fixed spelling of "SPONSOR" */}
+            <h1 className="text-8xl font-ppSupplyMono">SPONSOR INFORMATION</h1> {/* Fixed spelling of "SPONSOR" */}
         </div>
         
         <div className="mt-16 flex justify-center space-x-12"> {/* Removed translate-y for a cleaner layout */}

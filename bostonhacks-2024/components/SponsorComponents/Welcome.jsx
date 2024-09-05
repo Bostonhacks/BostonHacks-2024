@@ -21,8 +21,8 @@ function Welcome() {
 
             <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-white text-center transform translate-y-[-100px]">
                 <div className="relative">
-                    <div className="absolute -top-20 left-0 font-carrois">
-                        <p className="text-xl md:text-3xl lg:text-5xl font-carrois">NOVEMBER 2 - 3</p>
+                    <div className="absolute -top-20 left-0 font-carroisGothic">
+                        <p className="text-xl md:text-3xl lg:text-5xl font-carroisGothic">NOVEMBER 2 - 3</p>
                     </div>
 
                     {/* Centered "BOSTONHACKS" */}
@@ -36,9 +36,9 @@ function Welcome() {
                     </div>
 
                     {/* "2024" aligned to the right edge of "BOSTONHACKS" */}
-                    <div className="absolute -bottom-17 right-0 font-carrois">
+                    <div className="absolute -bottom-17 right-0 font-carroisGothic">
                         <br></br>
-                        <p className="text-5xl md:text-7xl lg:text-9xl font-carrois">2024</p>
+                        <p className="text-5xl md:text-7xl lg:text-9xl font-carroisGothic">2024</p>
                     </div>
                 </div>
 

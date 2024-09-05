@@ -7,6 +7,7 @@ import WhoWeAre from '@/components/SponsorComponents/WhoWeAre.jsx'
 import WhyUs from '@/components/SponsorComponents/WhyUs.jsx'
 import Perks from '@/components/SponsorComponents/Perks.jsx'
 import Stats from '@/components/SponsorComponents/Stats.jsx'
+import Reviews from '@/components/SponsorComponents/Reviews.jsx'
 
 function Sponsor() {
   return (
@@ -18,6 +19,7 @@ function Sponsor() {
       <WhyUs />
       <Perks />
       <Stats />
+      <Reviews />
 
     </main>
   )

@@ -16,7 +16,7 @@ function Signal() {
             </div>
 
             <div className="mt-10 text-center"> 
-                <p className="text-xl md:text3xl lg:text-4xl font-pp-reg " style={{ color: '#888888' }}> 
+                <p className="text-xl md:text3xl lg:text-4xl font-ppSupplyMono " style={{ color: '#888888' }}> 
                     Searching for space signals..
                 </p>
             </div>

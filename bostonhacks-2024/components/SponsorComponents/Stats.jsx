@@ -11,7 +11,7 @@ const Stats = () => {
             {/* Left Line */}
             <div className="w-20 lg:w-40 h-px bg-white"></div>
             {/* Title with Line Break */}
-            <h1 className="font-minecraft text-white text-base lg:text-7xl mb-4 text-center">
+            <h1 className="font-ppSupplyMono text-white text-base lg:text-7xl mb-4 text-center">
                 LET'S TALK<br />STATISTICS
             </h1>
             {/* Right Line */}
@@ -20,7 +20,7 @@ const Stats = () => {
 
         {/* Pre-COVID Event Section */}
         <div className="text-center w-full">
-            <h2 className="font-minecraft text-white text-sm lg:text-5xl mb-6">Our Pre-COVID Events Had:</h2>
+            <h2 className="font-carroisGothic text-white text-sm lg:text-5xl mb-6">Our Pre-COVID Events Had:</h2>
             <div className="flex flex-col lg:flex-row items-center justify-center w-full space-y-8 lg:space-y-0 lg:space-x-10">
                 {/* Enlarging the image container to fill most of the screen */}
                 <div className="relative w-4/5 h-[1000px] lg:h-[1750px] lg:w-[75%]">
@@ -30,14 +30,14 @@ const Stats = () => {
         </div>
 
         {/* Divider */}
-        <div className='my-10 w-full lg:w-4/5 border-t border-gray-600'></div>
+        <div className='my-10 w-full lg:w-1/2 border-t-4 border-gray-500'></div>
 
         {/* 2021 Hybrid Event Section */}
         <div className="text-center w-full">
-            <h2 className="font-minecraft text-white text-sm lg:text-5xl mb-6">Our 2021 Hybrid Event Had...</h2>
+            <h2 className="font-carroisGothic text-white text-sm lg:text-5xl mb-6">Our 2021 Hybrid Event Had...</h2>
             <div className="flex flex-col lg:flex-row items-center justify-center w-full space-y-8 lg:space-y-0 lg:space-x-10">
                 {/* Enlarging the image container to fill most of the screen */}
-                <div className="relative w-4/5 h-[1000px] lg:h-[1750px] lg:w-[50%]">
+                <div className="relative w-4/5 h-[1000px] lg:h-[1500px] lg:w-[75%]">
                     <Image src={HybridStats} alt="Hybrid Event Stats" layout="fill" objectFit="contain" />
                 </div>
             </div>

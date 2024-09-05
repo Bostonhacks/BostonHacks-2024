@@ -19,6 +19,11 @@ const config: Config = {
       fontFamily: {
         pp: ['pp-reg', 'sans-serif'], //pp is then what u use in the actual code file
         cg: ['carrois gothic', 'sans-serif'],
+        sevenSegment: ['7SegmentDigital', 'sans-serif'], // Custom name for 7-segment digital font
+        carroisGothic: ['CarroisGothic', 'sans-serif'],
+        ppSupplyMono: ['PPSupplyMono', 'monospace'],
+        ppSupplyMonoUltralight: ['PPSupplyMonoUltralight', 'monospace'],
+        saint: ['Saint', 'serif'],
       }
     },
   },
