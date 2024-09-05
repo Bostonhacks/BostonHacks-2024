@@ -7,10 +7,10 @@ const ScheduleComponent = ({ title, data }) => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className="w-full">
-              <td className="font-ft88b text-lg lg:text-4xl p-4 text-right pr-8 w-1/3">
+              <td className="font-sevenSegment text-lg lg:text-4xl p-4 text-right pr-8 w-1/3">
                 {item.time}
               </td>
-              <td className="font-ft88 text-lg lg:text-4xl p-4 border-l-4 text-left pl-8 w-2/3" style={{ borderColor: '#FC4A1A' }}>
+              <td className="font-carroisGothic text-lg lg:text-4xl p-4 border-l-4 text-left pl-8 w-2/3" style={{ borderColor: '#FC4A1A' }}>
                 {item.tableEntry}
               </td>
             </tr>
@@ -64,7 +64,7 @@ export default function Schedule() {
     <div className="flex justify-center items-center flex-col w-full overflow-clip pb-20">
       <div className="relative flex items-center justify-center w-full my-20">
         <div className="flex-grow border-t-4 border-white mx-4" style={{ maxWidth: '100px' }}></div>
-        <span className="mx-8 text-5xl lg:text-6xl font-bold tracking-wide text-white text-center">
+        <span className="mx-8 text-5xl lg:text-6xl font-ppSupplyMono tracking-wide text-white text-center">
           SCHEDULE
         </span>
         <div className="flex-grow border-t-4 border-white mx-4" style={{ maxWidth: '100px' }}></div>

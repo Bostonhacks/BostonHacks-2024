@@ -61,3 +61,39 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+/* styles/globals.css */
+@font-face {
+  font-family: '7SegmentDigital';
+  src: url('/fonts/7SEGMENTALDIGITALDISPLAY.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CarroisGothic';
+  src: url('/fonts/CarroisGothic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPSupplyMono';
+  src: url('/fonts/PPSupplyMono-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PPSupplyMonoUltralight';
+  src: url('/fonts/PPSupplyMono-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saint';
+  src: url('/fonts/Saint Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -20,15 +20,15 @@ function TwilloQuote() {
         </div>
         
         {/* Space between the two SVGs */}
-        <div className="flex-grow mx-10" />
+        <div className="flex-grow mx-10 " />
 
-        <div className="flex-shrink-0 relative text-white text-center" style={{ top: '-100px', left: '-150px' }}>
-            <p className="text-3xl lg:text-5xl leading-[2]"> 
-                <span className="block leading-[2]">“BOSTONHACKS IS CONSISTENTLY</span>
-                <span className="block leading-[2]">ONE OF THE BEST [HACKATHONS]</span> 
-                <span className="block leading-[2]">THAT I CONTINUE TO SPONSOR YEAR”</span>
-                <span className="block leading-[2]">AFTER YEAR.</span>
-                <span className="block leading-[3]">SAM AGNEW, TWILIO</span>
+        <div className="flex-shrink-0 relative text-white text-center front-ppSupplyMono" style={{ top: '-100px', left: '-150px' }}>
+            <p className="text-3xl lg:text-5xl leading-[2] front-ppSupplyMono"> 
+                <span className="block leading-[2] front-ppSupplyMono">“BOSTONHACKS IS CONSISTENTLY</span>
+                <span className="block leading-[2] front-ppSupplyMono">ONE OF THE BEST [HACKATHONS]</span> 
+                <span className="block leading-[2]front-ppSupplyMono">THAT I CONTINUE TO SPONSOR YEAR”</span>
+                <span className="block leading-[2]front-ppSupplyMono">AFTER YEAR.</span>
+                <span className="block leading-[3]front-ppSupplyMono">SAM AGNEW, TWILIO</span>
             </p>
         </div>
     </div>

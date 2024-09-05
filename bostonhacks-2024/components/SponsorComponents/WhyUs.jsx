@@ -43,9 +43,9 @@ const WhySection = ({ data }) => {
                                     index % 2 == 1 ? 'order-last ml-4' : ''
                                 }`}
                             />
-                            <h2 className="text-[11px] lg:text-5xl font-bold ml-3 lg:ml-4 pt-1">{item.title}</h2>
+                            <h2 className="text-[11px] lg:text-5xl font-bold ml-3 lg:ml-4 pt-1 font-carroisGothic">{item.title}</h2>
                         </div>
-                        <p className="mx-4 lg:mx-8 text-[10px] lg:text-[24px] leading-relaxed">{item.description}</p>
+                        <p className="mx-4 lg:mx-8 text-[10px] lg:text-[24px] leading-relaxed font-carroisGothic">{item.description}</p>
                     </div>
                 </div>
             ))}
@@ -60,7 +60,7 @@ const WhyUs = () => {
                 {/* Title with lines */}
                 <div className="relative flex items-center justify-center mb-8">
                     <div className="flex-grow border-t-4 border-white" style={{ position: 'relative', top: '1.4em' }}></div>
-                    <span className="mx-10 text-4xl lg:text-7xl font-bold tracking-widest">WHY US?</span>
+                    <span className="mx-10 text-4xl lg:text-7xl font-bold tracking-widest font-ppSupplyMono">WHY US?</span>
                     <div className="flex-grow border-t-4 border-white" style={{ position: 'relative', top: '1.4em' }}></div>
                 </div>
 
@@ -70,15 +70,15 @@ const WhyUs = () => {
 
                     {/* Astronaut and Questions Section */}
                     <div className="relative flex justify-center mt-12">
-                        <div className="flex flex-col justify-center items-center text-center relative">
-                            <h1 className="text-xs lg:text-2xl mb-3">Questions?</h1>
-                            <p className="text-xs lg:text-2xl">We welcome any questions or special</p>
-                            <p className="text-xs lg:text-2xl">requests. Please email us at</p>
-                            <h1 className="font-misterpixel font-normal pt-2 lg:py-10 text-sm lg:text-3xl">
+                        <div className="flex flex-col justify-center items-center text-center relative font-carroisGothic">
+                            <h1 className="text-xs lg:text-5xl mb-3">Questions?</h1>
+                            <p className="text-xs lg:text-3xl">We welcome any questions or special</p>
+                            <p className="text-xs lg:text-3xl">requests. Please email us at</p>
+                            <h1 className="font-normal pt-2 lg:py-10 text-sm lg:text-3xl">
                                 contact@bostonhacks.io
                             </h1>
                         </div>
-                        <div className="absolute right-0 transform -translate-x-40 -translate-y-20">
+                        <div className="absolute right-0 transform -translate-x-32 -translate-y-20">
                             <Image 
                             src={Astronaut} 
                             alt="Astronaut" 

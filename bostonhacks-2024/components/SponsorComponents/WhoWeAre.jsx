@@ -7,12 +7,12 @@ return (
             {/* Title with lines */}
             <div className="relative flex items-center justify-center mb-8">
                 <div className="flex-grow border-t-4 border-white " style={{ position: 'relative', top: '1.4em' }}></div>
-                <span className="mx-10 text-4xl lg:text-7xl font-bold tracking-widest"> WHO ARE WE? </span>
+                <span className="mx-10 text-4xl lg:text-7xl font-bold tracking-widest font-ppSupplyMono"> WHO ARE WE? </span>
                 <div className="flex-grow border-t-4 border-white" style={{ position: 'relative', top: '1.4em' }}></div>
             </div>
 
             {/* Opaque Background and Text */}
-            <div className="bg-black bg-opacity-10 p-8 rounded-lg shadow-lg w-full h-full text-4xl">
+            <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg w-full h-full text-4xl carroisGothic">
                 <p className="leading-relaxed lg:leading-loose mb-4">
                     BostonHacks brings together over 100 students for an exhilarating 36 hours to build awesome projects. In our past events, students had meaningful interactions with mentors, peers, and sponsors.
                 </p>

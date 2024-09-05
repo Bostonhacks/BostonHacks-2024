@@ -11,7 +11,7 @@ const Stats = () => {
             {/* Left Line */}
             <div className="w-20 lg:w-40 h-px bg-white"></div>
             {/* Title with Line Break */}
-            <h1 className="font-minecraft text-white text-base lg:text-7xl mb-4 text-center">
+            <h1 className="font-ppSupplyMono text-white text-base lg:text-7xl mb-4 text-center">
                 LET'S TALK<br />STATISTICS
             </h1>
             {/* Right Line */}
@@ -20,7 +20,7 @@ const Stats = () => {
 
         {/* Pre-COVID Event Section */}
         <div className="text-center w-full">
-            <h2 className="font-minecraft text-white text-sm lg:text-5xl mb-6">Our Pre-COVID Events Had:</h2>
+            <h2 className="font-carroisGothic text-white text-sm lg:text-5xl mb-6">Our Pre-COVID Events Had:</h2>
             <div className="flex flex-col lg:flex-row items-center justify-center w-full space-y-8 lg:space-y-0 lg:space-x-10">
                 {/* Enlarging the image container to fill most of the screen */}
                 <div className="relative w-4/5 h-[1000px] lg:h-[1750px] lg:w-[75%]">
@@ -34,7 +34,7 @@ const Stats = () => {
 
         {/* 2021 Hybrid Event Section */}
         <div className="text-center w-full">
-            <h2 className="font-minecraft text-white text-sm lg:text-5xl mb-6">Our 2021 Hybrid Event Had...</h2>
+            <h2 className="font-carroisGothic text-white text-sm lg:text-5xl mb-6">Our 2021 Hybrid Event Had...</h2>
             <div className="flex flex-col lg:flex-row items-center justify-center w-full space-y-8 lg:space-y-0 lg:space-x-10">
                 {/* Enlarging the image container to fill most of the screen */}
                 <div className="relative w-4/5 h-[1000px] lg:h-[1500px] lg:w-[75%]">

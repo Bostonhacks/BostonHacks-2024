@@ -42,17 +42,17 @@ const Footer = () => {
     <div className="relative w-full h-auto text-white pt-80 pb-16 flex flex-col items-center">
       {/* Countdown Timer */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-8xl font-bold mb-32">Launching in..</h2>
-        <div className="text-green-500 text-8xl font-mono">
+        <h2 className="text-3xl lg:text-8xl font-ppSupplyMono mb-32">Launching in..</h2>
+        <div className="text-green-500 text-8xl font-sevenSegment">
           {timeLeft.days}:{timeLeft.hours.toString().padStart(2, '0')}:
           {timeLeft.minutes.toString().padStart(2, '0')}:
           {timeLeft.seconds.toString().padStart(2, '0')}
         </div>
         <div className="text-green-400 mt-4 flex justify-around text-3xl">
-          <span className="mx-6">DAYS</span>
-          <span className="mx-5">HOURS</span>
-          <span className="mx-4">MINUTES</span>
-          <span className="mx-4">SECONDS</span>
+          <span className="font-carroisGothic mx-6">DAYS</span>
+          <span className="font-carroisGothic mx-5">HOURS</span>
+          <span className="font-carroisGothic mx-4">MINUTES</span>
+          <span className=" font-carroisGothicmx-4">SECONDS</span>
         </div>
       </div>
 
