@@ -6,13 +6,13 @@ import Saturn from '@/public/images/saturn.svg'
 
 function TwilloQuote() {
     return (
-    <div className="w-full h-[90vh] flex items-center">
+    <div className="w-full h-[80vh] flex items-center">
       {/* Saturn Theme SVG */}
         <div className="flex-shrink-0">
             <Image
             src={Saturn}
             alt="Saturn Theme"
-            width={1000}
+            width={1250}
             height={500}
             layout="intrinsic"
             className="object-contain"
@@ -22,7 +22,7 @@ function TwilloQuote() {
         {/* Space between the two SVGs */}
         <div className="flex-grow mx-10 " />
 
-        <div className="flex-shrink-0 relative text-white text-center font-ppSupplyMono" style={{ top: '-100px', left: '-150px' }}>
+        <div className="flex-shrink-0 relative text-white text-center font-ppSupplyMono" style={{ top: '-175px', left: '-150px' }}>
             <p className="text-3xl lg:text-5xl leading-[2] font-ppSupplyMono"> 
                 <span className="block leading-[2] ">“BOSTONHACKS IS CONSISTENTLY</span>
                 <span className="block leading-[2]">ONE OF THE BEST [HACKATHONS]</span> 

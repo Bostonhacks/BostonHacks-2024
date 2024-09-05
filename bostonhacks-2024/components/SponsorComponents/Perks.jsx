@@ -73,7 +73,7 @@ const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText }) => {
   );
 };
 
-const SponsorshipOpportunities = () => {
+const Perks = () => {
   const perksData = [
     {
       amount: '500',
@@ -154,17 +154,19 @@ const SponsorshipOpportunities = () => {
     },
   ];
 
-  return (
+    return (
     <div className="w-full py-16 px-4 lg:px-16">
       <div className="flex justify-center items-center mb-12">
-        <div className="flex-grow border-t-4 border-white"></div>
-        <span className="mx-4 text-7xl lg:text-5xl font-bold tracking-wide text-white text-center font-ppSupplyMono">
+        <div className="w-32 border-t-4 border-white"></div> {/* Adjust the width here */}
+        <span className="mx-4 text-7xl lg:text-7xl font-bold tracking-wide text-white text-center font-ppSupplyMono leading-loose py-10">
           SPONSORSHIP <br /> OPPORTUNITIES
         </span>
-        <div className="flex-grow border-t-4 border-white"></div>
+        <div className="w-32 border-t-4 border-white"></div> {/* Adjust the width here */}
       </div>
+      
+      {/* Horizontal Scrollable Container */}
       <div className="overflow-x-auto scrollbar-hide">
-        <div className="flex space-x-8">
+        <div className="flex space-x-8"> {/* Flex for horizontal layout */}
           {perksData.map((perk, index) => (
             <PerkCard
               key={index}
@@ -185,4 +187,4 @@ const SponsorshipOpportunities = () => {
   );
 };
 
-export default SponsorshipOpportunities;
+export default Perks;

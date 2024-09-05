@@ -12,22 +12,25 @@ return (
             </div>
 
             {/* Opaque Background and Text */}
-            <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg w-full h-full text-4xl carroisGothic">
-                <p className="leading-relaxed lg:leading-loose mb-4">
-                    BostonHacks brings together over 100 students for an exhilarating 36 hours to build awesome projects. In our past events, students had meaningful interactions with mentors, peers, and sponsors.
-                </p>
-                <br></br>
-                <p className="leading-relaxed lg:leading-loose mb-4">
-                    A hackathon would be incomplete without new technology, advice, and ideas our sponsors offer, and we'd be eager to have you join us this coming fall!
-                </p>
-                <br></br>
-                <p className="leading-relaxed lg:leading-loose mb-4">
-                    BostonHacks Fall 2022 will run in-person November 12-13 2022. Now sponsors will have the opportunity to connect with talented hackers all across the world. At BostonHacks, we thrive to provide a comprehensive recruiting and branding experience to our sponsors.
-                </p>
-                <br></br>
-                <p className="leading-relaxed lg:leading-loose">
-                    Here's what your company can do at our event.
-                </p>
+            <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg w-full h-full text-4xl font-carroisGothic">
+                <div className="mx-20 my-10 font-carroisGothic">
+                    <p className="leading-relaxed lg:leading-loose mb-4">
+                        BostonHacks brings together over 100 students for an exhilarating 36 hours to build awesome projects. In our past events, students had meaningful interactions with mentors, peers, and sponsors.
+                    </p>
+                    <br></br>
+                    <p className="leading-relaxed lg:leading-loose mb-4">
+                        A hackathon would be incomplete without new technology, advice, and ideas our sponsors offer, and we'd be eager to have you join us this coming fall!
+                    </p>
+                    <br></br>
+                    <p className="leading-relaxed lg:leading-loose mb-4">
+                        BostonHacks Fall 2022 will run in-person November 12-13 2022. Now sponsors will have the opportunity to connect with talented hackers all across the world. At BostonHacks, we thrive to provide a comprehensive recruiting and branding experience to our sponsors.
+                    </p>
+                    <br></br>
+                    <p className="leading-relaxed lg:leading-loose">
+                        Here's what your company can do at our event.
+                    </p>
+                </div>
+                
             </div>
         </div>
     </div>

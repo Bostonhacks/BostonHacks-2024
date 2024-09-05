@@ -6,7 +6,7 @@ import SponsorUs from '@/public/images/SponsorUsButton.svg'
 
 function Searching() {
     return (
-    <div className="flex flex-col items-center justify-center h-[60vh]"> 
+    <div className="flex flex-col items-center justify-center h-[80vh]"> 
         <div className="mt-16"> 
             <Image
                 src={Signals}

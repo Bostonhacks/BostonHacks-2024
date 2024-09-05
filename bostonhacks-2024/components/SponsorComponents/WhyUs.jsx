@@ -7,17 +7,17 @@ import Astronaut from '@/public/images/astronaut.svg';
 const whyUs = [
     [
         {
-            title: 'Connect',
+            title: 'CONNECT',
             description:
                 'Give your API or product a test run before sending it out into the world. Show off a great framework or platform before it hits the market. Students are the ideal target for new tech. They will eagerly push your product to its limits, as well as offer suggestions on it and look to you for support.',
         },
         {
-            title: 'Recruit',
+            title: 'RECRUIT',
             description:
                 'Resumes are two-dimensional (literally). Interviews give only a small snapshot of an individual\'s abilities. By watching a project evolve over a hackathon, you can get a much better picture of a candidate. Plus, you’ll have access to a group of students that are extraordinarily passionate about what they do, and a friendly environment to interact with them in.',
         },
         {
-            title: 'Get Live Feedback',
+            title: 'GET LIVE FEEDBACK',
             description:
                 'Reach out to future customers, leaders and innovators. Test waters and get a sense of emergent technologies. Collaborate with students on a more intimate level at our comfortably mid-sized hackathon. Offer students advice and/or tech to help them through their projects. Whether you’re looking for brand awareness, technical expertise or personal development, you’ll find it here—with 100 motivated hackers and dozens of skilled mentors.',
         },
@@ -31,10 +31,10 @@ const WhySection = ({ data }) => {
                 <div
                     key={index}
                     className={`flex items-center mx-6 lg:mx-0 lg:p-4 ${
-                        index % 2 === 1 ? 'lg:flex-row-reverse lg:text-left' : ''
+                        index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                     }`}
                 >
-                    <div className="lg:flex-shrink-0 lg:w-full text-xl">
+                    <div className="font-carroisGothic lg:flex-shrink-0 lg:w-full text-xl">
                         <div className={`mx-4 flex items-center mb-2.5 lg:mb-2 ${index % 2 == 1 ? 'justify-end' : ''}`}>
                             <Image
                                 src={Meteor}
@@ -43,9 +43,15 @@ const WhySection = ({ data }) => {
                                     index % 2 == 1 ? 'order-last ml-4' : ''
                                 }`}
                             />
-                            <h2 className="text-[11px] lg:text-5xl font-bold ml-3 lg:ml-4 pt-1 font-carroisGothic">{item.title}</h2>
+                            <h2 className="text-[11px] lg:text-5xl ml-3 lg:ml-4 pt-1 font-carroisGothic">{item.title}</h2>
                         </div>
-                        <p className="mx-4 lg:mx-8 text-[10px] lg:text-[24px] leading-relaxed font-carroisGothic">{item.description}</p>
+                        <p
+                            className={`mx-4 lg:mx-8 text-[10px] lg:text-4xl leading-loose font-carroisGothic ${
+                                index % 2 === 1 ? 'text-right' : 'text-left'
+                            }`}
+                        >
+                            {item.description}
+                        </p>
                     </div>
                 </div>
             ))}
@@ -53,9 +59,10 @@ const WhySection = ({ data }) => {
     );
 };
 
+
 const WhyUs = () => {
     return (
-        <div className="w-full h-auto flex items-center justify-center px-4 py-16">
+        <div className="w-full h-auto flex items-center justify-center px-4 py-80">
             <div className="text-center text-white relative" style={{ width: '63%', height: 'auto' }}>
                 {/* Title with lines */}
                 <div className="relative flex items-center justify-center mb-8">
@@ -65,7 +72,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* Opaque Background and Text */}
-                <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg w-full h-full">
+                <div className="bg-black bg-opacity-50 p-2 lg:p-6 rounded-lg shadow-lg w-full h-full">
                     <WhySection data={whyUs[0]} />
 
                     {/* Astronaut and Questions Section */}
