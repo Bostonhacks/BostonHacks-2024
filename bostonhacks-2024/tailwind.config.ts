@@ -24,6 +24,7 @@ const config: Config = {
         ppSupplyMono: ['PPSupplyMono', 'monospace'],
         ppSupplyMonoUltralight: ['PPSupplyMonoUltralight', 'monospace'],
         saint: ['Saint', 'serif'],
+        digital: ['"Digital7"', 'sans-serif'],
       }
     },
   },

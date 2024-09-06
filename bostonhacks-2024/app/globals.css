@@ -98,3 +98,10 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Digital7'; /* This name should match the one in the tailwind config */
+  src: url('/fonts/digital-7.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
