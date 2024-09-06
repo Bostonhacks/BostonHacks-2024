@@ -42,7 +42,7 @@ const Sponsors = () => {
     return(
         // <div className="flex justify-center items-center flex-col mb-40">
         <section id="sponsors" className="font-pp ssw-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-80 max-sm:mt-0 mb-40 text-white mt-10 w-full max-w-4xl bg-black bg-opacity-50 p-8 rounded-lg shadow-lg  mx-auto ">
-                <div className="flex items-center w-full max-w-xl relative">
+                <div className="flex items-center w-full max-w-4xl relative">
                     <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
                     <h2 className="text-center text-3xl md:text-5xl pb-1 px-12">OUR SPONSORS</h2>
                     <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
