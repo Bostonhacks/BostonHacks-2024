@@ -7,6 +7,8 @@ import BostonHacks from '@/public/images/bostonhacks.svg'
 import ApplyButton from "@/public/images/ApplyButton.svg";
 import SponsorButton from "@/public/images/SponsorButton.svg";
 
+import Signals from '@/public/images/signals.svg'
+
 function Welcome() {
     return (
         <div className="relative h-screen bg-cover bg-center">
@@ -63,6 +65,7 @@ function Welcome() {
 
                 
             </div>
+
         </div>
     )
 }
