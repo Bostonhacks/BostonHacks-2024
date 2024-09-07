@@ -6,9 +6,9 @@ return (
         <div className="text-center text-white relative w-full sm:w-4/5 lg:w-2/3 h-auto lg:h-5/6" style={{ width: '63%', height: '90%' }}>
             {/* Title with lines */}
             <div className="relative flex items-center justify-center mb-8">
-                <div className="flex-grow border-t-2 sm:border-t-4 border-white mx-2 sm:mx-4" style={{ position: 'relative', top: '1.4em', minWidth: '20%' }}></div>
+                <div className="flex-grow border-t-2 sm:border-t-4 border-white mx-2 sm:mx-4" style={{minWidth: '20%' }}></div>
                 <span className="mx-4 sm:mx-10 text-2xl sm:text-4xl lg:text-7xl font-bold tracking-widest font-ppSupplyMono"> WHO ARE WE? </span>
-                <div className="flex-grow border-t-2 sm:border-t-4 border-white mx-2 sm:mx-4" style={{ position: 'relative', top: '1.4em', minWidth: '20%' }}></div>
+                <div className="flex-grow border-t-2 sm:border-t-4 border-white mx-2 sm:mx-4" style={{minWidth: '20%' }}></div>
             </div>
 
             {/* Opaque Background and Text */}
