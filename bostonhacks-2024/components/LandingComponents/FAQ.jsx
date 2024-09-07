@@ -13,28 +13,36 @@ import '../../public/fonts/fonts.css';
 
 const faq =[
         {
-            question: 'question about bhacks',
-            answer: 'a1'
+            question: 'What is BostonHacks',
+            answer: 'BostonHacks is a 24-hour event where students from different backgrounds gather together to use technology to create cool projects. Come to BostonHacks to expand your knowledge and skills, make new friends, win prizes and network with recruiters from our corporate sponsors!'
         },
         {
-            question: 'another question about bhacks',
-            answer: 'a2'
+            question: 'When and where is BostonHacks?',
+            answer: 'BostonHacks is an in-person 24-hour hackathon on November 2-3rd, 2024. It takes place in the Boston University George Sherman Union (GSU)'
         },
         {
-            question: 'more question',
-            answer: 'a3'
+            question: 'Who can attend?',
+            answer: 'All college students including undergraduate and graduate students with any background, all across the world are welcome!'
         },
         {
-            question: 'another question??',
-            answer: 'a4'
+            question: 'Are there any rules?',
+            answer: 'We want to ensure a positive experience for all participants. We encourage you to read the MLH Code of Conduct.'
         },
         {
-            question: 'another one.',
-            answer: 'a5'
+            question: 'Do I need experience?',
+            answer: 'No experience is necessary. We will have plenty of mentors and resources available, along with several workshops targeted for beginners. Come learn and experience your first hackathon at BostonHacks!'
         },
         {
-            question: 'final question',
-            answer: 'a6'
+            question: 'Does it cost anything?',
+            answer: 'BostonHacks is 100% free. You dont have to spend a dime! Unfortunately, we wont be providing any travel reimbursements this year.'
+        },
+        {
+            question: 'Can we form teams?',
+            answer: 'Of course you can! We encourage people to work in teams of up to four people. You may opt-in to team formation through our Discord Server which will match you with an ideal team. You can work alone, but it wont be as fun :['
+        },
+        {
+            question: 'When does registration close?',
+            answer: 'Registration closes on October. Apply ASAP!'
         }
     ];
 
@@ -55,7 +63,7 @@ const Question = ({ question, answer }) => {
             <div className="flex mt-2 justify-between">
                 <div className="flex w-full">
                     <Image src= {Astroid} alt="Q: "/>
-                    <h3 className="text-3xl md:text-2xl">
+                    <h3 className="text-4xl md:text-3xl">
                         {question}
                     </h3>
                 </div>
@@ -72,7 +80,7 @@ const Question = ({ question, answer }) => {
             </div>
                 {expanded && 
                     <div className="border-t-2 border-white/25">
-                        <p className="px-12 pt-5">{answer}</p>
+                        <p className="px-12 pt-5 text-2xl">{answer}</p>
                     </div>
                 }
         </li>
