@@ -1,0 +1,6 @@
+.clue.correct {
+    background-color: rgb(173, 230, 182);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: line-through
+  }
