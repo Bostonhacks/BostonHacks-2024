@@ -18,10 +18,18 @@ const Home = () => {
       <Welcome />
       <Signal />
       <ThemeOfTheYear />
-      <Tracks/>
-      <FAQ />
-      <Schedule />
-      <Sponsors />
+      <section id="tracks">
+        <Tracks/>
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
+      <section id="schedule">
+        <Schedule />
+      </section>
+      <section id="sponsors">
+        <Sponsors />
+      </section>
 
       {/* This is how you add components to a page */}
       {/* <Hero /> */}
