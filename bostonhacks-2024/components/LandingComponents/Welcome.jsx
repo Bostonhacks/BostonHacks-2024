@@ -2,7 +2,7 @@ import React from 'react'
 import Radar from '@/public/images/radar.svg'
 import Image from 'next/image'
 
-import BostonHacks from '@/public/images/Bostonhacks.svg'
+import BostonHacks from '@/public/images/BostonHacks.svg'
 
 import ApplyButton from "@/public/images/ApplyButton.svg";
 import SponsorButton from "@/public/images/SponsorButton.svg";
