@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, db } from '@/firebase/firebase-config'; // Import Firebase auth, provider, and Firestore
-import { query, collection, where, getDocs } from 'firebase/firestore'; // For Firestore queries
+import { auth, googleProvider } from '@/firebase/firebase-config'; // Import Firebase auth and provider
 import Image from 'next/image';
 import GoogleIcon from '@/components/GoogleIcon.jsx';
 
@@ -20,25 +19,23 @@ const Login = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
 
-      // Check if the user has already submitted an application in Firestore
-      const q = query(
-        collection(db, 'applications'),
-        where('uid', '==', user.uid) // Check if the application for the user exists
-      );
+      // Store the UID in localStorage or context (for simplicity, using localStorage here)
+      localStorage.setItem('userUid', user.uid);
 
-      const querySnapshot = await getDocs(q);
+      const docRef = doc(db, 'applications', user.uid);
+      const docSnap = await getDoc(docRef);
 
-      if (querySnapshot.empty) {
-        // No application found, route to the application page
-        router.push('/application');
-      } else {
-        // Application found, route to the portal page
+      if (docSnap.exists()) {
+        // If an application exists, redirect to the portal
         router.push('/portal');
+      } else {
+        // If no application exists, redirect to the application form
+        router.push('/application');
       }
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
       console.error('Google Login Error: ', err);
-    }
+    }s
   };
 
   return (
