@@ -76,9 +76,10 @@ const Application = () => {
         return;
       }
   
-      // Store application data with resume URL in Firestore, using user's email or unique ID as the document ID
+      // Store application data with UID and status set to "Submitted" in Firestore
       const applicationRef = doc(db, 'applications', userUid); // Store application using UID as the doc ID
       await setDoc(applicationRef, {
+        uid: userUid, // Store the UID for reference
         firstName: data.firstName || 'Unknown',
         lastName: data.lastName || 'Unknown',
         phoneNumber: data.phoneNumber || 'Unknown',
@@ -103,10 +104,11 @@ const Application = () => {
         bostonhacks: data.bostonhacks || 'Unknown',
         trackInterest: data.trackInterest || 'Unknown',
         resumeUrl: resumeUrl, // Store resume URL in Firestore
-        status: 'Submitted', // Set initial status as 'Submitted'
+        status: 'Submitted', // Set status to 'Submitted' immediately after they apply
         submittedAt: serverTimestamp(), // Store timestamp of application
       });
   
+      // Navigate to the portal after successful submission
       alert('Application Submitted');
       router.push('/portal');
     } catch (error) {
@@ -114,6 +116,7 @@ const Application = () => {
       alert('Error submitting your application, please try again.');
     }
   };
+  
   
 
   useEffect(() => {
