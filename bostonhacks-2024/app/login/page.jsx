@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '@/firebase/firebase-config'; // Import Firebase auth and provider
+import { auth, googleProvider, db } from '@/firebase/firebase-config'; // Import Firebase auth, provider, and Firestore
+import { doc, getDoc } from 'firebase/firestore'; // Import Firestore methods correctly
 import Image from 'next/image';
-import GoogleIcon from '@/components/GoogleIcon.jsx';
+import GoogleIcon from '@/public/images/GoogleIcon.svg'; // Import your Google icon SVG
 
 const Login = () => {
   const [error, setError] = useState('');
@@ -22,6 +23,7 @@ const Login = () => {
       // Store the UID in localStorage or context (for simplicity, using localStorage here)
       localStorage.setItem('userUid', user.uid);
 
+      // Check if the user has an existing application in Firestore
       const docRef = doc(db, 'applications', user.uid);
       const docSnap = await getDoc(docRef);
 
@@ -35,7 +37,7 @@ const Login = () => {
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
       console.error('Google Login Error: ', err);
-    }s
+    }
   };
 
   return (
