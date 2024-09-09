@@ -81,7 +81,7 @@ const Portal = () => {
         {/* Show different content based on the user's status */}
         {application?.status === 'Not Started' && (
           <div className="text-center">
-            <h3 className="text-2xl">You haven't started your application yet.</h3>
+            <h3 className="text-2xl">You haven&apos;t started your application yet.</h3>
           </div>
         )}
 
