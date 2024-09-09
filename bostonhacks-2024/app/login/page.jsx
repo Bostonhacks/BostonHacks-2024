@@ -16,28 +16,29 @@ const Login = () => {
     setError('');
   
     try {
+      // Sign in with Google
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
   
-      // Store the UID in localStorage
+      // Store the UID and email in localStorage
       localStorage.setItem('userUid', user.uid);
+      localStorage.setItem('userEmail', user.email);
   
       // Check if the user has an existing application in Firestore
       const docRef = doc(db, 'applications', user.uid);
       const docSnap = await getDoc(docRef);
   
       if (docSnap.exists()) {
-        // If an application exists, redirect to the portal
-        router.push('/portal');
+        router.push('/portal'); // If the application exists, redirect to portal
       } else {
-        // If no application exists, redirect to the application form
-        router.push('/application');
+        router.push('/application'); // If no application exists, redirect to application form
       }
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
       console.error('Google Login Error: ', err);
     }
   };
+  
   
 
   return (

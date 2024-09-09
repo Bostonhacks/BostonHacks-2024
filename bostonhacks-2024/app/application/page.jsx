@@ -60,9 +60,11 @@ const Application = () => {
   const onSubmit = async (data) => {
     try {
       const userUid = localStorage.getItem('userUid');
-      if (!userUid) {
-        throw new Error('User UID not found. Please log in again.');
+      const userEmail = localStorage.getItem('userEmail'); // Fetch the email from localStorage
+      if (!userUid || !userEmail) {
+        throw new Error('User UID or Email not found. Please log in again.');
       }
+  
       // Upload resume to Firebase Storage
       let resumeUrl = null;
       if (resume) {
@@ -73,16 +75,15 @@ const Application = () => {
         alert('Please upload a resume');
         return;
       }
-
+  
       // Store application data with resume URL in Firestore, using user's email or unique ID as the document ID
-      // const userUid = "unique_user_uid"; // Replace this with the actual user UID or email
-
       const applicationRef = doc(db, 'applications', userUid); // Store application using UID as the doc ID
       await setDoc(applicationRef, {
         firstName: data.firstName || 'Unknown',
         lastName: data.lastName || 'Unknown',
         phoneNumber: data.phoneNumber || 'Unknown',
         age: data.age || 'Unknown',
+        email: userEmail, // Save the user's email
         ethnicity: data.ethnicity?.value || 'Unknown',
         gender: data.gender?.value || 'Unknown',
         pronouns: data.pronouns?.value || 'Unknown',
@@ -105,7 +106,7 @@ const Application = () => {
         status: 'Submitted', // Set initial status as 'Submitted'
         submittedAt: serverTimestamp(), // Store timestamp of application
       });
-
+  
       alert('Application Submitted');
       router.push('/portal');
     } catch (error) {
@@ -113,6 +114,7 @@ const Application = () => {
       alert('Error submitting your application, please try again.');
     }
   };
+  
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
