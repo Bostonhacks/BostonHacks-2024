@@ -9,7 +9,7 @@ const ScheduleComponent = ({ title, data }) => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className="w-full">
-              <td className="font-sevenSegment text-lg lg:text-4xl p-4 text-right pr-8 w-1/3">
+              <td className="font-sevenSegment font-bold text-lg lg:text-4xl p-4 text-right pr-8 w-1/3 tracking-wide">
                 {item.time}
               </td>
               <td className="font-carroisGothic text-lg lg:text-4xl p-4 border-l-4 text-left pl-8 w-2/3" style={{ borderColor: '#FC4A1A' }}>

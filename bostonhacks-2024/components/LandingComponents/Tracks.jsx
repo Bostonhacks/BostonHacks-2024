@@ -5,7 +5,7 @@ import planet2 from "../../public/images/tracks/planet2.svg";
 import planet3 from "../../public/images/tracks/planet3.svg";
 import Image from "next/image";
 import { useState } from "react";
-import tracksBackground from "../../public/images/tracks/TracksBackground.svg";
+import tracksBackground from "@/public/images/tracks/TracksBackground.png";
 import Title from "./Title";
 
 function Tracks() {
@@ -66,7 +66,7 @@ function Tracks() {
     <div id="tracks">
       <Title>TRACKS</Title>
       <div
-        className="flex flex-col"
+        className="flex flex-col font-carroisGothic"
         style={{
           backgroundImage: `url(${tracksBackground.src})`,
           backgroundSize: "cover",

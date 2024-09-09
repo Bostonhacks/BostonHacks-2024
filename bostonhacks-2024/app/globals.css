@@ -64,7 +64,7 @@ body {
 
 /* styles/globals.css */
 @font-face {
-  font-family: '7SegmentDigital';
+  font-family: 'SevenSegmentDigital';
   src: url('/fonts/7SEGMENTALDIGITALDISPLAY.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
