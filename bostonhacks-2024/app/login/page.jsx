@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '@/firebase/firebase-config'; // Import Firebase auth and provider
+import { auth, googleProvider, db } from '@/firebase/firebase-config'; // Import Firebase auth, provider, and Firestore
+import { query, collection, where, getDocs } from 'firebase/firestore'; // For Firestore queries
 import Image from 'next/image';
-
 import GoogleIcon from '@/components/GoogleIcon.jsx';
 
 const Login = () => {
@@ -17,8 +17,24 @@ const Login = () => {
 
     try {
       // Sign in with Google
-      await signInWithPopup(auth, googleProvider);
-      router.push('/application'); // Redirect to dashboard after successful login
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      // Check if the user has already submitted an application in Firestore
+      const q = query(
+        collection(db, 'applications'),
+        where('uid', '==', user.uid) // Check if the application for the user exists
+      );
+
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        // No application found, route to the application page
+        router.push('/application');
+      } else {
+        // Application found, route to the portal page
+        router.push('/portal');
+      }
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
       console.error('Google Login Error: ', err);

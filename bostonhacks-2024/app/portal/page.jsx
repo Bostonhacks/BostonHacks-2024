@@ -1,57 +1,37 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation'; // Next.js router
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '@/firebase/firebase-config'; // Ensure Firebase is properly initialized
-import { updateDoc, doc, addDoc, query, collection, getDocs, where } from 'firebase/firestore';
+import { auth, db } from '@/firebase/firebase-config'; // Import Firebase auth and Firestore
+import { updateDoc, doc, query, collection, getDocs, where, addDoc } from 'firebase/firestore';
 import Image from 'next/image';
-import Application from '../application/page'; // Ensure Application is imported
+//import qrCode from '@/public/images/qrCode.png'; // Example QR code image
+
+const applicationTypes = [
+  'Submitted',
+  'Waitlisted',
+  'Rejected',
+  'Declined',
+  'Confirmed',
+  'Accepted',
+  'Checked In',
+];
 
 const Portal = () => {
-  const [user, loading] = useAuthState(auth); // Firebase Auth hook
+  const [user, loading] = useAuthState(auth);
   const [application, setApplication] = useState({});
-  const router = useRouter(); // Using Next.js useRouter
-  const applicationTypes = [
-    'Submitted',
-    'Waitlisted',
-    'Rejected',
-    'Declined',
-    'Confirmed',
-    'Accepted',
-    'Checked In',
-  ];
+  const router = useRouter();
 
-  // Confirm user's attendance
-  const confirmUser = async (userId) => {
-    try {
-      const userDoc = doc(db, 'applications', userId);
-      await updateDoc(userDoc, { status: 'Confirmed' });
-      setApplication({ ...application, status: 'Confirmed' });
-    } catch (err) {
-      console.error('Error confirming user:', err);
-    }
-  };
-
-  // Decline user's attendance
-  const declineUser = async (userId) => {
-    try {
-      const userDoc = doc(db, 'applications', userId);
-      await updateDoc(userDoc, { status: 'Declined' });
-      setApplication({ ...application, status: 'Declined' });
-    } catch (err) {
-      console.error('Error declining user:', err);
-    }
-  };
-
-  const fetchApplication = useCallback(async (intervalId) => {
+  // Fetch the application for the logged-in user
+  const fetchApplication = async (intervalId) => {
     try {
       const q = query(collection(db, 'applications'), where('uid', '==', user?.uid));
       const docSnapshot = await getDocs(q);
 
       if (docSnapshot.docs.length !== 0) {
         setApplication({ ...docSnapshot.docs[0].data(), id: docSnapshot.docs[0].id });
-        clearInterval(intervalId); // Stop polling
+        clearInterval(intervalId); // Stop polling once we have the data
       } else {
         await addDoc(collection(db, 'applications'), {
           uid: user.uid,
@@ -62,9 +42,22 @@ const Portal = () => {
       }
     } catch (err) {
       console.error('Error fetching application:', err);
-      alert('An error occurred while fetching user data');
     }
-  }, [user]);
+  };
+
+  // Confirm user's attendance
+  const confirmUser = async (userId) => {
+    const userDoc = doc(db, 'applications', userId);
+    await updateDoc(userDoc, { status: 'Confirmed' });
+    setApplication({ ...application, status: 'Confirmed' });
+  };
+
+  // Decline user's attendance
+  const declineUser = async (userId) => {
+    const userDoc = doc(db, 'applications', userId);
+    await updateDoc(userDoc, { status: 'Declined' });
+    setApplication({ ...application, status: 'Declined' });
+  };
 
   useEffect(() => {
     if (loading) return;
@@ -74,58 +67,73 @@ const Portal = () => {
       fetchApplication(intervalId);
     }, 1000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, [user, loading, router, fetchApplication]);
+    return () => clearInterval(intervalId);
+  }, [user, loading, router]);
 
   return (
-    <div>
-      {application?.status === 'Not Started' && (
-        <Application applicationId={application.id} />
-      )}
+    <div className="flex justify-center items-center h-screen bg-gray-900 text-white">
+      <div className="w-full max-w-3xl bg-black bg-opacity-70 p-8 rounded-lg shadow-lg">
+        {/* Application status display */}
+        <h2 className="text-center text-4xl font-bold mb-6 font-ppSupplyMono">
+          Your Application Status
+        </h2>
 
-      {applicationTypes.includes(application?.status) && (
-        <div style={{ color: 'white', fontSize: '25px', paddingBottom: '60px' }}>
-          <h3>Your Status:</h3>
-          <div
-            style={{
-              background: 'rgba(255, 255, 255, 0.6)',
-              width: '200px',
-              height: '50px',
-              borderRadius: '20px',
-            }}
-          >
-            <h3>{application?.status}</h3>
+        {/* Show different content based on the user's status */}
+        {application?.status === 'Not Started' && (
+          <div className="text-center">
+            <h3 className="text-2xl">You haven't started your application yet.</h3>
           </div>
-        </div>
-      )}
+        )}
 
-      {application?.status === 'Submitted' && (
-        <div>
-          <h3 style={{ textAlign: 'center' }}>
-            Thank you for applying to BostonHacks 2023! We will review your application and update you when decisions are made!
-          </h3>
-        </div>
-      )}
+        {application?.status === 'Submitted' && (
+          <div className="text-center">
+            <h3 className="text-2xl font-ppSupplyMono">Thank you for applying to BostonHacks 2024!</h3>
+            <p>We will review your application and update you when decisions are released.</p>
+          </div>
+        )}
 
-      {application?.status === 'Accepted' && (
-        <div style={{ color: 'white', background: 'rgba(255, 255, 255, 0.15)', width: '80%', fontSize: '25px', borderRadius: '20px' }}>
-          <h3 style={{ textAlign: 'center' }}>Congratulations! Please confirm your attendance.</h3>
-          <button className="accept" onClick={() => confirmUser(application?.id)}>
-            I Confirm
-          </button>
-          <h3 style={{ textAlign: 'center' }}>If you can&apos;t attend, please decline.</h3>
-          <button className="decline" onClick={() => declineUser(application?.id)}>
-            I Decline
-          </button>
-        </div>
-      )}
+        {application?.status === 'Accepted' && (
+          <div className="text-center">
+            <h3 className="text-2xl font-ppSupplyMono">
+              Congratulations! You have been accepted to BostonHacks 2024!
+            </h3>
+            <p>Please confirm your attendance:</p>
+            <div className="mt-4 space-x-4">
+              <button
+                className="bg-green-500 hover:bg-green-700 text-white font-ppSupplyMono py-2 px-4 rounded"
+                onClick={() => confirmUser(application?.id)}
+              >
+                I Confirm
+              </button>
+              <button
+                className="bg-red-500 hover:bg-red-700 text-white font-ppSupplyMono py-2 px-4 rounded"
+                onClick={() => declineUser(application?.id)}
+              >
+                I Decline
+              </button>
+            </div>
+          </div>
+        )}
 
-      {application?.status === 'Confirmed' && (
-        <div style={{ color: 'white', background: 'rgba(255, 255, 255, 0.15)', width: '80%', fontSize: '25px', borderRadius: '20px' }}>
-          <h3 style={{ textAlign: 'center' }}>Thank you for confirming! Please bring the QR code for check-in:</h3>
-          <Image src="/path/to/qr-code.png" width={150} height={150} alt="QR Code" />
-        </div>
-      )}
+        {application?.status === 'Confirmed' && (
+          <div className="text-center">
+            <h3 className="text-2xl font-ppSupplyMono">
+              Thank you for confirming your attendance!
+            </h3>
+            {/* <p>Please bring the following QR code for check-in:</p>
+            <Image src={qrCode} alt="QR Code" width={150} height={150} /> */}
+          </div>
+        )}
+
+        {/* Other statuses can be handled similarly */}
+        {applicationTypes.includes(application?.status) && application?.status !== 'Not Started' && (
+          <div className="mt-6 text-center">
+            <p className="text-lg font-bold">
+              Current Status: <span className="text-emerald-400">{application?.status}</span>
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
