@@ -25,40 +25,18 @@ const ScheduleComponent = ({ title, data }) => {
 
 export default function Schedule() {
   const saturday = [
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
+    { time: '9:00 AM', tableEntry: 'Check In' },
+    { time: '10:00 AM', tableEntry: 'Opening Ceremony' },
+    { time: '12:00 PM', tableEntry: 'Lunch' },
+    { time: '6:00 PM', tableEntry: 'Dinner' },
+    { time: '10:00 PM', tableEntry: 'Sleep' },
     // Add more entries as needed
   ];
 
   const sunday = [
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
-    { time: '9:00 AM', tableEntry: 'Wake Up' },
-    { time: '10:00 AM', tableEntry: 'Eat Breakfast' },
-    { time: '11:00 AM', tableEntry: 'Orientation' },
-    { time: '12:00 PM', tableEntry: 'How to be good at coding' },
-    { time: '1:00 PM', tableEntry: 'Computer 101' },
+    { time: '8:00 AM', tableEntry: 'Breakfast' },
+    { time: '10:00 AM', tableEntry: 'Submissions Due' },
+    { time: '2:00 PM', tableEntry: 'Closing Ceremony' },
     // Add more entries as needed
   ];
 
