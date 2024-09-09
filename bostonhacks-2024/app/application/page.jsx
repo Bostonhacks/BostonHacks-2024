@@ -33,20 +33,20 @@ const Application = () => {
   const selectFieldStyles = {
     option: (defaultStyles, state) => ({
       ...defaultStyles,
-      color: 'white',
-      backgroundColor: state.isSelected ? 'rgb(167, 149, 129, 0.7)' : 'rgb(167, 149, 129)',
+      color: 'black',
+      backgroundColor: state.isSelected ? 'white' : 'white',
     }),
     control: (defaultStyles) => ({
       ...defaultStyles,
       height: '2.5rem',
       padding: '0 1rem',
       width: '100%',
-      backgroundColor: '#A79581',
-      color: 'white',
+      backgroundColor: 'white',
+      color: 'black',
       borderRadius: '0.75rem',
     }),
-    singleValue: (defaultStyles) => ({ ...defaultStyles, color: 'white' }),
-    dropdownIndicator: (defaultStyles) => ({ ...defaultStyles, color: 'white !important' }),
+    singleValue: (defaultStyles) => ({ ...defaultStyles, color: 'black' }),
+    dropdownIndicator: (defaultStyles) => ({ ...defaultStyles, color: 'black !important' }),
     indicatorSeparator: (defaultStyles) => ({ ...defaultStyles, display: 'none' }),
     menu: (defaultStyles) => ({ ...defaultStyles }),
     menuList: (base) => ({
@@ -136,7 +136,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">First Name</label>
                   <input
                     placeholder="First Name"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black rounded-xl"
                     {...register('firstName', { required: true })}
                   />
                   {errors.firstName && <span className="text-red-500">Required</span>}
@@ -147,7 +147,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Last Name</label>
                   <input
                     placeholder="Last Name"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('lastName', { required: true })}
                   />
                   {errors.lastName && <span className="text-red-500">Required</span>}
@@ -158,7 +158,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Phone Number</label>
                   <input
                     placeholder="Phone Number"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('phoneNumber', { required: true })}
                   />
                   {errors.phoneNumber && <span className="text-red-500">Required</span>}
@@ -169,7 +169,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Age</label>
                   <input
                     placeholder="Age"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('age', { required: true })}
                   />
                   {errors.age && <span className="text-red-500">Required</span>}
@@ -239,7 +239,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Address</label>
                   <input
                     placeholder="Address"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('address', { required: true })}
                   />
                   {errors.address && <span className="text-red-500">Required</span>}
@@ -249,7 +249,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">City</label>
                   <input
                     placeholder="City"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('city', { required: true })}
                   />
                   {errors.city && <span className="text-red-500">Required</span>}
@@ -293,7 +293,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Zip Code</label>
                   <input
                     placeholder="Zip Code"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('zipCode', { required: true })}
                   />
                   {errors.zipCode && <span className="text-red-500">Required</span>}
@@ -326,7 +326,7 @@ const Application = () => {
                   <label className="ml-1 font-ppSupplyMono">Graduation Year</label>
                   <input
                     placeholder="Graduation Year"
-                    className="h-10 px-4 w-full bg-[#A79581] placeholder-white text-white rounded-xl"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
                     {...register('collegeYear', { required: true })}
                   />
                   {errors.collegeYear && <span className="text-red-500">Required</span>}
@@ -378,7 +378,7 @@ const Application = () => {
               </p>
               <textarea
                 placeholder="Tell us more!"
-                className="w-full h-[200px] resize-none p-1 rounded-xl px-4 bg-[#A79581] placeholder-white text-white shadow-inner shadow-black/25"
+                className="w-full h-[200px] resize-none p-1 rounded-xl px-4 bg-white placeholder-black text-black  shadow-inner shadow-black/25"
                 {...register('bostonhacks', {
                   required: true,
                   maxLength: 400,
@@ -406,7 +406,7 @@ const Application = () => {
               </p>
               <textarea
                 placeholder="Tell us more!"
-                className="w-full h-[200px] resize-none p-1 rounded-xl px-4 bg-[#A79581] placeholder-white text-white shadow-inner shadow-black/25"
+                className="w-full h-[200px] resize-none p-1 rounded-xl px-4 bg-white placeholder-black text-black  shadow-inner shadow-black/25"
                 {...register('trackInterest', {
                   required: true,
                   maxLength: 400,
