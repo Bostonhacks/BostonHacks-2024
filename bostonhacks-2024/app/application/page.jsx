@@ -68,9 +68,7 @@ const Application = () => {
       if (resume) {
         const storageRef = ref(storage, `resumes/${resume.name}`);
         await uploadBytes(storageRef, resume);
-
-        // Get the download URL of the uploaded resume
-        resumeUrl = await getDownloadURL(storageRef);
+        resumeUrl = await getDownloadURL(storageRef); // Get the download URL of the uploaded resume
       } else {
         alert('Please upload a resume');
         return;
@@ -79,7 +77,8 @@ const Application = () => {
       // Store application data with resume URL in Firestore, using user's email or unique ID as the document ID
       // const userUid = "unique_user_uid"; // Replace this with the actual user UID or email
 
-      await setDoc(collection(db, 'applications'), {
+      const applicationRef = doc(db, 'applications', userUid); // Store application using UID as the doc ID
+      await setDoc(applicationRef, {
         firstName: data.firstName || 'Unknown',
         lastName: data.lastName || 'Unknown',
         phoneNumber: data.phoneNumber || 'Unknown',
@@ -103,8 +102,8 @@ const Application = () => {
         bostonhacks: data.bostonhacks || 'Unknown',
         trackInterest: data.trackInterest || 'Unknown',
         resumeUrl: resumeUrl, // Store resume URL in Firestore
+        status: 'Submitted', // Set initial status as 'Submitted'
         submittedAt: serverTimestamp(), // Store timestamp of application
-        status: 'Submitted', // Default application status
       });
 
       alert('Application Submitted');
