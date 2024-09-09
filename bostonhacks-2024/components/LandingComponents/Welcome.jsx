@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import Radar from '@/public/images/radar.svg'
 import Image from 'next/image'
@@ -9,7 +10,18 @@ import SponsorButton from "@/public/images/SponsorButton.svg";
 
 import Signals from '@/public/images/signals.svg'
 
+import { useRouter } from 'next/navigation';
+
 function Welcome() {
+    const router = useRouter();
+
+    const handleApplyClick = () => {
+        router.push('/login'); // Navigate to the login page
+        };
+
+    const handleSponsorClick = () => {
+        router.push('/sponsor'); // Navigate to the sponsor
+        };
     return (
         <section>
         <div className="relative bg-center px-5 md:px-0 w-full">
@@ -50,7 +62,7 @@ function Welcome() {
                 
         </div>
         <div className="mt-[15rem] flex justify-center space-x-12 transform"> {/* Increased margin-top for spacing */}
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" onClick={handleApplyClick}>
                 <Image
                     src={ApplyButton}
                     alt="Apply Button"
@@ -58,7 +70,7 @@ function Welcome() {
                     height={200}  // Adjust based on your SVG size
                 />
             </div>
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" onClick={handleSponsorClick}>
                 <Image
                     src={SponsorButton}
                     alt="Sponsor Button"

@@ -63,7 +63,7 @@ const Question = ({ question, answer }) => {
         <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
             <div className="flex mt-2 justify-between items-center">
                 <div className="flex w-full">
-                    <Image classname="w-full h-full" src={Astroid} alt="Q: "/>
+                    <Image className="w-full h-full" src={Astroid} alt="Q: "/>
                     <h3 className="text-4xl md:text-3xl">
                         {question}
                     </h3>
