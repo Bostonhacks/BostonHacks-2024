@@ -10,6 +10,7 @@ import Astroid from '@/public/images/Q.svg'
 
 // this should probabaly be in main/app root file but idk if i have the authority to do that so im just gonna put this here first
 import '../../public/fonts/fonts.css';
+import Title from './Title';
 
 const faq =[
         {
@@ -60,17 +61,17 @@ const Question = ({ question, answer }) => {
 
     return (
         <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
-            <div className="flex mt-2 justify-between">
+            <div className="flex mt-2 justify-between items-center">
                 <div className="flex w-full">
-                    <Image src= {Astroid} alt="Q: "/>
+                    <Image classname="w-full h-full" src={Astroid} alt="Q: "/>
                     <h3 className="text-4xl md:text-3xl">
                         {question}
                     </h3>
                 </div>
                 <Image
-                src={expanded ? UpToggle : DownToggle} 
+                src={expanded ? UpToggle: DownToggle} 
                 alt="toggle arrows"
-                className={`w-[48px] h-[41px] ${animate && 'animate-wiggle'}`}
+                className={`w-[48px] h-[41px] transition-all duration-100`}
                 onAnimationEnd={() => {
                     setExpanded(!expanded);
                     setAnimate(false);
@@ -139,11 +140,7 @@ const FAQColumn = ({ questionAnswers }) => {
     <div className="flex items-center justify-center max-h-xl">
         <div className="bg-black bg-opacity-20 w-[95%] h-auto pt-16"> 
             <section id="faq" className="font-ppSupplyMono w-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-0">
-                <div className="flex items-center w-full max-w-xl relative">
-                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
-                    <h2 className="text-center text-4xl md:text-6xl pb-1 px-12">FAQ</h2>
-                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
-                </div>
+                <Title>FAQ</Title>
                 <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
                     <FAQColumn questionAnswers={col1}/>
                     <FAQColumn questionAnswers={col2} />

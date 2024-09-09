@@ -1,8 +1,10 @@
 import React from 'react';
+import Title from './Title';
 
 const ScheduleComponent = ({ title, data }) => {
   return (
     <div className="flex flex-col items-center text-white mt-10 w-full max-w-4xl bg-black bg-opacity-50 p-8 rounded-lg shadow-lg mx-4">
+
       <table className="w-full text-white">
         <tbody>
           {data.map((item, index) => (
@@ -61,18 +63,12 @@ export default function Schedule() {
   ];
 
   return (
-    <div className="flex justify-center items-center flex-col w-full overflow-clip pb-20">
-      <div className="relative flex items-center justify-center w-full my-20">
-        <div className="flex-grow border-t-4 border-white mx-4" style={{ maxWidth: '100px' }}></div>
-        <span className="mx-8 text-5xl lg:text-6xl font-ppSupplyMono tracking-wide text-white text-center">
-          SCHEDULE
-        </span>
-        <div className="flex-grow border-t-4 border-white mx-4" style={{ maxWidth: '100px' }}></div>
-      </div>
+    <div id="schedule" className="flex justify-center items-center flex-col w-full overflow-clip pb-20">
+      <Title>SCHEDULE</Title>
 
-      <div className="w-full flex flex-col md:flex-row justify-around space-y-10 md:space-y-0 md:space-x-10">
-        <ScheduleComponent title="Saturday" data={saturday} />
-        <ScheduleComponent title="Sunday" data={sunday} />
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-10">
+        <ScheduleComponent className="grid-cols-1" title="Saturday" data={saturday} />
+        <ScheduleComponent className="grid-cols-1" title="Sunday" data={sunday} />
       </div>
     </div>
   );

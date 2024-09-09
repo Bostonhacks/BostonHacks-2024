@@ -6,6 +6,7 @@ import planet3 from "../../public/images/tracks/planet3.svg";
 import Image from "next/image";
 import { useState } from "react";
 import tracksBackground from "../../public/images/tracks/TracksBackground.svg";
+import Title from "./Title";
 
 function Tracks() {
   const [modalContent, setModalContent] = useState(null);
@@ -45,10 +46,8 @@ function Tracks() {
   };
 
   return (
-    <div>
-      <h1 className="text-center text-4xl mb-52 pt-5">
-        __________ TRACKS __________
-      </h1>
+    <div id="tracks">
+      <Title>TRACKS</Title>
       <div
         className="flex flex-col"
         style={{

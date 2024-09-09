@@ -3,58 +3,59 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Logo from "@/public/images/bhacks-logo.svg";
-import BurgerIcon from "@/public/images/open-burger.svg";
-import CloseIcon from "@/public/images/close-burger.svg";
+import BurgerIcon from "@/public/images/menu-closed.svg";
+import OpenIcon from "@/public/images/menu-open.svg";
+import Link from "next/link";
 
 const Navbar = () => {
   const [openBurger, setOpenBurger] = useState(false);
 
   return (
-    <div className="p-5 top-0 z-[100000] w-full ">
+    <div className="relative p-5 top-0 z-50 w-full ">
       <div className="flex flex-row items-center justify-between">
-        <a href="/">
+        <Link href="/">
           <Image src={Logo} alt="Bostonhacks Logo" height={68} width={78} />
-        </a>
+        </Link>
         {/* Desktop Menu */}
-        <ul className="hidden sm:flex flex-row justify-around w-[50vw] items-center">
+        <ul className="hidden md:flex flex-row justify-around w-[50vw] items-center">
           <li>
-            <a
+            <Link
               className="text-white text-3xl font-ppSupplyMono cursor-pointer px-5 py-5 h-[50px] bg-black border border-white hover:bg-white hover:text-black transition-all duration-300"
               href="#tracks"
             >
               TRACKS
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="text-white text-3xl font-ppSupplyMono cursor-pointer px-5 py-5 h-[50px] bg-black border border-white hover:bg-white hover:text-black transition-all duration-300"
               href="#faq"
             >
               FAQ
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="text-white text-3xl font-ppSupplyMono cursor-pointer px-5 py-5 h-[50px] bg-black border border-white hover:bg-white hover:text-black transition-all duration-300"
               href="#schedule"
             >
               SCHEDULE
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="text-white text-3xl font-ppSupplyMono cursor-pointer px-5 py-5 h-[50px] bg-black border border-white hover:bg-white hover:text-black transition-all duration-300"
               href="#sponsors"
             >
               SPONSORS
-            </a>
+            </Link>
           </li>
         </ul>
         {/* Burger Icon for Mobile */}
-        <div className="sm:hidden">
+        <div className="md:hidden">
           <Image
-            className="cursor-pointer"
-            src={openBurger ? CloseIcon : BurgerIcon}
+            className="cursor-pointer w-full h-full"
+            src={openBurger ? OpenIcon : BurgerIcon}
             alt="burger"
             onClick={() => setOpenBurger(!openBurger)}
           />
@@ -63,44 +64,45 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {openBurger && (
-        <ul className="sm:hidden flex flex-col items-center bg-black bg-opacity-90 w-[200px] h-auto absolute top-20 right-0 p-5 space-y-5 z-[1000] transition-all duration-500">
+        <ul animation className="md:hidden flex flex-col items-center bg-black bg-opacity-90 w-[200px] h-auto absolute top-20 right-0 p-5 space-y-5 z-[1000] transition-all duration-500 ease-out ">
           <li className="w-full flex justify-center items-center py-2">
-            <a
+            <Link
               className="text-white text-2xl font-ppSupplyMono cursor-pointer hover:text-gray-400"
               href="#tracks"
               onClick={() => setOpenBurger(false)}
             >
               TRACKS
-            </a>
+            </Link>
           </li>
           <li className="w-full flex justify-center items-center py-2">
-            <a
+            <Link
               className="text-white text-2xl font-ppSupplyMono cursor-pointer hover:text-gray-400"
               href="#faq"
               onClick={() => setOpenBurger(false)}
             >
               FAQ
-            </a>
+            </Link>
           </li>
           <li className="w-full flex justify-center items-center py-2">
-            <a
+            <Link
               className="text-white text-2xl font-ppSupplyMono cursor-pointer hover:text-gray-400"
               href="#schedule"
               onClick={() => setOpenBurger(false)}
             >
               SCHEDULE
-            </a>
+            </Link>
           </li>
           <li className="w-full flex justify-center items-center py-2">
-            <a
+            <Link
               className="text-white text-2xl font-ppSupplyMono cursor-pointer hover:text-gray-400"
               href="#sponsors"
               onClick={() => setOpenBurger(false)}
             >
               SPONSORS
-            </a>
+            </Link>
           </li>
         </ul>
+        
       )}
     </div>
   );
