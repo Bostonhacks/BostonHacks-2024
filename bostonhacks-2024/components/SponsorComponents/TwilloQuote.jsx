@@ -41,7 +41,7 @@ function TwilloQuote() {
             src={Saturn}
             alt="Saturn Theme"
             layout="intrinsic"
-            width={1000}
+            width={1750}
             height={500}
             className="object-contain"
           />

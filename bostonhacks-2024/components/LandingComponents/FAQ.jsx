@@ -43,7 +43,7 @@ const faq =[
         },
         {
             question: 'When does registration close?',
-            answer: 'Registration closes on October. Apply ASAP!'
+            answer: 'Registration closes on October 4th. Apply ASAP!'
         }
     ];
 
@@ -60,30 +60,33 @@ const Question = ({ question, answer }) => {
     }
 
     return (
-        <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
+        <li onClick={handleClick} className="py-5 hover:cursor-pointer group border-b-2 border-gray-300">
             <div className="flex mt-2 justify-between items-center">
-                <div className="flex w-full">
-                    <Image className="w-full h-full" src={Astroid} alt="Q: "/>
+                <div className="flex w-full items-center gap-x-5">
+                    <Image className="w-[25px] h-[25px]" src={Astroid} alt="Q: "/>
                     <h3 className="text-4xl md:text-3xl">
                         {question}
                     </h3>
                 </div>
-                <Image
-                src={expanded ? UpToggle: DownToggle} 
-                alt="toggle arrows"
-                className={`w-[48px] h-[41px] transition-all duration-100`}
-                onAnimationEnd={() => {
-                    setExpanded(!expanded);
-                    setAnimate(false);
-                }}
-                />  
+                <div className='flex items-center justify-center'>
+                    <Image
+                    src={expanded ? UpToggle: DownToggle} 
+                    alt="toggle arrows"
+                    className={`w-[24px] h-[24px] transition-all duration-100`}
+                    onAnimationEnd={() => {
+                        setExpanded(!expanded);
+                        setAnimate(false);
+                    }}
+                    />  
+                </div>
+
 
             </div>
-                {expanded && 
-                    <div className="border-t-2 border-white/25">
-                        <p className="px-12 pt-5 text-2xl">{answer}</p>
-                    </div>
-                }
+            {expanded && 
+                <div className={`border-t-2 border-white/25 ${"hidden" && expanded}`}>
+                    <p className="px-12 pt-5 text-2xl">{answer}</p>
+                </div>
+            }
         </li>
 
     // the below is previous bhacks
@@ -119,7 +122,7 @@ const FAQColumn = ({ questionAnswers }) => {
 
     return (
       <div className="">
-        <ul className="">
+        <ul className="grid grid-cols-1 auto-rows-auto">
           {questionAnswers.map((qa, index) => (
             <Question question={qa.question} answer={qa.answer} key={index} />
           ))}
@@ -142,8 +145,8 @@ const FAQColumn = ({ questionAnswers }) => {
             <section id="faq" className="font-ppSupplyMono w-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-0">
                 <Title>FAQ</Title>
                 <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
-                    <FAQColumn questionAnswers={col1}/>
-                    <FAQColumn questionAnswers={col2} />
+                <FAQColumn className="" questionAnswers={col1}/>
+                <FAQColumn className="" questionAnswers={col2} />
                 </div>
                 <div className="border-b-4 border-text-primary md:hidden" />
             </section>
