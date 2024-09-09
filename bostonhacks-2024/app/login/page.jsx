@@ -14,19 +14,18 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     setError('');
-
+  
     try {
-      // Sign in with Google
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-
-      // Store the UID in localStorage or context (for simplicity, using localStorage here)
+  
+      // Store the UID in localStorage
       localStorage.setItem('userUid', user.uid);
-
+  
       // Check if the user has an existing application in Firestore
       const docRef = doc(db, 'applications', user.uid);
       const docSnap = await getDoc(docRef);
-
+  
       if (docSnap.exists()) {
         // If an application exists, redirect to the portal
         router.push('/portal');
@@ -39,6 +38,7 @@ const Login = () => {
       console.error('Google Login Error: ', err);
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-screen">

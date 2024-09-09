@@ -70,7 +70,7 @@ const Portal = () => {
     if (!user) return router.push('/login');
   
     const q = query(collection(db, 'applications'), where('uid', '==', user?.uid));
-    
+  
     const unsubscribe = onSnapshot(q, (snapshot) => {
       if (!snapshot.empty) {
         setApplication({ ...snapshot.docs[0].data(), id: snapshot.docs[0].id });
@@ -91,8 +91,10 @@ const Portal = () => {
     }, (error) => {
       console.error('Error fetching application:', error);
     });
-    return () => unsubscribe(); // Cleanup the listener on unmount
-}, [user, loading, router]);
+  
+    return () => unsubscribe(); // Cleanup on unmount
+  }, [user, loading, router]);
+  
 
   return (
     <div className="flex justify-center items-center h-screen  text-white">
@@ -103,11 +105,11 @@ const Portal = () => {
         </h2>
 
         {/* Show different content based on the user's status */}
-        {/* {application?.status === 'Not Started' && (
+        {application?.status === 'Not Started' && (
           <div className="text-center">
             <h3 className="text-2xl">You haven&apos;t started your application yet.</h3>
           </div>
-        )} */}
+        )}
 
         {application?.status === 'Submitted' && (
           <div className="text-center">
