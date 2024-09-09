@@ -31,7 +31,7 @@ const Reviews = () => {
                 <div className="bg-black bg-opacity-40 p-8 rounded-lg text-white text-right max-w-4xl ml-auto"> {/* Added ml-auto */}
                 <p className="font-carroisGothic text-4xl">ITG: Candace Mariso</p>
                 <p className="font-carroisGothic mt-4 text-4xl">
-                    “ITG's technical mentors had a great time at BostonHacks 2017. The organizers were responsive and accommodating, allowing us to focus on what really mattered—exchanging ideas, providing guidance, and tackling challenges. We met dozens of talented students, resulting in several intern hires and top prospects for future programs. The high quality and innovative hacks made this a can’t-miss event for us.”
+                    “ITG&apos;s technical mentors had a great time at BostonHacks 2017. The organizers were responsive and accommodating, allowing us to focus on what really mattered—exchanging ideas, providing guidance, and tackling challenges. We met dozens of talented students, resulting in several intern hires and top prospects for future programs. The high quality and innovative hacks made this a can’t-miss event for us.”
                 </p>
                 </div>
         

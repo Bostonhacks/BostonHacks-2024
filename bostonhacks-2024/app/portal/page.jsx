@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation'; // Next.js router
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../firebase/firebase-config'; // Ensure Firebase is properly initialized
+import { auth, db } from '@/firebase/firebase-config'; // Ensure Firebase is properly initialized
 import { updateDoc, doc, addDoc, query, collection, getDocs, where } from 'firebase/firestore';
-import Application from './Application';
+import Image from 'next/image';
+import Application from '../application/page'; // Ensure Application is imported
 
-// Application page
 const Portal = () => {
   const [user, loading] = useAuthState(auth); // Firebase Auth hook
   const [application, setApplication] = useState({});
@@ -22,7 +22,7 @@ const Portal = () => {
     'Checked In',
   ];
 
-  // Change user's status to confirmed
+  // Confirm user's attendance
   const confirmUser = async (userId) => {
     try {
       const userDoc = doc(db, 'applications', userId);
@@ -33,7 +33,7 @@ const Portal = () => {
     }
   };
 
-  // Change user's status to declined
+  // Decline user's attendance
   const declineUser = async (userId) => {
     try {
       const userDoc = doc(db, 'applications', userId);
@@ -44,8 +44,7 @@ const Portal = () => {
     }
   };
 
-  // Fetch application every second until data is found
-  const fetchApplication = async (intervalId) => {
+  const fetchApplication = useCallback(async (intervalId) => {
     try {
       const q = query(collection(db, 'applications'), where('uid', '==', user?.uid));
       const docSnapshot = await getDocs(q);
@@ -65,7 +64,7 @@ const Portal = () => {
       console.error('Error fetching application:', err);
       alert('An error occurred while fetching user data');
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     if (loading) return;
@@ -76,38 +75,22 @@ const Portal = () => {
     }, 1000);
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, [user, loading, router]);
+  }, [user, loading, router, fetchApplication]);
 
   return (
     <div>
-      {/* Check user's status, if not started, show application */}
       {application?.status === 'Not Started' && (
         <Application applicationId={application.id} />
       )}
 
-      {/* Show user status */}
       {applicationTypes.includes(application?.status) && (
-        <div
-          style={{
-            color: 'white',
-            fontSize: '25px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            paddingBottom: '60px',
-          }}
-        >
+        <div style={{ color: 'white', fontSize: '25px', paddingBottom: '60px' }}>
           <h3>Your Status:</h3>
           <div
             style={{
               background: 'rgba(255, 255, 255, 0.6)',
               width: '200px',
               height: '50px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
               borderRadius: '20px',
             }}
           >
@@ -116,78 +99,31 @@ const Portal = () => {
         </div>
       )}
 
-      {/* If submitted, show message */}
       {application?.status === 'Submitted' && (
         <div>
           <h3 style={{ textAlign: 'center' }}>
-            Thank you for applying to BostonHacks 2023! We will review your
-            application and update you when our decisions are released!
+            Thank you for applying to BostonHacks 2023! We will review your application and update you when decisions are made!
           </h3>
         </div>
       )}
 
-      {/* If accepted, show confirmation buttons */}
       {application?.status === 'Accepted' && (
-        <div
-          style={{
-            color: 'white',
-            background: 'rgba(255, 255, 255, 0.15)',
-            width: '80%',
-            fontSize: '25px',
-            borderRadius: '20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            paddingBottom: '60px',
-          }}
-        >
-          <h3 style={{ textAlign: 'center' }}>
-            Congratulations on being accepted into BostonHacks! Please confirm
-            your attendance to help us prepare.
-          </h3>
+        <div style={{ color: 'white', background: 'rgba(255, 255, 255, 0.15)', width: '80%', fontSize: '25px', borderRadius: '20px' }}>
+          <h3 style={{ textAlign: 'center' }}>Congratulations! Please confirm your attendance.</h3>
           <button className="accept" onClick={() => confirmUser(application?.id)}>
             I Confirm
           </button>
-
-          <h3 style={{ textAlign: 'center' }}>
-            If your plans have changed and you can no longer attend, please decline.
-          </h3>
+          <h3 style={{ textAlign: 'center' }}>If you can&apos;t attend, please decline.</h3>
           <button className="decline" onClick={() => declineUser(application?.id)}>
             I Decline
           </button>
         </div>
       )}
 
-      {/* If confirmed, show QR code */}
       {application?.status === 'Confirmed' && (
-        <div
-          style={{
-            color: 'white',
-            background: 'rgba(255, 255, 255, 0.15)',
-            width: '80%',
-            fontSize: '25px',
-            borderRadius: '20px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            paddingBottom: '60px',
-          }}
-        >
-          <h3 style={{ textAlign: 'center' }}>
-            Thank you for confirming your spot at BostonHacks 2022. Keep an eye out for important emails!
-          </h3>
-          <h3 style={{ textAlign: 'center' }}>
-            Please bring the QR code below for check-in:
-          </h3>
-          <img
-            className="img-fluid"
-            src="/path/to/qr-code.png" // Replace with the actual QR code URL
-            width={150}
-            height={150}
-            alt="QR Code"
-          />
+        <div style={{ color: 'white', background: 'rgba(255, 255, 255, 0.15)', width: '80%', fontSize: '25px', borderRadius: '20px' }}>
+          <h3 style={{ textAlign: 'center' }}>Thank you for confirming! Please bring the QR code for check-in:</h3>
+          <Image src="/path/to/qr-code.png" width={150} height={150} alt="QR Code" />
         </div>
       )}
     </div>

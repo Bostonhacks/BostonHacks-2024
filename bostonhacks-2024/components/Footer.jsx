@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+import { useMemo } from 'react';
+
 // Replace these paths with the actual paths to your social media assets
 import InstagramIcon from '@/public/images/instagram.svg';
 import FacebookIcon from '@/public/images/facebook.svg';
 
 const Footer = () => {
-  const targetDate = new Date('2024-11-01T00:00:00'); // Set your desired target date here
+  const targetDate = useMemo(() => new Date('2024-11-01T00:00:00'), []); // Set your desired target date here
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,

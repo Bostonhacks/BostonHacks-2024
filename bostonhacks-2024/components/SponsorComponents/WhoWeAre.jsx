@@ -19,7 +19,7 @@ return (
                     </p>
                     <br></br>
                     <p className="leading-relaxed lg:leading-loose mb-4">
-                        A hackathon would be incomplete without new technology, advice, and ideas our sponsors offer, and we'd be eager to have you join us this coming fall!
+                        A hackathon would be incomplete without new technology, advice, and ideas our sponsors offer, and we&apos;d be eager to have you join us this coming fall!
                     </p>
                     <br></br>
                     <p className="leading-relaxed lg:leading-loose mb-4">
@@ -27,7 +27,7 @@ return (
                     </p>
                     <br></br>
                     <p className="leading-relaxed lg:leading-loose">
-                        Here's what your company can do at our event.
+                        Here&apos;s what your company can do at our event.
                     </p>
                 </div>
                 

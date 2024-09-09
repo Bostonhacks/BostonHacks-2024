@@ -12,7 +12,7 @@ const Stats = () => {
             <div className="w-20 lg:w-40 h-px bg-white"></div>
             {/* Title with Line Break */}
             <h1 className="font-ppSupplyMono text-white text-base lg:text-7xl mb-4 text-center">
-                LET'S TALK<br />STATISTICS
+                LET&apos;S TALK<br />STATISTICS
             </h1>
             {/* Right Line */}
             <div className="w-20 lg:w-40 h-px bg-white"></div>
