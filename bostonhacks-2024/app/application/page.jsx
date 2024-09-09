@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -8,7 +7,7 @@ import Select from 'react-select';
 import { useForm, Controller } from 'react-hook-form';
 import { db, storage } from '@/firebase/firebase-config'; // Import Firebase Firestore and Storage
 import { collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import {
   ethnicities,
   genders,
@@ -64,37 +63,37 @@ const Application = () => {
       let resumeUrl = null;
       if (resume) {
         const storageRef = ref(storage, `resumes/${resume.name}`);
-        await uploadBytes(storageRef, resume);
-        resumeUrl = `gs://${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET}/resumes/${resume.name}`;
+        const snapshot = await uploadBytes(storageRef, resume);
+        resumeUrl = await getDownloadURL(snapshot.ref);
       } else {
         alert('Please upload a resume');
         return;
       }
 
-      // Submit form data to Firestore
+      // Submit form data to Firestore, ensuring undefined values are handled
       await addDoc(collection(db, 'applications'), {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        phoneNumber: data.phoneNumber,
-        age: data.age,
-        ethnicity: data.ethnicity.value,
-        gender: data.gender.value,
-        pronouns: data.pronouns.value,
-        address: data.address,
-        city: data.city,
-        state: data.state.value,
-        country: data.country.value,
-        zipCode: data.zipCode,
-        school: data.school.value,
-        collegeYear: data.collegeYear,
-        major: data.major.value,
-        educationLevel: data.educationLevel.value,
-        diet: data.diet.value,
+        firstName: data.firstName || 'Unknown',
+        lastName: data.lastName || 'Unknown',
+        phoneNumber: data.phoneNumber || 'Unknown',
+        age: data.age || 'Unknown',
+        ethnicity: data.ethnicity?.value || 'Unknown',
+        gender: data.gender?.value || 'Unknown',
+        pronouns: data.pronouns?.value || 'Unknown',
+        address: data.address || 'Unknown',
+        city: data.city || 'Unknown',
+        state: data.state?.value || 'Unknown',
+        country: data.country?.value || 'Unknown',
+        zipCode: data.zipCode || 'Unknown',
+        school: data.school?.value || 'Unknown',
+        collegeYear: data.collegeYear || 'Unknown',
+        major: data.major?.value || 'Unknown',
+        educationLevel: data.educationLevel?.value || 'Unknown',
+        diet: data.diet?.value || 'Unknown',
         otherDiet: data.otherDiet || null,
-        shirtSize: data.shirtSize.value,
-        sleep: data.sleep.value,
-        bostonhacks: data.bostonhacks,
-        trackInterest: data.trackInterest,
+        shirtSize: data.shirtSize?.value || 'Unknown',
+        sleep: data.sleep?.value || 'Unknown',
+        bostonhacks: data.bostonhacks || 'Unknown',
+        trackInterest: data.trackInterest || 'Unknown',
         resumeUrl: resumeUrl, // Store resume URL in Firestore
         submittedAt: new Date(),
       });
@@ -414,14 +413,11 @@ const Application = () => {
                 })}
               />
               {errors.trackInterest?.type === 'required' && (
-                <span className="text-red-500 ml-4">Required</span>
-              )}
+                <span className="text-red-500 ml-4">Required</span>)}
               {errors.trackInterest?.type === 'minLength' && (
-                <span className="text-red-500 ml-4">Tell us more!</span>
-              )}
+                <span className="text-red-500 ml-4">Tell us more!</span>)}
               {errors.trackInterest?.type === 'maxLength' && (
-                <span className="text-red-500 ml-4">Too many characters!</span>
-              )}
+                <span className="text-red-500 ml-4">Too many characters!</span>)}
             </div>
 
             {/* Resume Upload */}
@@ -482,5 +478,3 @@ const Application = () => {
 };
 
 export default Application;
-
-
