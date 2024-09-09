@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '@/firebase/firebase-config'; // Import Firebase auth and Firestore
 import { updateDoc, doc, query, collection, getDocs, where, addDoc } from 'firebase/firestore';
+import { onSnapshot } from 'firebase/firestore';
 import Image from 'next/image';
 //import qrCode from '@/public/images/qrCode.png'; // Example QR code image
 
@@ -67,16 +68,34 @@ const Portal = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) return router.push('/login');
-
-    const intervalId = setInterval(() => {
-      fetchApplication(intervalId);
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [user, loading, router]);
+  
+    const q = query(collection(db, 'applications'), where('uid', '==', user?.uid));
+    
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      if (!snapshot.empty) {
+        setApplication({ ...snapshot.docs[0].data(), id: snapshot.docs[0].id });
+      } else {
+        // Create a new application if one doesn't exist
+        addDoc(collection(db, 'applications'), {
+          uid: user.uid,
+          authProvider: 'google',
+          email: user.email,
+          status: 'Not Started',
+        }).then((docRef) => {
+          setApplication({
+            uid: user.uid,
+            status: 'Not Started',
+          });
+        });
+      }
+    }, (error) => {
+      console.error('Error fetching application:', error);
+    });
+    return () => unsubscribe(); // Cleanup the listener on unmount
+}, [user, loading, router]);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-900 text-white">
+    <div className="flex justify-center items-center h-screen  text-white">
       <div className="w-full max-w-3xl bg-black bg-opacity-70 p-8 rounded-lg shadow-lg">
         {/* Application status display */}
         <h2 className="text-center text-4xl font-bold mb-6 font-ppSupplyMono">
