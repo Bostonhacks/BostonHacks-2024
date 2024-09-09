@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import ShuttleIcon from '@/public/images/shuttle.svg'; // Replace with actual path to your space shuttle asset
+import ShuttleIcon from '@/public/images/Shuttle.svg'; // Replace with actual path to your space shuttle asset
 
 // Review Section Component
 const Reviews = () => {
