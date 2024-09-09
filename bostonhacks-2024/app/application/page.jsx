@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Select from 'react-select';
 import { useForm, Controller } from 'react-hook-form';
 import { db, storage } from '@/firebase/firebase-config'; // Import Firebase Firestore and Storage
-import { collection, addDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { collection, doc, serverTimestamp, setDoc } from 'firebase/firestore'; // Updated to use setDoc
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import getDownloadURL for retrieving file URL
 import {
   ethnicities,
   genders,
@@ -63,14 +63,18 @@ const Application = () => {
       let resumeUrl = null;
       if (resume) {
         const storageRef = ref(storage, `resumes/${resume.name}`);
-        const snapshot = await uploadBytes(storageRef, resume);
-        resumeUrl = await getDownloadURL(snapshot.ref);
+        await uploadBytes(storageRef, resume);
+
+        // Get the download URL of the uploaded resume
+        resumeUrl = await getDownloadURL(storageRef);
       } else {
         alert('Please upload a resume');
         return;
       }
 
-      // Submit form data to Firestore, ensuring undefined values are handled
+      // Store application data with resume URL in Firestore, using user's email or unique ID as the document ID
+      const userUid = "unique_user_uid"; // Replace this with the actual user UID or email
+
       await addDoc(collection(db, 'applications'), {
         firstName: data.firstName || 'Unknown',
         lastName: data.lastName || 'Unknown',
@@ -95,11 +99,11 @@ const Application = () => {
         bostonhacks: data.bostonhacks || 'Unknown',
         trackInterest: data.trackInterest || 'Unknown',
         resumeUrl: resumeUrl, // Store resume URL in Firestore
-        submittedAt: new Date(),
+        submittedAt: serverTimestamp(), // Store timestamp of application
       });
 
       alert('Application Submitted');
-      router.push('/login');
+      router.push('/portal');
     } catch (error) {
       console.error('Error submitting application:', error);
       alert('Error submitting your application, please try again.');
@@ -367,6 +371,78 @@ const Application = () => {
               </div>
             </div>
 
+            <div className="my-[50px] font-ppSupplyMono">
+              <h3 className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">Preferences</h3>
+              <div className="md:grid md:grid-cols-2 md:gap-4">
+                
+                {/* Diet */}
+                <div>
+                  <label className="ml-1 font-ppSupplyMono">Diet</label>
+                  <Controller
+                    name="diet"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        styles={selectFieldStyles}
+                        options={diet.map((option) => ({ label: option, value: option }))}
+                        {...field}
+                      />
+                    )}
+                    rules={{ required: false }}
+                  />
+                  {errors.diet && <span className="text-red-500">Diet is required</span>}
+                </div>
+
+                {/* Other Diet */}
+                <div>
+                  <label className="ml-1 font-ppSupplyMono">Other Diet</label>
+                  <input
+                    placeholder="Specify any other dietary restrictions"
+                    className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
+                    {...register('otherDiet')}
+                  />
+                </div>
+
+                {/* Shirt Size */}
+                <div>
+                  <label className="ml-1 font-ppSupplyMono">Shirt Size</label>
+                  <Controller
+                    name="shirtSize"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        styles={selectFieldStyles}
+                        options={shirtSizes.map((option) => ({ label: option, value: option }))}
+                        {...field}
+                      />
+                    )}
+                    rules={{ required: false }}
+                  />
+                  {errors.shirtSize && <span className="text-red-500">Shirt size is required</span>}
+                </div>
+
+                {/* Sleep Accommodations */}
+                <div>
+                  <label className="ml-1 font-ppSupplyMono">Sleep Accommodations</label>
+                  <Controller
+                    name="sleep"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        styles={selectFieldStyles}
+                        options={sleepAccomodations.map((option) => ({ label: option, value: option }))}
+                        {...field}
+                      />
+                    )}
+                    rules={{ required: false }}
+                  />
+                  {errors.sleep && <span className="text-red-500">Sleep accommodation is required</span>}
+                </div>
+                
+              </div>
+            </div>
+
+
             {/* BostonHacks Excitement Question */}
             <div className="my-[50px] font-ppSupplyMono">
               <label className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">
@@ -414,67 +490,70 @@ const Application = () => {
               />
               {errors.trackInterest?.type === 'required' && (
                 <span className="text-red-500 ml-4">Required</span>)}
-              {errors.trackInterest?.type === 'minLength' && (
-                <span className="text-red-500 ml-4">Tell us more!</span>)}
-              {errors.trackInterest?.type === 'maxLength' && (
-                <span className="text-red-500 ml-4">Too many characters!</span>)}
-            </div>
-
-            {/* Resume Upload */}
-            <div className="my-[50px]">
-              <p className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold mb-10">Resume Upload</p>
-              <input
-                type="file"
-                accept=".pdf, .docx"
-                onChange={(e) => setResume(e.target.files[0])}
-              />
-            </div>
-
-            {/* MLH Terms and Conditions */}
-            <div className="my-[50px] font-ppSupplyMono">
-              <h2 className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">MLH Terms and Conditions</h2>
-
-              <div className="flex flex-row my-5">
-                <input type="checkbox" {...register('acceptTerms', { required: true })} />
-                <p className="ml-4">
-                  Do you agree to the{" "}
-                  <a className="underline" href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
-                    MLH Code of Conduct
-                  </a>
-                  ?
-                </p>
-                {errors.acceptTerms && <span className="text-red-500 ml-4">Required</span>}
+                {errors.trackInterest?.type === 'minLength' && (
+                  <span className="text-red-500 ml-4">Tell us more!</span>
+                )}
+                {errors.trackInterest?.type === 'maxLength' && (
+                  <span className="text-red-500 ml-4">Too many characters!</span>
+                )}
               </div>
-
-              <div className="flex flex-row my-5">
-                <input type="checkbox" {...register('acceptTerms2', { required: true })} />
-                <p className="ml-4">
-                  I authorize sharing my information with MLH for event administration, ranking, and more. I agree to the{" "}
-                  <a className="underline" href="https://mlh.io/privacy">
-                    MLH Privacy Policy
-                  </a>.
-                </p>
-                {errors.acceptTerms2 && <span className="text-red-500 ml-4">Required</span>}
+  
+              {/* Resume Upload */}
+              <div className="my-[50px]">
+                <p className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold mb-10">Resume Upload</p>
+                <input
+                  type="file"
+                  accept=".pdf, .docx"
+                  onChange={(e) => setResume(e.target.files[0])}
+                />
               </div>
-
-              <div className="flex flex-row my-5">
-                <input type="checkbox" {...register('acceptTerms3')} />
-                <p className="ml-4">
-                  I authorize MLH to send me emails with event updates and newsletters.
-                </p>
+  
+              {/* MLH Terms and Conditions */}
+              <div className="my-[50px] font-ppSupplyMono">
+                <h2 className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">MLH Terms and Conditions</h2>
+  
+                <div className="flex flex-row my-5">
+                  <input type="checkbox" {...register('acceptTerms', { required: true })} />
+                  <p className="ml-4">
+                    Do you agree to the{" "}
+                    <a className="underline" href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
+                      MLH Code of Conduct
+                    </a>
+                    ?
+                  </p>
+                  {errors.acceptTerms && <span className="text-red-500 ml-4">Required</span>}
+                </div>
+  
+                <div className="flex flex-row my-5">
+                  <input type="checkbox" {...register('acceptTerms2', { required: true })} />
+                  <p className="ml-4">
+                    I authorize sharing my information with MLH for event administration, ranking, and more. I agree to the{" "}
+                    <a className="underline" href="https://mlh.io/privacy">
+                      MLH Privacy Policy
+                    </a>.
+                  </p>
+                  {errors.acceptTerms2 && <span className="text-red-500 ml-4">Required</span>}
+                </div>
+  
+                <div className="flex flex-row my-5">
+                  <input type="checkbox" {...register('acceptTerms3')} />
+                  <p className="ml-4">
+                    I authorize MLH to send me emails with event updates and newsletters.
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className="w-full flex justify-end">
-              <button type="submit">
-                <Image src={RegisterButton} alt="Register" width={200} height={60} />
-              </button>
-            </div>
-          </form>
+  
+              <div className="w-full flex justify-end">
+                <button type="submit">
+                  <Image src={RegisterButton} alt="Register" width={200} height={60} />
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Application;
+    );
+  };
+  
+  export default Application;
+  
