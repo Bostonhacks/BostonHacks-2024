@@ -33,10 +33,15 @@ const Portal = () => {
         setApplication({ ...docSnapshot.docs[0].data(), id: docSnapshot.docs[0].id });
         clearInterval(intervalId); // Stop polling once we have the data
       } else {
+        // Create a new application if one doesn't exist
         await addDoc(collection(db, 'applications'), {
           uid: user.uid,
           authProvider: 'google',
           email: user.email,
+          status: 'Not Started',
+        });
+        setApplication({
+          uid: user.uid,
           status: 'Not Started',
         });
       }
@@ -120,13 +125,20 @@ const Portal = () => {
             <h3 className="text-2xl font-ppSupplyMono">
               Thank you for confirming your attendance!
             </h3>
-            {/* <p>Please bring the following QR code for check-in:</p>
-            <Image src={qrCode} alt="QR Code" width={150} height={150} /> */}
+            {/* QR code display could go here */}
           </div>
         )}
 
-        {/* Other statuses can be handled similarly */}
-        {applicationTypes.includes(application?.status) && application?.status !== 'Not Started' && (
+        {application?.status === 'Declined' && (
+          <div className="text-center">
+            <h3 className="text-2xl font-ppSupplyMono">
+              Sorry to hear you can&apos;t attend BostonHacks 2024.
+            </h3>
+          </div>
+        )}
+
+        {/* Show current status for all application types */}
+        {applicationTypes.includes(application?.status) && (
           <div className="mt-6 text-center">
             <p className="text-lg font-bold">
               Current Status: <span className="text-emerald-400">{application?.status}</span>

@@ -59,6 +59,10 @@ const Application = () => {
 
   const onSubmit = async (data) => {
     try {
+      const userUid = localStorage.getItem('userUid');
+      if (!userUid) {
+        throw new Error('User UID not found. Please log in again.');
+      }
       // Upload resume to Firebase Storage
       let resumeUrl = null;
       if (resume) {
@@ -73,9 +77,9 @@ const Application = () => {
       }
 
       // Store application data with resume URL in Firestore, using user's email or unique ID as the document ID
-      const userUid = "unique_user_uid"; // Replace this with the actual user UID or email
+      // const userUid = "unique_user_uid"; // Replace this with the actual user UID or email
 
-      await addDoc(collection(db, 'applications'), {
+      await setDoc(collection(db, 'applications'), {
         firstName: data.firstName || 'Unknown',
         lastName: data.lastName || 'Unknown',
         phoneNumber: data.phoneNumber || 'Unknown',
@@ -100,6 +104,7 @@ const Application = () => {
         trackInterest: data.trackInterest || 'Unknown',
         resumeUrl: resumeUrl, // Store resume URL in Firestore
         submittedAt: serverTimestamp(), // Store timestamp of application
+        status: 'Submitted', // Default application status
       });
 
       alert('Application Submitted');
