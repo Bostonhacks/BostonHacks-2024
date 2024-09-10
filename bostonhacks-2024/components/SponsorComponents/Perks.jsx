@@ -49,9 +49,10 @@ const TextSection = () => {
 };
 
 
-const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText }) => {
+const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText}) => {
   return (
-    <div className="bg-black bg-opacity-50 text-white p-10 rounded-lg shadow-lg w-[500px] mx-4 flex-shrink-0">
+    <div className=''>
+      <div className='bg-black bg-opacity-50 text-white p-10 rounded-lg shadow-lg w-[500px] mx-4 flex-shrink-0'>
       <div className="mt-8"> 
         <h2 className="text-center text-5xl font-ppSupplyMono">${amount}</h2>
         <h3 className="text-center text-3xl mt-4 font-carroisGothic">{title}</h3> 
@@ -69,6 +70,7 @@ const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText }) => {
           <Image src={buttonImage} alt={buttonAltText} height={50} />
         </button>
       </div>
+    </div>
     </div>
   );
 };
