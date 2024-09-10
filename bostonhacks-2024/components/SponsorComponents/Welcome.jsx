@@ -27,7 +27,7 @@ function Welcome() {
                 />
             </div>
 
-            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-white text-center transform translate-y-[-0px] sm:translate-y-[-400px] px-4 sm:px-10">
+            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-white text-center transform lg:translate-y-[-200px] sm:translate-y-[-100px] px-4 sm:px-10">
                 <div className="relative">
                     <div className="absolute -top-20 left-0 font-carroisGothic">
                         <p className="text-xl md:text-3xl lg:text-5xl font-carroisGothic">NOVEMBER 2 - 3</p>
@@ -42,8 +42,9 @@ function Welcome() {
                         />
                     </div>
 
-                    <div className="absolute -bottom-17 right-0 font-carroisGothic">
-                        <p className="text-5xl md:text-7xl lg:text-9xl font-carroisGothic">2024</p>
+                    <div className="absolute lg:-bottom-32 sm:-bottom-20 right-0 font-carrois">
+                        <br></br>
+                        <p className="text-5xl md:text-7xl lg:text-9xl font-carrois">2024</p>
                     </div>
                 </div>
             </div>

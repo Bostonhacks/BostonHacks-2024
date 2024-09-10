@@ -71,7 +71,7 @@ function Welcome() {
                             height={600} // Adjust based on the required size
                         />
                     </div>
-                    <div className="absolute -bottom-17 sm:-bottom-20 right-0 font-carrois">
+                    <div className="absolute lg:-bottom-32 sm:-bottom-20 right-0 font-carrois">
                         <br></br>
                         <p className="text-5xl md:text-7xl lg:text-9xl font-carrois">2024</p>
                     </div>
@@ -79,7 +79,7 @@ function Welcome() {
             </div>
             <div className="mt-[0rem] sm:mt-[10rem] flex justify-center gap-y-5 sm:gap-x-12 gap-x-0 transform sm:flex-row flex-col items-center"> {/* Adjust margin for mobile */}
                 <WelcomeButton link={"/login"} image={ApplyButton} altImage={ApplyButtonHover} alt="Apply Button" />
-                <WelcomeButton link={"/sponsor"} image={SponsorButton} altImage={SponsorButton} alt="Sponsor Button" />
+                <WelcomeButton link={"/sponsor"} image={SponsorButton} altImage={SponsorButton} alt="Sponsor Button" witdth={250} height={200} />
             </div>
         </section>
     );
