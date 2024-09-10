@@ -9,6 +9,7 @@ import Signal from "@/components/LandingComponents/Signal";
 import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
 import Schedule from "@/components/LandingComponents/Schedule";
 import FAQ from "@/components/LandingComponents/FAQ";
+import Astronaut from "@/components/LandingComponents/Astronaut";
 import Sponsors from "@/components/LandingComponents/Sponsors";
 
 
@@ -27,6 +28,8 @@ const Home = () => {
       <section id="schedule">
         <Schedule />
       </section>
+    
+      <Astronaut/>
       <section id="sponsors">
         <Sponsors />
       </section>
