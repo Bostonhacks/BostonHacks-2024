@@ -158,7 +158,7 @@ const Perks = () => {
     <div className="w-full py-16 px-4 lg:px-16">
       <div className="flex justify-center items-center mb-12">
         <div className="w-32 border-t-4 border-white"></div> {/* Adjust the width here */}
-        <span className="mx-4 text-7xl lg:text-7xl font-bold tracking-wide text-white text-center font-ppSupplyMono leading-loose py-10">
+        <span className="text-4xl lg:text-7xl font-bold tracking-wide text-white text-center font-ppSupplyMono leading-loose py-10">
           SPONSORSHIP <br /> OPPORTUNITIES
         </span>
         <div className="w-32 border-t-4 border-white"></div> {/* Adjust the width here */}
