@@ -127,7 +127,7 @@ function Tracks() {
           onClick={closePopUp}
         >
           <div
-            className="bg-black bg-opacity-90 border border-emerald-400 p-4 sm:p-6 rounded-lg max-w-sm sm:max-w-lg w-11/12 sm:w-full backdrop-filter backdrop-blur-sm"
+            className="bg-black bg-opacity-90 border border-emerald-400 p-4 sm:p-6 rounded-lg w-11/12 max-h-[70vh] sm:max-h-[50vh] max-w-sm sm:max-w-md sm:w-full overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <h1 className="text-emerald-400 pb-4 sm:pb-6 text-2xl sm:text-3xl">
@@ -149,5 +149,6 @@ function Tracks() {
     </div>
   );
 }
+
 
 export default Tracks;
