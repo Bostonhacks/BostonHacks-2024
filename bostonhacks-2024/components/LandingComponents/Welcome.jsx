@@ -58,7 +58,7 @@ function Welcome() {
                     />
                 </div>
             </div>
-            <div className="w-full h-[80vh] flex flex-col items-center justify-center text-white text-center transform px-5 sm:px-0 sm:mx-10">
+            <div className="w-full h-[80vh] flex flex-col items-center justify-center text-white text-center transform px-5 sm:px-0">
                 <div className="relative sm:-mt-0 -mt-[10rem]"> {/* Move text up for mobile */}
                     <div className="absolute -top-20 left-0 font-carrois">
                         <p className="text-xl md:text-3xl lg:text-5xl font-carrois">NOVEMBER 2 - 3</p>
