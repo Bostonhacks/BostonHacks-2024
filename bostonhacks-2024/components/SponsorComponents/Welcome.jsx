@@ -1,21 +1,29 @@
-import React from 'react'
-import Radar from '@/public/images/radar.svg'
-import Image from 'next/image'
-
-import BostonHacks from '@/public/images/BostonHacks.svg'
-
-import ApplyButton from "@/public/images/ApplyButton.svg";
-import SponsorButton from "@/public/images/SponsorButton.svg";
+import React from 'react';
+import Radar from '@/public/images/radar.svg';
+import RadarMobile from '@/public/images/radarmobile.svg';
+import Image from 'next/image';
+import BostonHacks from '@/public/images/BostonHacks.svg';
 
 function Welcome() {
     return (
         <div className="relative h-screen bg-cover bg-center">
-            <div className="absolute top-0 right-0 z-0 flex items-start justify-end transform translate-y-[-125px]">
+            {/* Desktop Radar */}
+            <div className="hidden md:block absolute top-0 right-0 z-0 flex items-start justify-end transform translate-y-[-125px]">
                 <Image
                     src={Radar}
                     alt="Radar Design"
                     width={1850}
                     height={1982}
+                />
+            </div>
+
+            {/* Mobile Radar */}
+            <div className="block md:hidden absolute top-0 right-0 z-0 flex items-start justify-end transform translate-y-[-125px]">
+                <Image
+                    src={RadarMobile}
+                    alt="Radar Mobile Design"
+                    width={750}  // Adjust the size for mobile if needed
+                    height={800}
                 />
             </div>
 
@@ -25,13 +33,12 @@ function Welcome() {
                         <p className="text-xl md:text-3xl lg:text-5xl font-carroisGothic">NOVEMBER 2 - 3</p>
                     </div>
 
-
                     <div className="flex justify-center items-center">
                         <Image
                             src={BostonHacks}
                             alt="BostonHacks 2024"
                             width={1000}  // Adjust based on the required size
-                            height={600} // Adjust based on the required size
+                            height={600}  // Adjust based on the required size
                         />
                     </div>
 
@@ -40,11 +47,10 @@ function Welcome() {
                         <p className="text-5xl md:text-7xl lg:text-9xl font-carroisGothic">2024</p>
                     </div>
                 </div>
-
-                
             </div>
         </div>
-    )
+    );
 }
 
-export default Welcome
+export default Welcome;
+

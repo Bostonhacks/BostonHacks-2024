@@ -12,14 +12,14 @@ import LegendaryButton from '@/public/images/LegendaryButton.svg';
 // Text Section Component
 const TextSection = () => {
   return (
-    <div className="flex flex-col space-y-12 px-32 lg:px-64 py-64"> {/* Added padding here */}
+    <div className="flex flex-col space-y-12 sm:px-8 lg:px-64 py-16"> {/* Added padding here */}
       
       {/* First Block: Left Justified */}
       <div className="w-full text-left text-white lg:text-5xl max-w-5xl">
         <p className="font-carroisGothic text-5xl">*General Email:</p>
         <p className="mt-2 font-carroisGothic">
-          Prior to the event, we’ll send out one email listing all of our sponsors and any prizes offered, 
-          and a short summary of each sponsor. If you’d like to email students directly, see the $5k and $7.5k tiers.
+          Prior to the event, we&apos;ll send out one email listing all of our sponsors and any prizes offered, 
+          and a short summary of each sponsor. If you&apos;d like to email students directly, see the $5k and $7.5k tiers.
         </p>
       </div>
 
@@ -49,38 +49,74 @@ const TextSection = () => {
 };
 
 
-const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText}) => {
+const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText }) => {
   return (
-    <div className=''>
-      <div className='bg-black bg-opacity-50 text-white p-10 rounded-lg shadow-lg w-[500px] mx-4 flex-shrink-0'>
-      <div className="mt-8"> 
-        <h2 className="text-center text-5xl font-ppSupplyMono">${amount}</h2>
-        <h3 className="text-center text-3xl mt-4 font-carroisGothic">{title}</h3> 
-      </div>
-      <ul className="mt-8 space-y-4 text-xl leading-[1.5] font-carroisGothic"> 
-        {perks.map((perk, index) => (
-          <li key={index} className="flex items-start">
-            <Image src={BulletIcon} alt="Bullet Icon" width={45} className="mr-5" />
-            {perk}
-          </li>
-        ))}
-      </ul>
-      <div className="mt-10 flex justify-center"> 
-        <button className="transition duration-500 hover:scale-110">
-          <Image src={buttonImage} alt={buttonAltText} height={50} />
-        </button>
+    <div>
+    <div className="w-full sm:w-4/5 lg:w-auto mx-auto flex justify-center"> {/* Ensure consistent width and centering */}
+      <div className="w-full sm:w-full lg:w-[500px] mx-4 flex-shrink-0 lg:bg-black lg:bg-opacity-50 md:bg-opacity-0 sm:bg-opacity-0 px-5 py-10">
+        {/* Amount and Title */}
+        <div className="mt-8 sm:py-2 lg:py-0 text-white p-0 lg:p-10 rounded-lg shadow-lg">
+          <h2 className="text-center text-5xl font-ppSupplyMono">${amount}</h2>
+          <h3 className="text-center text-3xl mt-4 font-carroisGothic">{title}</h3>
+        </div>
+
+        {/* Perks List */}
+        <div className="lg:bg-opacity-0 md:bg-black md:bg-opacity-50 sm:bg-black sm:bg-opacity-50 p-5 rounded-lg mt-8">
+          <ul className="mt-8 space-y-4 text-xl leading-[1.5] font-carroisGothic">
+            {perks.map((perk, index) => (
+              <li
+                key={index}
+                className={`${
+                  perk.noBullet
+                    ? 'pl-10' // No background or bullet
+                    : 'flex items-start'
+                }`}
+              >
+                {/* Make sure the bullet icon size stays consistent */}
+                {!perk.noBullet && (
+                  <div className="flex-shrink-0 mr-5">
+                    <Image
+                      src={BulletIcon}
+                      alt="Bullet Icon"
+                      width={45}
+                      height={45}
+                    />
+                  </div>
+                )}
+                <span className={perk.underline ? 'underline' : ''}>
+                  {perk.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Button */}
+        <div className="mt-10 flex justify-center sm:py-2 lg:py-0">
+          <button className="transition duration-500 hover:scale-110">
+            <Image src={buttonImage} alt={buttonAltText} height={50} />
+          </button>
+        </div>
       </div>
     </div>
     </div>
   );
 };
 
+
+
+
 const Perks = () => {
   const perksData = [
     {
       amount: '500',
       title: 'Sneak Peek',
-      perks: ['General Email', 'Distribute Swag', 'Distribute API', 'Logo on Website & T-Shirt'],
+      perks: [
+        { text: 'General Email', noBullet: false, underline: false },
+        { text: 'Distribute Swag', noBullet: false, underline: false },
+        { text: 'Distribute API', noBullet: false, underline: false },
+        { text: 'Logo on Website & T-Shirt', noBullet: false, underline: false }, // Underlined and no bullet
+      ],
       buttonImage: SneakPeakButton,
       buttonAltText: 'Choose Sneak Peek',
     },
@@ -88,10 +124,10 @@ const Perks = () => {
       amount: '1.5K',
       title: 'Novice',
       perks: [
-        'Everything included in Sneak Peek, and...',
-        'Give branded/API prize (Less than $100 prize/person)',
-        'Bring 2 Mentors',
-        'Emails to distribute recruiting materials for post-event',
+        { text: 'Everything included in Sneak Peek, and...', noBullet: true, underline: true }, // Underlined and no bullet
+        { text: 'Give branded/API prize (Less than $100 prize/person)', noBullet: false, underline: false },
+        { text: 'Bring 2 Mentors', noBullet: false, underline: false },
+        { text: 'Emails to distribute recruiting materials for post-event', noBullet: false, underline: false },
       ],
       buttonImage: NoviceButton,
       buttonAltText: 'Choose Novice',
@@ -100,14 +136,14 @@ const Perks = () => {
       amount: '3K',
       title: 'Skilled',
       perks: [
-        'Everything included in Sneak Peek, and...',
-        'Give branded/API prize (Less than $100 prize/person)',
-        'Bring 4 Mentors',
-        'Emails to distribute recruiting materials for post-event',
-        'Bring 1 Recruiter',
-        '2 min speak at opening ceremony (Can be pre-recorded or live)',
-        '1 table',
-        'Post-event access to resumes',
+        { text: 'Everything included in Sneak Peek, and...', noBullet: true, underline: true }, // Underlined and no bullet
+        { text: 'Give branded/API prize (Less than $100 prize/person)', noBullet: false, underline: false },
+        { text: 'Bring 4 Mentors', noBullet: false, underline: false },
+        { text: 'Emails to distribute recruiting materials for post-event', noBullet: false, underline: false },
+        { text: 'Bring 1 Recruiter', noBullet: false, underline: false },
+        { text: '2 min speak at opening ceremony (Can be pre-recorded or live)', noBullet: false, underline: false },
+        { text: '1 table', noBullet: false, underline: false },
+        { text: 'Post-event access to resumes', noBullet: false, underline: false },
       ],
       buttonImage: SkilledButton,
       buttonAltText: 'Choose Skilled',
@@ -116,18 +152,18 @@ const Perks = () => {
       amount: '4.5K',
       title: 'Master',
       perks: [
-        'Everything included in Sneak Peek, and...',
-        'Give branded/API prize (Less than $100 prize/person)',
-        'Bring unlimited Mentors',
-        'Emails to distribute recruiting materials for pre-event',
-        'Bring 2 Recruiters',
-        '4 min speak at opening ceremony (Can be pre-recorded or live)',
-        '1 table',
-        'Pre-event access to resumes',
-        'Host special side challenges',
-        'Virtual interview rooms',
-        'Email Hackathon attendees',
-        'Branded virtual events',
+        { text: 'Everything included in Sneak Peek, and...', noBullet: true, underline: true }, // Underlined and no bullet
+        { text: 'Give branded/API prize (Less than $100 prize/person)', noBullet: false, underline: false },
+        { text: 'Bring unlimited Mentors', noBullet: false, underline: false },
+        { text: 'Emails to distribute recruiting materials for pre-event', noBullet: false, underline: false },
+        { text: 'Bring 2 Recruiters', noBullet: false, underline: false },
+        { text: '4 min speak at opening ceremony (Can be pre-recorded or live)', noBullet: false, underline: false },
+        { text: '1 table', noBullet: false, underline: false },
+        { text: 'Pre-event access to resumes', noBullet: false, underline: false },
+        { text: 'Host special side challenges', noBullet: false, underline: false },
+        { text: 'Virtual interview rooms', noBullet: false, underline: false },
+        { text: 'Email Hackathon attendees', noBullet: false, underline: false },
+        { text: 'Branded virtual events', noBullet: false, underline: false },
       ],
       buttonImage: MasterButton,
       buttonAltText: 'Choose Master',
@@ -136,25 +172,26 @@ const Perks = () => {
       amount: '6K',
       title: 'Legendary',
       perks: [
-        'Everything included in Sneak Peek, and...',
-        'Give branded/API prize (Less than $100 prize/person)',
-        'Bring unlimited Mentors',
-        'Emails to distribute recruiting materials for pre-event',
-        'Bring 4 Recruiters',
-        '6 min speak at opening ceremony (Can be pre-recorded or live)',
-        '2 tables',
-        'Pre-event access to resumes',
-        'Host special side challenges',
-        'Virtual interview rooms',
-        'Email Hackathon attendees',
-        'Branded virtual events',
-        'Sponsor Track (contact us!)',
-        'Pre-event workshop',
+        { text: 'Everything included in Sneak Peek, and...', noBullet: true, underline: true }, // Underlined and no bullet
+        { text: 'Give branded/API prize (Less than $100 prize/person)', noBullet: false, underline: false },
+        { text: 'Bring unlimited Mentors', noBullet: false, underline: false },
+        { text: 'Emails to distribute recruiting materials for pre-event', noBullet: false, underline: false },
+        { text: 'Bring 4 Recruiters', noBullet: false, underline: false },
+        { text: '6 min speak at opening ceremony (Can be pre-recorded or live)', noBullet: false, underline: false },
+        { text: '2 tables', noBullet: false, underline: false },
+        { text: 'Pre-event access to resumes', noBullet: false, underline: false },
+        { text: 'Host special side challenges', noBullet: false, underline: false },
+        { text: 'Virtual interview rooms', noBullet: false, underline: false },
+        { text: 'Email Hackathon attendees', noBullet: false, underline: false },
+        { text: 'Branded virtual events', noBullet: false, underline: false },
+        { text: 'Sponsor Track (contact us!)', noBullet: false, underline: false },
+        { text: 'Pre-event workshop', noBullet: false, underline: false },
       ],
       buttonImage: LegendaryButton,
       buttonAltText: 'Choose Legendary',
     },
   ];
+  
 
     return (
     <div className="w-full py-16 px-4 lg:px-16">
@@ -168,7 +205,7 @@ const Perks = () => {
       
       {/* Horizontal Scrollable Container */}
       <div className="overflow-x-auto scrollbar-hide">
-        <div className="flex space-x-8"> {/* Flex for horizontal layout */}
+        <div className="flex flex-wrap lg:flex-nowrap space-x-8 lg:space-x-8"> {/* Use flex-wrap for mobile view */}
           {perksData.map((perk, index) => (
             <PerkCard
               key={index}

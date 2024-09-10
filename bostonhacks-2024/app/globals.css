@@ -38,7 +38,7 @@ body {
 }
 
 /*for mobile (width of background is 226) */
-@media (width <= 226px) {
+@media (max-width: 768px) {
   body {
     background-image: url(../public/images/new\ iPhone.png);
     background-position: top center;

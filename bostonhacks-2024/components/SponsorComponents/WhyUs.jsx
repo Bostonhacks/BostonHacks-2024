@@ -26,7 +26,7 @@ const whyUs = [
 
 const WhySection = ({ data }) => {
     return (
-        <div className="flex flex-col space-y-8 lg:space-y-8 lg:px-10 lg:py-20 w-full">
+        <div className="flex flex-col space-y-8 lg:space-y-8 lg:px-10 lg:py-20 w-full sm:px-2 sm:py-10">
             {data.map((item, index) => (
                 <div
                     key={index}
@@ -62,7 +62,7 @@ const WhySection = ({ data }) => {
 
 const WhyUs = () => {
     return (
-        <div className="w-full h-auto flex items-center justify-center px-4 py-20 lg:py-80">
+        <div className="w-full h-auto flex items-center justify-center px-4 py-20 lg:py-80 sm:px-0">
             <div className="text-center text-white relative" style={{ width: '63%', height: 'auto' }}>
                 {/* Title with lines */}
                 <div className="relative flex items-center justify-center mb-8">
@@ -72,7 +72,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* Opaque Background and Text */}
-                <div className="bg-black bg-opacity-50 p-4 lg:p-6 rounded-lg shadow-lg w-full h-full">
+                <div className="bg-black bg-opacity-50 p-4 lg:p-6 sm:px-1 sm:py-4 rounded-lg shadow-lg w-full h-full">
                     <WhySection data={whyUs[0]} />
 
                     {/* Astronaut and Questions Section */}

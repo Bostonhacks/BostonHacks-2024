@@ -50,11 +50,11 @@ const Footer = () => {
           {timeLeft.minutes.toString().padStart(2, '0')} &nbsp;:&nbsp;
           {timeLeft.seconds.toString().padStart(2, '0')}
         </div>
-        <div className="text-green-400 mt-4 flex flex-wrap justify-around text-2xl md:text-4xl">
-          <span className="font-carroisGothic mx-4">DAYS</span>
-          <span className="font-carroisGothic mx-4">HOURS</span>
-          <span className="font-carroisGothic mx-4">MINUTES</span>
-          <span className="font-carroisGothic mx-4">SECONDS</span>
+        <div className="text-green-400 mt-4 flex flex-wrap justify-around text-2xl md:text-4xl lg:space-x-8 sm:space-x-0.5">
+          <span className="font-carroisGothic">DAYS&nbsp;&nbsp;</span>
+          <span className="font-carroisGothic">HOURS&nbsp;&nbsp;</span>
+          <span className="font-carroisGothic">MINUTES&nbsp;&nbsp;</span>
+          <span className="font-carroisGothic">SECONDS&nbsp;&nbsp;</span>
         </div>
       </div>
 

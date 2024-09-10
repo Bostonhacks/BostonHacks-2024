@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ShuttleIcon from '@/public/images/Shuttle.svg'; // Replace with actual path to your space shuttle asset
+import ApplyButton from '@/public/images/FinalApplyButton.svg'; // Replace with actual path to your Apply Button asset
 
 // Review Section Component
 const Reviews = () => {
@@ -47,10 +48,21 @@ const Reviews = () => {
             </div>
         
             {/* Space Shuttle Icon */}
-            <div className="absolute bottom-8 left-4 sm:right-16">
+            <div className=" left-4 sm:right-16">
                 <Image src={ShuttleIcon} alt="Space Shuttle Icon" width={150} height={150} className="w-24 h-24 sm:w-40 sm:h-40" />
             </div>
             
+            <div className="flex justify-center my-56">
+                <a href="/login" target="_blank" rel="noopener noreferrer">
+                    <Image 
+                    src={ApplyButton}  // Replace with the actual path to your button asset
+                    alt="Apply Now" 
+                    width={200}  // Adjust the width as needed
+                    height={80}  // Adjust the height as needed
+                    className="hover:opacity-80"  // Add hover effect if desired
+                    />
+                </a>
+            </div>
         </div>
     );
 };

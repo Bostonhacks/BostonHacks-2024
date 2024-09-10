@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Hero from "./Hero";
 import Link from 'next/link'
-import Navbar from "@/components/Navbar";
 import Tracks from "@/components/LandingComponents/Tracks";
 
 import Welcome from "@/components/LandingComponents/Welcome";
@@ -11,11 +10,13 @@ import Schedule from "@/components/LandingComponents/Schedule";
 import FAQ from "@/components/LandingComponents/FAQ";
 import Astronaut from "@/components/LandingComponents/Astronaut";
 import Sponsors from "@/components/LandingComponents/Sponsors";
+import Navbar from "@/components/Navbar";
 
 
 const Home = () => {
   return (
     <main>
+      <Navbar/>
       <Welcome />
       <Signal />
       <ThemeOfTheYear />

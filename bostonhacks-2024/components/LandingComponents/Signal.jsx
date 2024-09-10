@@ -6,7 +6,7 @@ import Signals from '@/public/images/signals.svg'
 function Signal() {
     return (
     <div className="flex flex-col items-center justify-center h-screen"> 
-            <div className="mt-2"> 
+            <div className="mt-2 mx-10"> 
                 <Image
                     src={Signals}
                     alt="Signal"
@@ -16,7 +16,7 @@ function Signal() {
             </div>
 
             <div className="mt-10 text-center"> 
-                <p className="text-xl md:text3xl lg:text-4xl font-ppSupplyMono " style={{ color: '#888888' }}> 
+                <p className="text-2xl md:text3xl lg:text-4xl font-ppSupplyMono " style={{ color: '#888888' }}> 
                     Searching for space signals..
                 </p>
             </div>
