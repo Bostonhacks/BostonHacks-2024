@@ -9,6 +9,7 @@ import Signal from "@/components/LandingComponents/Signal";
 import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
 import Schedule from "@/components/LandingComponents/Schedule";
 import FAQ from "@/components/LandingComponents/FAQ";
+import Astronaut from "@/components/LandingComponents/Astronaut";
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Tracks/>
       <FAQ />
       <Schedule />
+      <Astronaut/>
 
       {/* This is how you add components to a page */}
       {/* <Hero /> */}
