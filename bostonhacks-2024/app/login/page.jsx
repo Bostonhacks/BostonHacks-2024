@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // For Next.js 13+
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '@/firebase/firebase-config'; // Import Firebase auth and provider
+import { auth, googleProvider, db } from '@/firebase/firebase-config'; // Import Firebase auth, provider, and Firestore
+import { doc, getDoc } from 'firebase/firestore'; // Import Firestore methods correctly
 import Image from 'next/image';
-
-import GoogleIcon from '@/components/GoogleIcon.jsx';
+import GoogleIcon from '@/public/images/GoogleIcon.svg'; // Import your Google icon SVG
 
 const Login = () => {
   const [error, setError] = useState('');
@@ -14,16 +14,32 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     setError('');
-
+  
     try {
       // Sign in with Google
-      await signInWithPopup(auth, googleProvider);
-      router.push('/application'); // Redirect to dashboard after successful login
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+  
+      // Store the UID and email in localStorage
+      localStorage.setItem('userUid', user.uid);
+      localStorage.setItem('userEmail', user.email);
+  
+      // Check if the user has an existing application in Firestore
+      const docRef = doc(db, 'applications', user.uid);
+      const docSnap = await getDoc(docRef);
+  
+      if (docSnap.exists()) {
+        router.push('/portal'); // If the application exists, redirect to portal
+      } else {
+        router.push('/application'); // If no application exists, redirect to application form
+      }
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
       console.error('Google Login Error: ', err);
     }
   };
+  
+  
 
   return (
     <div className="flex justify-center items-center h-screen">

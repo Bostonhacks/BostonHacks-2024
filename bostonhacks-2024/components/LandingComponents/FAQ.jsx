@@ -43,7 +43,7 @@ const faq =[
         },
         {
             question: 'When does registration close?',
-            answer: 'Registration closes on October. Apply ASAP!'
+            answer: 'Registration closes on October 4th. Apply ASAP!'
         }
     ];
 
@@ -79,7 +79,7 @@ const Question = ({ question, answer }) => {
                     }}
                     />  
                 </div>
-                
+
 
             </div>
             {expanded && 
@@ -146,8 +146,10 @@ const FAQColumn = ({ questionAnswers }) => {
             <section id="faq" className="font-ppSupplyMono w-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-0">
                 <Title>FAQ</Title>
                 <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
+
                     <FAQColumn className="" questionAnswers={col1}/>
                     <FAQColumn className="" questionAnswers={col2} />
+
                 </div>
                 <div className="border-b-4 border-text-primary md:hidden" />
             </section>

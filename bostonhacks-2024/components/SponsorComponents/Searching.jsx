@@ -7,7 +7,7 @@ import SponsorUs from '@/public/images/SponsorUsButton.svg'
 function Searching() {
     return (
     <div className="flex flex-col items-center justify-center h-[80vh]"> 
-        <div className="mt-16"> 
+        <div className="m-16"> 
             <Image
                 src={Signals}
                 alt="Signal"
@@ -23,7 +23,7 @@ function Searching() {
         </div>
         
         <div className="mt-16 flex items-center justify-center"> {/* Added margin-top for spacing */}
-            <h1 className="text-8xl font-ppSupplyMono">SPONSOR INFORMATION</h1> {/* Fixed spelling of "SPONSOR" */}
+            <h1 className="text-5xl lg:text-7xl md:7xl font-ppSupplyMono text-center">SPONSOR INFORMATION</h1> {/* Fixed spelling of "SPONSOR" */}
         </div>
         
         <div className="mt-16 flex justify-center space-x-12"> {/* Removed translate-y for a cleaner layout */}

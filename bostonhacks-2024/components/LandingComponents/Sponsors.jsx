@@ -3,7 +3,7 @@ import '../../public/fonts/fonts.css';
 import Image from 'next/image';
 import Title from '@/components/LandingComponents/Title.jsx';
 
-import hold from '@/public/images/saturn.png';
+import hold from '@/public/images/coming soon.png';
 import sponsorBackground from '@/public/images/sponsorBackground.svg';
 
 const Sponsors = () => {
@@ -55,7 +55,7 @@ const Sponsors = () => {
                     <Image
                     src={sponsor.images}
                     alt={`Sponsor ${sponsor.id}`}
-                    className="absolute w-auto h-auto top-0 left-0 object-cover scale-75"
+                    className="absolute w-auto h-auto top-50 left-0 object-cover scale-75"
                     />
                         <span className={`absolute right-[-20px] top-50% transform -translate-y-1/2  text-xs text-center ${sponsor.id % 2 === 1 ? 'left-[-20px]' : 'right-[-20px]'}`}  style={{writingMode: 'vertical-rl', transform: 'rotate(180deg)', whiteSpace: 'nowrap'}}>
                             {sponsor.name}
