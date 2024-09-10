@@ -21,7 +21,7 @@ import {
   diet,
 } from '@/components/ApplicationComponents/ApplicationOptions';
 import { schools } from '@/components/ApplicationComponents/ApplicationSchools';
-import RegisterButton from '@/public/images/ApplyButton.svg';
+import RegisterButton from '@/public/images/FinalApplyButton.svg';
 
 const Application = () => {
   const router = useRouter();

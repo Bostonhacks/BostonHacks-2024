@@ -6,7 +6,7 @@ import ApplyButton from "@/public/images/Apply2.svg";
 
 const Astronaut = () => {
     return (
-        <div className="relative w-full h-[80vh] overflow-hidden">
+        <div className="relative w-full h-[100vh] overflow-hidden">
             <Image 
                 src={section}
                 alt="stuff"

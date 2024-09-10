@@ -6,7 +6,7 @@ import SponsorUs from '@/public/images/SponsorUsButton.svg'
 
 function Searching() {
     return (
-        <div className="flex flex-col items-center justify-center h-[80vh] sm:h-[80vh] lg:my-16 sm:my-3 mt-[-400px] sm:mt-0"> 
+        <div className="flex flex-col items-center justify-center h-[80vh] sm:h-[80vh] lg:my-16 sm:my-3 mt-[-100px] sm:mt-0"> 
         <div className="m-16"> 
             <Image
                 src={Signals}
@@ -16,7 +16,7 @@ function Searching() {
             />
         </div>
 
-        <div className="text-center mt-5"> {/* Added margin for better spacing */}
+        <div className="text-center lg:mt-5 sm:mt-2"> {/* Added margin for better spacing */}
             <p className="text-xl md:text-3xl lg:text-5xl font-ppSupplyMono" style={{ color: '#888888' }}> 
                 Searching   for   Sponsors . . . .
             </p>

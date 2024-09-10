@@ -26,7 +26,7 @@ const whyUs = [
 
 const WhySection = ({ data }) => {
     return (
-        <div className="flex flex-col space-y-8 lg:space-y-8 lg:px-10 lg:py-20 w-full sm:px-2 sm:py-10">
+        <div className="flex flex-col sm:space-y-8 lg:space-y-8 lg:px-10 lg:py-20 w-full sm:px-2 sm:py-10">
             {data.map((item, index) => (
                 <div
                     key={index}
