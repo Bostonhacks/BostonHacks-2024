@@ -1,27 +1,56 @@
 "use client";
 import React from 'react'
+import { useState } from 'react';
 import Radar from '@/public/images/radar.svg'
 import Image from 'next/image'
 
 import BostonHacks from '@/public/images/BostonHacks.svg'
 
 import ApplyButton from "@/public/images/ApplyButton.svg";
+import ApplyButtonHover from "@/public/images/ApplyButtonHover.svg";
 import SponsorButton from "@/public/images/SponsorButton.svg";
+import WelcomeButtonBack from "@/public/images/WelcomeButton.svg";
 
 import Signals from '@/public/images/signals.svg'
 
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+const WelcomeButton = ({ link, image, altImage, alt }) => {
+    const [isHovering, setIsHovered] = useState(false);
+    const onMouseEnter = () => setIsHovered(true);
+    const onMouseLeave = () => setIsHovered(false);
+    return (
+        <Link href={link} className="cursor-pointer" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            { isHovering ? 
+            <Image
+                src={altImage}
+                alt={alt}
+                width={250}  // Adjust based on your SVG size
+                height={200}  // Adjust based on your SVG size
+            /> :
+            <Image
+                src={image}
+                alt={alt}
+                width={250}  // Adjust based on your SVG size
+                height={200}  // Adjust based on your SVG size
+            />
+            }
+        </Link>
+    )
+}
+
 
 function Welcome() {
     const router = useRouter();
 
-    const handleApplyClick = () => {
-        router.push('/login'); // Navigate to the login page
-        };
+    // const handleApplyClick = () => {
+    //     router.push('/login'); // Navigate to the login page
+    //     };
 
-    const handleSponsorClick = () => {
-        router.push('/sponsor'); // Navigate to the sponsor
-        };
+    // const handleSponsorClick = () => {
+    //     router.push('/sponsor'); // Navigate to the sponsor
+    //     };
     return (
         <section>
         <div className="relative bg-center px-5 md:px-0 w-full">
@@ -61,23 +90,9 @@ function Welcome() {
 
                 
         </div>
-        <div className="mt-[15rem] flex justify-center space-x-12 transform"> {/* Increased margin-top for spacing */}
-            <div className="cursor-pointer" onClick={handleApplyClick}>
-                <Image
-                    src={ApplyButton}
-                    alt="Apply Button"
-                    width={250}  // Adjust based on your SVG size
-                    height={200}  // Adjust based on your SVG size
-                />
-            </div>
-            <div className="cursor-pointer" onClick={handleSponsorClick}>
-                <Image
-                    src={SponsorButton}
-                    alt="Sponsor Button"
-                    width={250}  // Adjust based on your SVG size
-                    height={200}  // Adjust based on your SVG size
-                />
-            </div>
+        <div className="mt-[15rem] flex justify-center gap-y-5 sm:gap-x-12 gap-x-0 transform sm:flex-row flex-col items-center"> {/* Increased margin-top for spacing */}
+            <WelcomeButton link={"/login"} image={ApplyButton} altImage={ApplyButtonHover} alt="Apply Button" />
+            <WelcomeButton link={"/sponsor"} image={SponsorButton} altImage={SponsorButton} alt="Sponsor Button" />
         </div>
         </section>
         
