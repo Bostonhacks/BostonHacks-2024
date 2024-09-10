@@ -10,31 +10,40 @@ import Astroid from '@/public/images/Q.svg'
 
 // this should probabaly be in main/app root file but idk if i have the authority to do that so im just gonna put this here first
 import '../../public/fonts/fonts.css';
+import Title from './Title';
 
 const faq =[
         {
-            question: 'question about bhacks',
-            answer: 'a1'
+            question: 'What is BostonHacks',
+            answer: 'BostonHacks is a 24-hour event where students from different backgrounds gather together to use technology to create cool projects. Come to BostonHacks to expand your knowledge and skills, make new friends, win prizes and network with recruiters from our corporate sponsors!'
         },
         {
-            question: 'another question about bhacks',
-            answer: 'a2'
+            question: 'When and where is BostonHacks?',
+            answer: 'BostonHacks is an in-person 24-hour hackathon on November 2-3rd, 2024. It takes place in the Boston University George Sherman Union (GSU)'
         },
         {
-            question: 'more question',
-            answer: 'a3'
+            question: 'Who can attend?',
+            answer: 'All college students including undergraduate and graduate students with any background, all across the world are welcome!'
         },
         {
-            question: 'another question??',
-            answer: 'a4'
+            question: 'Are there any rules?',
+            answer: 'We want to ensure a positive experience for all participants. We encourage you to read the MLH Code of Conduct.'
         },
         {
-            question: 'another one.',
-            answer: 'a5'
+            question: 'Do I need experience?',
+            answer: 'No experience is necessary. We will have plenty of mentors and resources available, along with several workshops targeted for beginners. Come learn and experience your first hackathon at BostonHacks!'
         },
         {
-            question: 'final question',
-            answer: 'a6'
+            question: 'Does it cost anything?',
+            answer: 'BostonHacks is 100% free. You dont have to spend a dime! Unfortunately, we wont be providing any travel reimbursements this year.'
+        },
+        {
+            question: 'Can we form teams?',
+            answer: 'Of course you can! We encourage people to work in teams of up to four people. You may opt-in to team formation through our Discord Server which will match you with an ideal team. You can work alone, but it wont be as fun :['
+        },
+        {
+            question: 'When does registration close?',
+            answer: 'Registration closes on October 4th. Apply ASAP!'
         }
     ];
 
@@ -51,30 +60,33 @@ const Question = ({ question, answer }) => {
     }
 
     return (
-        <li onClick={handleClick} className="py-5 flex flex-col hover:cursor-pointer group border-b-2 border-gray-300">
-            <div className="flex mt-2 justify-between">
-                <div className="flex w-full">
-                    <Image src= {Astroid} alt="Q: "/>
-                    <h3 className="text-3xl md:text-2xl">
+        <li onClick={handleClick} className="py-5 hover:cursor-pointer group border-b-2 border-gray-300">
+            <div className="flex mt-2 justify-between items-center">
+                <div className="flex w-full items-center gap-x-5">
+                    <Image className="w-[25px] h-[25px]" src={Astroid} alt="Q: "/>
+                    <h3 className="text-4xl md:text-3xl">
                         {question}
                     </h3>
                 </div>
-                <Image
-                src={expanded ? UpToggle : DownToggle} 
-                alt="toggle arrows"
-                className={`w-[48px] h-[41px] ${animate && 'animate-wiggle'}`}
-                onAnimationEnd={() => {
-                    setExpanded(!expanded);
-                    setAnimate(false);
-                }}
-                />  
+                <div className='flex items-center justify-center'>
+                    <Image
+                    src={expanded ? UpToggle: DownToggle} 
+                    alt="toggle arrows"
+                    className={`w-[24px] h-[24px] transition-all duration-100`}
+                    onAnimationEnd={() => {
+                        setExpanded(!expanded);
+                        setAnimate(false);
+                    }}
+                    />  
+                </div>
+
 
             </div>
-                {expanded && 
-                    <div className="border-t-2 border-white/25">
-                        <p className="px-12 pt-5">{answer}</p>
-                    </div>
-                }
+            {expanded && 
+                <div className={`border-t-2 border-white/25 ${"hidden" && expanded}`}>
+                    <p className="px-12 pt-5 text-2xl">{answer}</p>
+                </div>
+            }
         </li>
 
     // the below is previous bhacks
@@ -110,7 +122,7 @@ const FAQColumn = ({ questionAnswers }) => {
 
     return (
       <div className="">
-        <ul className="">
+        <ul className="grid grid-cols-1 auto-rows-auto">
           {questionAnswers.map((qa, index) => (
             <Question question={qa.question} answer={qa.answer} key={index} />
           ))}
@@ -131,14 +143,10 @@ const FAQColumn = ({ questionAnswers }) => {
     <div className="flex items-center justify-center max-h-xl">
         <div className="bg-black bg-opacity-20 w-[95%] h-auto pt-16"> 
             <section id="faq" className="font-ppSupplyMono w-full flex flex-col items-center justify-center text-text-primary px-5 my-[10rem] mt-0">
-                <div className="flex items-center w-full max-w-xl relative">
-                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
-                    <h2 className="text-center text-4xl md:text-6xl pb-1 px-12">FAQ</h2>
-                    <div className="flex-1 border-b-2 border-white mt-[2rem]"></div>
-                </div>
+                <Title>FAQ</Title>
                 <div className="font-cg mt-[5rem] w-full grid md:grid-cols-2 grid-cols-1 gap-x-[2rem] z-20 lg:gap-x-[3rem] md:px-[2rem]">
-                    <FAQColumn questionAnswers={col1}/>
-                    <FAQColumn questionAnswers={col2} />
+                <FAQColumn className="" questionAnswers={col1}/>
+                <FAQColumn className="" questionAnswers={col2} />
                 </div>
                 <div className="border-b-4 border-text-primary md:hidden" />
             </section>

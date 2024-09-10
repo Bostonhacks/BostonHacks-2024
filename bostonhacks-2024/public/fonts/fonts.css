@@ -7,3 +7,26 @@
   font-family:'carrois gothic'; /*name in tailwind*/
   src: url('./CarroisGothic-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'saint'; /*name in tailwind*/
+  src: url('./Saint Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: '7seg'; /*name in tailwind*/
+  src: url('./7SEGMENTALDIGITALDISPLAY.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'digital7'; /*name in tailwind*/
+  src: url('./digital-7.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pp-ultra'; /*name in tailwind*/
+  src: url('./PPSupplyMono-Ultralight.otf') format('opentype');
+}
+
+
+

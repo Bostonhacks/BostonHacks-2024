@@ -10,6 +10,7 @@ import ThemeOfTheYear from "@/components/LandingComponents/ThemeOfTheYear";
 import Schedule from "@/components/LandingComponents/Schedule";
 import FAQ from "@/components/LandingComponents/FAQ";
 import Astronaut from "@/components/LandingComponents/Astronaut";
+import Sponsors from "@/components/LandingComponents/Sponsors";
 
 
 const Home = () => {
@@ -18,10 +19,20 @@ const Home = () => {
       <Welcome />
       <Signal />
       <ThemeOfTheYear />
-      <Tracks/>
-      <FAQ />
-      <Schedule />
+      <section id="tracks">
+        <Tracks/>
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
+      <section id="schedule">
+        <Schedule />
+      </section>
+    
       <Astronaut/>
+      <section id="sponsors">
+        <Sponsors />
+      </section>
 
       {/* This is how you add components to a page */}
       {/* <Hero /> */}

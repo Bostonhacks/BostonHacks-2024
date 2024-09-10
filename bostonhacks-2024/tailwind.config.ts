@@ -24,7 +24,22 @@ const config: Config = {
         ppSupplyMono: ['PPSupplyMono', 'monospace'],
         ppSupplyMonoUltralight: ['PPSupplyMonoUltralight', 'monospace'],
         saint: ['Saint', 'serif'],
-      }
+        digital: ['"Digital7"', 'sans-serif'],
+      },
+      // keyframes: {
+      //   rotateDown: {
+      //     '0%': { transform: 'rotate(0deg)' },
+      //     '100%': { transform: 'rotate(180deg)' },
+      //   },
+      //   rotateUp: {
+      //     '0%': { transform: 'rotate(0deg)' },
+      //     '100%': { transform: 'rotate(-180deg)' },
+      //   },
+      // },
+      // animation: {
+      //   rotateDown: 'rotateDown ease-out 0.3s',
+      //   rotateUp: 'rotateUp ease-out 0.3s',
+      // },
     },
   },
   plugins: [],
