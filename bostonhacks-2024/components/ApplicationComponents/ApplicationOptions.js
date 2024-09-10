@@ -379,7 +379,6 @@ const ethnicities = [
   
   // Question: Current Education Level.
   const educationLevels = [
-    'High School',
     'Undergraduate University',
     'Graduate University',
     'Code School / Bootcamp',

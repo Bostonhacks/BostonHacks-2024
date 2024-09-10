@@ -72,7 +72,7 @@ const WhyUs = () => {
                 </div>
 
                 {/* Opaque Background and Text */}
-                <div className="bg-black bg-opacity-50 p-4 lg:p-6 sm:px-1 sm:py-4 rounded-lg shadow-lg w-full h-full">
+                <div className="bg-black bg-opacity-50 p-4 lg:p-6 sm:p-1 sm:py-4 rounded-lg shadow-lg w-full h-full">
                     <WhySection data={whyUs[0]} />
 
                     {/* Astronaut and Questions Section */}
