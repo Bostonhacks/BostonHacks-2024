@@ -29,11 +29,11 @@ const Home = () => {
         <Schedule />
       </section>
     
-      <Astronaut/>
       <section id="sponsors">
         <Sponsors />
       </section>
-
+      
+      <Astronaut/>
       {/* This is how you add components to a page */}
       {/* <Hero /> */}
 
