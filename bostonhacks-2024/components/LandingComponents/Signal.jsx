@@ -5,7 +5,7 @@ import Signals from '@/public/images/signals.svg'
 
 function Signal() {
     return (
-    <div className="flex flex-col items-center justify-center h-screen"> 
+    <div className="flex flex-col items-center justify-center h-[50vh]"> 
             <div className="mt-2 mx-10"> 
                 <Image
                     src={Signals}
