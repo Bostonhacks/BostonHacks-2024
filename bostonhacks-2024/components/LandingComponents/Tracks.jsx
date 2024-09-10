@@ -30,26 +30,32 @@ function Tracks() {
       [background:padding-box_var(--bg-color),border-box_var(--border-color)]`;
 
   const pathDescription = {
-    "Reimagine Reality": `Today, there are countless established products and applications out in the world. But have you ever wished an app had a feature it lacked? Or thought you could design it better if you were the creator? Now&apos;s your chance to unleash the inner creator in you and turn those ideas into reality! In this track, you can take existing products and applications and transform them into something entirely different. Add new features, reimagine interfaces, or discover novel uses &ndash; this track is all about pushing the boundaries and changing current reality. If you were the creator, what changes would you make?<br /><br />
-    &ndash; What features have you always wished an existing product or app had?<br />
+    "Reimagine Reality": `Our greatest strength as humans lies in our ability to innovate. As we set our sights on exploring the stars, we must refine existing products and technologies to meet new demands and operational challenges. Today, the world is filled with countless established products and applications. But have you ever wished an app had a feature it lacked? Or thought you could design it better if you were the creator? Now&apos;s your chance to unleash the inner creator in you and turn those ideas into reality! 
+<br /><br />In this track, you can take existing products and applications and transform them into something entirely different. Add new features, reimagine interfaces, or discover novel uses &ndash; this track is all about pushing the boundaries and reimagining current reality: <br /><br />
+
+    &ndash; If you were the creator, what changes would you make or like to see?<br />
+    &ndash; What features have you always wished an existing product or app had? <br />
     &ndash; Are there any underutilized features that could be improved or repurposed?<br />
     &ndash; What common problems do users face with the current product, and how can you solve them?<br />
     &ndash; What new industries or fields could benefit from this product with some modifications?<br />
     &ndash; How can you make the user experience smoother or more intuitive?<br />
-    &ndash; Can you combine this product or application with another to create something entirely new?`,
+    &ndash; What new industries or fields could benefit from this product with some modifications?<br />`,
 
-    Cometcare: `Machine learning and artificial intelligence have revolutionized the technology industry, sparking continuous innovation across sectors and yielding remarkable products. This track invites you to explore the forefront of these fields, where you can harness the power of ML and AI to create solutions to everyday challenges or push the boundary to outer space, tackling space debris.<br /><br />
-    &ndash; How can AI and ML be used to improve efficiency, decision-making, or user experience in a specific domain?<br />
-    &ndash; What pressing challenges or opportunities can AI and machine learning address effectively today?<br />
-    &ndash; What types of AI/ML algorithms or models are best suited for solving your problem?<br />
-    &ndash; How will we deploy our solution for demonstration (e.g., web app, mobile app, API)?`,
+    Cometcare: `Space travel can be physically, mentally, and emotionally damaging. Astronauts must train for microgravity or zero-gravity environments, prepare for long missions, and cope with separations from loved ones indefinitely. Thus, prioritizing their wellbeing is essential. <br /><br />In this track, we challenge you to design a product or application that enhances wellness for astronauts &ndash; and anyone else! Whether you focus on fitness, exercise, journaling, or stress management, explore innovative avenues that blend technology and wellness. Create solutions that make healthy living accessible and engaging on Earth and beyond!<br /><br /> 
 
-    "Interstellar Intelligence": `In today&apos;s digital age, cybersecurity stands as a crucial guardian of our online world. Have you ever wondered how to enhance digital security or imagined yourself defending against cyber threats? This track invites you to unleash your creativity and tackle real-world security challenges. Explore the fundamentals of securing data, networks, and defending critical systems against evolving cyber threats.<br /><br />
-    &ndash; What are the most pressing cybersecurity challenges faced by businesses or individuals today?<br />
-    &ndash; Are there specific industries or sectors that are more vulnerable to cyber threats?<br />
-    &ndash; What are common cybersecurity vulnerabilities in everyday devices and applications?<br />
-    &ndash; What steps can you take to protect personal devices and data from cyber threats?<br />
-    &ndash; How can you implement basic security measures like two-factor authentication or data encryption in everyday digital activities?`,
+    &ndash; What aspect of overall wellness would you like to focus on? Examples include emotional, physical, financial, social, intellectual, and spiritual wellness, but feel free to be more specific or broad as you see fit!<br />
+    &ndash; How can you ensure a clean and intuitive user experience that enhances accessibility and dissuades frustration?<br />
+    &ndash; How can current approaches to wellbeing and wellness be adapted for new environments and new users (like maybe… aliens)?<br />
+    &ndash; How can we leverage existing technologies to aid communication and combat isolation and loneliness during extended trips?<br />
+    &ndash;What platforms, tools, games, or activities would most effectively facilitate social interaction, promote community, and reduce feelings of isolation?<br />`,
+
+    "Interstellar Intelligence": `The new &apos;Space Race&apos; is fueling rapid technological development as humanity looks to make space travel safer, faster, and more efficient. At the forefront of this surge is machine learning and AI, which have already revolutionized the technology industry by sparking continuous innovation and yielding remarkable products. Whether you&apos;re addressing pollution on Earth, classifying astronomical phenomena, managing space debris, the possibilities are limitless. Embrace the challenge to develop and deploy ML/AI models that tackle everyday issues and push the boundaries of what&apos;s possible in space.<br /><br />
+    
+    &ndash; How can you leverage ML/AI to identify, classify, and/or track different types of space threats and junk (debris, defunct satellites) that we might make?<br />
+    &ndash; How can you design an AI-driven system to manage and respond to large-scale emergencies, such as natural disasters, using predictive models and real-time data integration to optimize resource allocation and response efforts?<br />
+    &ndash; How can ML/AI be used to improve health-monitoring and medical care for at-risk and high-stress populations?<br />
+    &ndash; What innovative ML/AI applications could transform how we experience and interact with entertainment, such as movies, music, or games?<br />
+    &ndash; What ML/AI applications could revolutionize travel and navigation experiences, making them more personalized and efficient?<br />`,
   };
 
   const showPopUp = (planet) => {
