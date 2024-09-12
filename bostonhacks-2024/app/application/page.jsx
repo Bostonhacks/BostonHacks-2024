@@ -145,7 +145,7 @@ const Application = () => {
               <div className="md:grid md:grid-cols-2 md:gap-4">
                 {/* First Name */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">First Name</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">First Name</label>
                   <input
                     placeholder="First Name"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black rounded-xl"
@@ -156,7 +156,7 @@ const Application = () => {
 
                 {/* Last Name */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Last Name</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Last Name</label>
                   <input
                     placeholder="Last Name"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -167,7 +167,7 @@ const Application = () => {
 
                 {/* Phone Number */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Phone Number</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Phone Number</label>
                   <input
                     placeholder="Phone Number"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -178,7 +178,7 @@ const Application = () => {
 
                 {/* Age */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Age</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Age</label>
                   <input
                     placeholder="Age"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -189,7 +189,7 @@ const Application = () => {
 
                 {/* Ethnicity */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Ethnicity</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Ethnicity</label>
                   <Controller
                     name="ethnicity"
                     control={control}
@@ -207,7 +207,7 @@ const Application = () => {
 
                 {/* Gender */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Gender</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Gender</label>
                   <Controller
                     name="gender"
                     control={control}
@@ -225,7 +225,7 @@ const Application = () => {
 
                 {/* Pronouns */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Pronouns</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Pronouns</label>
                   <Controller
                     name="pronouns"
                     control={control}
@@ -248,7 +248,7 @@ const Application = () => {
               <h3 className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">Address Information</h3>
               <div className="md:grid md:grid-cols-2 md:gap-4">
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Address</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Address</label>
                   <input
                     placeholder="Address"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -258,7 +258,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">City</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">City</label>
                   <input
                     placeholder="City"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -285,7 +285,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Country</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Country</label>
                   <Controller
                     name="country"
                     control={control}
@@ -302,7 +302,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Zip Code</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Zip Code</label>
                   <input
                     placeholder="Zip Code"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -318,7 +318,7 @@ const Application = () => {
               <h3 className="font-ppSupplyMono text-white text-2xl sm:text-3xl font-bold">Education</h3>
               <div className="md:grid md:grid-cols-2 md:gap-4">
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">School</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">School</label>
                   <Controller
                     name="school"
                     control={control}
@@ -335,7 +335,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Graduation Year</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Graduation Year</label>
                   <input
                     placeholder="Graduation Year"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -345,7 +345,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Major</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Major</label>
                   <Controller
                     name="major"
                     control={control}
@@ -362,7 +362,7 @@ const Application = () => {
                 </div>
 
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Education Level</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Education Level</label>
                   <Controller
                     name="educationLevel"
                     control={control}
@@ -386,7 +386,7 @@ const Application = () => {
                 
                 {/* Diet */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Diet</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Diet</label>
                   <Controller
                     name="diet"
                     control={control}
@@ -404,7 +404,7 @@ const Application = () => {
 
                 {/* Other Diet */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Other Diet</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Other Diet</label>
                   <input
                     placeholder="Specify any other dietary restrictions"
                     className="h-10 px-4 w-full bg-white placeholder-black text-black  rounded-xl"
@@ -414,7 +414,7 @@ const Application = () => {
 
                 {/* Shirt Size */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Shirt Size</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Shirt Size</label>
                   <Controller
                     name="shirtSize"
                     control={control}
@@ -432,7 +432,7 @@ const Application = () => {
 
                 {/* Sleep Accommodations */}
                 <div>
-                  <label className="ml-1 font-ppSupplyMono">Sleep Accommodations</label>
+                  <label className="ml-1 font-ppSupplyMono text-white">Sleep Accommodations</label>
                   <Controller
                     name="sleep"
                     control={control}
@@ -523,7 +523,7 @@ const Application = () => {
   
                 <div className="flex flex-row my-5">
                   <input type="checkbox" {...register('acceptTerms', { required: true })} />
-                  <p className="ml-4">
+                  <p className="ml-4 text-white">
                     Do you agree to the{" "}
                     <a className="underline" href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">
                       MLH Code of Conduct
@@ -535,7 +535,7 @@ const Application = () => {
   
                 <div className="flex flex-row my-5">
                   <input type="checkbox" {...register('acceptTerms2', { required: true })} />
-                  <p className="ml-4">
+                  <p className="ml-4 text-white">
                     I authorize sharing my information with MLH for event administration, ranking, and more. I agree to the{" "}
                     <a className="underline" href="https://mlh.io/privacy">
                       MLH Privacy Policy
@@ -546,7 +546,7 @@ const Application = () => {
   
                 <div className="flex flex-row my-5">
                   <input type="checkbox" {...register('acceptTerms3')} />
-                  <p className="ml-4">
+                  <p className="ml-4 text-white">
                     I authorize MLH to send me emails with event updates and newsletters.
                   </p>
                 </div>
