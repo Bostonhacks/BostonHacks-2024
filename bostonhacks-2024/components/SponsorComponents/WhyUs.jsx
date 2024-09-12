@@ -82,7 +82,7 @@ const WhyUs = () => {
                             <p className="text-xs lg:text-3xl">We welcome any questions or special</p>
                             <p className="text-xs lg:text-3xl">requests. Please email us at</p>
                             <h1 className="font-normal pt-2 lg:py-10 text-sm lg:text-3xl">
-                                contact@bostonhacks.io
+                                contact@bostonhacks.org
                             </h1>
                         </div>
                         <div className="absolute right-0 transform -translate-x-0 -translate-y-12 lg:-translate-x-12 lg:-translate-y-20">
