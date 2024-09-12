@@ -62,7 +62,7 @@ const PerkCard = ({ amount, title, perks, buttonImage, buttonAltText }) => {
 
         {/* Perks List */}
         <div className="lg:bg-opacity-0 md:bg-black md:bg-opacity-50 sm:bg-black sm:bg-opacity-50 p-5 rounded-lg mt-8">
-          <ul className="mt-8 space-y-4 text-xl leading-[1.5] font-carroisGothic">
+          <ul className="mt-8 space-y-4 text-xl leading-[1.5] font-carroisGothic text-white">
             {perks.map((perk, index) => (
               <li
                 key={index}
