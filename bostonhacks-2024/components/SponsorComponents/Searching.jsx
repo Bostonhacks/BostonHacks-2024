@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link';
 
 import Signals from '@/public/images/signals.svg'
 import SponsorUs from '@/public/images/SponsorUsButton.svg'
@@ -26,15 +27,17 @@ function Searching() {
             <h1 className="text-5xl lg:text-7xl md:7xl font-ppSupplyMono text-center">SPONSOR INFORMATION</h1> {/* Fixed spelling of "SPONSOR" */}
         </div>
         
-        <div className="mt-16 flex justify-center space-x-12"> {/* Removed translate-y for a cleaner layout */}
-            <div className="cursor-pointer">
-                <Image
-                    src={SponsorUs}
-                    alt="Sponsor Us Button"
-                    width={250}  // Adjust based on your SVG size
-                    height={200}  // Adjust based on your SVG size
-                />
-            </div>
+        <div className="mt-16 flex justify-center space-x-12"> 
+            <Link href="https://forms.gle/SYCDXQN2R1Rqq2TJ6" passHref> {/* Add your desired URL */}
+                <div className="cursor-pointer">
+                    <Image
+                        src={SponsorUs}
+                        alt="Sponsor Us Button"
+                        width={250}  // Adjust based on your SVG size
+                        height={200}  // Adjust based on your SVG size
+                    />
+                </div>
+            </Link>
         </div>
     </div>
     )
