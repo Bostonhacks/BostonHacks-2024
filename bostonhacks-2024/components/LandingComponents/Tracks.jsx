@@ -81,7 +81,7 @@ function Tracks() {
         }}
       >
         {/* Track 1 */}
-        <div className="w-1/3 flex flex-col items-center self-end mr-20">
+        <div className="w-1/3 flex flex-col items-center text-white self-end mr-20">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Reimagine Reality
           </h1>
@@ -94,7 +94,7 @@ function Tracks() {
         </div>
 
         {/* Track 2 */}
-        <div className="w-1/3 items-center flex flex-col ml-32">
+        <div className="w-1/3 items-center flex text-white flex-col ml-32">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Cometcare
           </h1>
@@ -107,7 +107,7 @@ function Tracks() {
         </div>
 
         {/* Track 3 */}
-        <div className="w-1/3 flex flex-col items-center self-end mr-60">
+        <div className="w-1/3 flex flex-col text-white items-center self-end mr-60">
           <h1 style={planetsTextBoxStyle} className={planetsTextBoxCSS}>
             Interstellar Intelligence
           </h1>

@@ -513,6 +513,7 @@ const Application = () => {
                 <input
                   type="file"
                   accept=".pdf, .docx"
+                  style = {{color: 'white'}}
                   onChange={(e) => setResume(e.target.files[0])}
                 />
               </div>
