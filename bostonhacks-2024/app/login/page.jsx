@@ -23,12 +23,26 @@ const Login = () => {
       // Store the UID and email in localStorage
       localStorage.setItem('userUid', user.uid);
       localStorage.setItem('userEmail', user.email);
+
+      // Fetch user role from Firestore
+      const userDocRef = doc(db, 'users', user.uid); // Assuming 'users' collection has roles
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+
+        // If the user is an admin, redirect to the admin dashboard
+        if (userData.role === 'admin') {
+          router.push('/admin');
+          return; // End execution if user is admin
+        }
+      }
+
+      // If not an admin, continue with the normal application check
+      const applicationDocRef = doc(db, 'applications', user.uid);
+      const applicationDocSnap = await getDoc(applicationDocRef);
   
-      // Check if the user has an existing application in Firestore
-      const docRef = doc(db, 'applications', user.uid);
-      const docSnap = await getDoc(docRef);
-  
-      if (docSnap.exists()) {
+      if (applicationDocSnap.exists()) {
         router.push('/portal'); // If the application exists, redirect to portal
       } else {
         router.push('/application'); // If no application exists, redirect to application form
@@ -38,8 +52,6 @@ const Login = () => {
       console.error('Google Login Error: ', err);
     }
   };
-  
-  
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -50,7 +62,7 @@ const Login = () => {
         <div className="text-center">
           <button
             onClick={handleGoogleLogin}
-            className="bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200"
+            className="bg-white text-black font-bold py-2 px-4 rounded-lg hover:bg-gray-200 flex items-center justify-center"
           >
             <Image
               src={GoogleIcon} // Use your Google icon SVG here
