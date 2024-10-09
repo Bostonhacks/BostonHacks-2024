@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { db } from '@/firebase/firebase-config';
 import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
+import AdminRoute from "@/components/AdminComponents/AdminRoute.js";
 
 function ApplicantModal({ open, handleClose, applicant }) {
   const displayFields = [
@@ -242,6 +243,7 @@ export default function ApplicationPage() {
   };
 
   return (
+    <AdminRoute>
     <main style={pageStyles}>
       <div
         style={{
@@ -283,5 +285,6 @@ export default function ApplicationPage() {
         applicant={selectedApplicant}
       />
     </main>
+    </AdminRoute>
   );
 }
