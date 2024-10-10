@@ -27,16 +27,21 @@ export default function Schedule() {
   const saturday = [
     { time: '9:00 AM', tableEntry: 'Check In' },
     { time: '10:00 AM', tableEntry: 'Opening Ceremony' },
+    { time: '11:00 AM', tableEntry: 'Workshops' },
     { time: '12:00 PM', tableEntry: 'Lunch' },
+    { time: '1:00 PM', tableEntry: 'Workshops' },
     { time: '6:00 PM', tableEntry: 'Dinner' },
-    { time: '10:00 PM', tableEntry: 'Sleep' },
+    { time: '9:30 PM', tableEntry: 'Sleeping Spaces Open' },
+    { time: '10:30 PM', tableEntry: 'Karaoke' },
+    { time: '12:00 AM', tableEntry: 'Midnight Snack' },
+
     // Add more entries as needed
   ];
 
   const sunday = [
-    { time: '8:00 AM', tableEntry: 'Breakfast' },
-    { time: '10:00 AM', tableEntry: 'Submissions Due' },
-    { time: '2:00 PM', tableEntry: 'Closing Ceremony' },
+    { time: '7:50 AM', tableEntry: 'Breakfast' },
+    { time: '9:00 AM', tableEntry: 'Submissions Due' },
+    { time: '11:00 AM', tableEntry: 'Closing Ceremony' },
     // Add more entries as needed
   ];
 
