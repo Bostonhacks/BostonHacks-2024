@@ -79,7 +79,7 @@ const Sponsors = () => {
                         <Image
                             src={sponsor.images}
                             alt={sponsor.name}
-                            className={`absolute top-50 left-0 object-cover scale-${sponsor.scale}`} // Adjust scaling for desktop
+                            className={`absolute top-50 left-0 object-cover scale-75`} // Adjust scaling for desktop
                         />
                         
                         <span
