@@ -6,7 +6,6 @@ import { db } from "../../../firebase/firebase-config";
 import AdminRoute from "@/components/AdminComponents/AdminRoute.js";
 import { Button } from "@mui/material";
 import * as XLSX from "xlsx";
-import { doc } from "firebase/firestore";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({});
