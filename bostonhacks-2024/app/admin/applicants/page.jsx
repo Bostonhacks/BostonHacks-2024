@@ -216,11 +216,19 @@ export default function ApplicationPage() {
           </Button>
           <Button
             variant="contained"
-            style={{ backgroundColor: '#F44336', color: 'white' }}
+            style={{ backgroundColor: '#F44336', color: 'white', marginRight: 8, }}
             onClick={() => updateApplicantStatus(params.id, 'Rejected')}
           >
             Reject
           </Button>
+
+          <Button
+          variant="contained"
+          style={{ backgroundColor: '#FF9800', color: 'white' }} // Optional: Customize the color for waitlist
+          onClick={() => updateApplicantStatus(params.id, 'Waitlisted')}
+        >
+          Waitlist
+        </Button>
         </>
       ),
     },
