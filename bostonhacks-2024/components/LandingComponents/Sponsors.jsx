@@ -15,44 +15,52 @@ import sargent from '@/public/images/sponsors/SAR_web_black_bg.png';
 import interviewCake from '@/public/images/sponsors/cake_logo_white_on_blue.png';
 
 
-import sponsorBackground from '@/public/images/sponsorBackground.svg';
+// import sponsorBackground from '@/public/images/sponsorBackground.svg';
+import sponsorBackground from '@/public/images/sponsorBackgroundLighter.svg';
 
 const Sponsors = () => {
     const sponsors = [
         {
             id: 1,
-            name: 'Patient Safety Technology Challenge',
-            images: patientSafety
+            name: 'Patient Safety Technology',
+            images: patientSafety,
+            scale: 75
         },
         {
             id: 2,
             name: 'Flatlogic',
-            images: flatlogic
+            images: flatlogic,
+            scale: 90
         },
         {
             id: 3,
             name: '.xyz',
-                images: xyz
+            images: xyz,
+            scale: 75
         },
         {
             id: 4,
             name: 'Ignite',
-            images: ignite
+            images: ignite,
+            scale: 100
         },
         {
             id: 5,
             name: 'Wolfram',
-            images: wolfram
+            images: wolfram,
+            scale: 75
         },
         {
             id: 6,
             name: 'Interview Cake',
-            images: interviewCake
+            images: interviewCake,
+            scale: 75
         },
         {
             id: 7,
-            name: 'Sargent',
+            name: 'Sargent College',
             images: sargent,
+            scale: 75
         }
     ]
 
@@ -70,9 +78,10 @@ const Sponsors = () => {
                         />
                         <Image
                             src={sponsor.images}
-                            alt={`Sponsor ${sponsor.id}`}
-                            className="absolute w-auto h-auto top-50 left-0 object-cover scale-75 lg:scale-75" // Adjust scaling for desktop
+                            alt={sponsor.name}
+                            className={`absolute top-50 left-0 object-cover scale-${sponsor.scale} md:scale-${sponsor.scale+10}`} // Adjust scaling for desktop
                         />
+                        
                         <span
                             className={`absolute right-[-20px] top-50% transform -translate-y-1/2 text-s text-center ${sponsor.id % 2 === 1 ? 'left-[-25px]' : 'right-[-25px]'}`}
                             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', whiteSpace: 'nowrap' }}>
