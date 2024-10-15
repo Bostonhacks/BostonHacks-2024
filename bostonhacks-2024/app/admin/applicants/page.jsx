@@ -92,7 +92,7 @@ export default function ApplicationPage() {
     rejected: 0,
     accepted: 0,
     waitlisted: 0,
-    pending: 0,
+    confirmed: 0,
   });
 
   useEffect(() => {
@@ -109,7 +109,7 @@ export default function ApplicationPage() {
           rejected: data.filter((app) => app.status === 'Rejected').length,
           accepted: data.filter((app) => app.status === 'Accepted').length,
           waitlisted: data.filter((app) => app.status === 'Waitlisted').length,
-          pending: data.filter((app) => app.status === 'Pending').length,
+          confirmed: data.filter((app) => app.status === 'Confirmed').length,
         };
         setStatusCounts(counts);
       } catch (error) {
