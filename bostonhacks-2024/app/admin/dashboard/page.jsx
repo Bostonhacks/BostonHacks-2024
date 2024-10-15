@@ -45,6 +45,44 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: "array" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+        // Call the function to update the statuses
+        await updateApplicationStatuses(jsonData);
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  };
+
+  const updateApplicationStatuses = async (applications) => {
+    try {
+      for (const app of applications) {
+        const { uid, status } = app; // Assuming your sheet has columns named 'uid' and 'status'
+        const applicantRef = doc(db, "applications", uid);
+        await updateDoc(applicantRef, { status });
+
+        // Optionally update local stats here
+        setStats((prevStats) => ({
+          ...prevStats,
+          [status.toLowerCase()]: (prevStats[status.toLowerCase()] || 0) + 1,
+        }));
+      }
+      alert("Statuses updated successfully!");
+    } catch (error) {
+      console.error("Error updating statuses:", error);
+      alert("Failed to update statuses. Please check the console for errors.");
+    }
+  };
+
   return (
     <AdminRoute>
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -76,6 +114,12 @@ export default function AdminDashboard() {
             Export Data
           </Button>
         </div>
+        <input
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleFileChange}
+          className="mt-8"
+        />
       </div>
     </AdminRoute>
   );
