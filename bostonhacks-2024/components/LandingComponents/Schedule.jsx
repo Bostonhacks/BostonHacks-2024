@@ -3,7 +3,7 @@ import Title from './Title';
 
 const ScheduleComponent = ({ title, data }) => {
   return (
-    <div className="flex flex-col items-center text-white mt-10 w-full max-w-4xl bg-black bg-opacity-50 p-8 rounded-lg shadow-lg mx-4">
+    <div className="flex flex-col items-center text-white w-full bg-black bg-opacity-50 p-8 rounded-lg shadow-lg">
 
       <table className="w-full text-white">
         <tbody>
@@ -46,10 +46,10 @@ export default function Schedule() {
   ];
 
   return (
-    <div id="schedule" className="flex justify-center items-center flex-col w-full overflow-clip pb-20">
+    <div id="schedule" className="flex justify-center items-center flex-col w-full overflow-clip py-20">
       <Title>SCHEDULE</Title>
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-10">
+      <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-2 gap-x-10 content-between px-10 lg:px-20">
         <ScheduleComponent className="grid-cols-1" title="Saturday" data={saturday} />
         <ScheduleComponent className="grid-cols-1" title="Sunday" data={sunday} />
       </div>

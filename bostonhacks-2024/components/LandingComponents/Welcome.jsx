@@ -79,7 +79,7 @@ function Welcome() {
             </div>
             <div className="mt-[0rem] sm:mt-[10rem] flex justify-center gap-y-5 sm:gap-x-12 gap-x-0 transform sm:flex-row flex-col items-center"> {/* Adjust margin for mobile */}
                 <WelcomeButton link={"/login"} image={ApplyButton} altImage={ApplyButtonHover} alt="Apply Button" />
-                <WelcomeButton link={"/sponsor"} image={SponsorButton} altImage={SponsorButton} alt="Sponsor Button" witdth={250} height={200} />
+                <WelcomeButton link={"/sponsor"} image={SponsorButton} altImage={SponsorButton} alt="Sponsor Button" width={250} height={200} />
             </div>
         </section>
     );
