@@ -30,7 +30,7 @@ const Sponsors = () => {
             id: 2,
             name: 'Flatlogic',
             images: flatlogic,
-            scale: 90
+            scale: 100
         },
         {
             id: 3,
@@ -79,7 +79,7 @@ const Sponsors = () => {
                         <Image
                             src={sponsor.images}
                             alt={sponsor.name}
-                            className={`absolute top-50 left-0 object-cover scale-${sponsor.scale} md:scale-${sponsor.scale+10}`} // Adjust scaling for desktop
+                            className={`absolute top-50 left-0 object-cover scale-${sponsor.scale}`} // Adjust scaling for desktop
                         />
                         
                         <span
