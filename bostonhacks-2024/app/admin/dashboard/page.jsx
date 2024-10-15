@@ -22,7 +22,7 @@ export default function AdminDashboard() {
             acc[app.status.toLowerCase()] += 1;
             return acc;
           },
-          { applied: 0, rejected: 0, accepted: 0, waitlisted: 0, pending: 0 }
+          { Applied: 0, Rejected: 0, Accepted: 0, Waitlisted: 0, Pending: 0 }
         );
         setStats(statusCounts);
       } catch (error) {
@@ -65,16 +65,32 @@ export default function AdminDashboard() {
 
   const updateApplicationStatuses = async (applications) => {
     try {
+      // Create a mapping of uid to document ID
+      const querySnapshot = await getDocs(collection(db, "applications"));
+      const uidToDocIdMap = {};
+      
+      querySnapshot.docs.forEach((doc) => {
+        const data = doc.data();
+        uidToDocIdMap[data.uid] = doc.id; // Map uid to document ID
+      });
+  
       for (const app of applications) {
-        const { uid, status } = app; // Assuming your sheet has columns named 'uid' and 'status'
-        const applicantRef = doc(db, "applications", uid);
-        await updateDoc(applicantRef, { status });
-
-        // Optionally update local stats here
-        setStats((prevStats) => ({
-          ...prevStats,
-          [status.toLowerCase()]: (prevStats[status.toLowerCase()] || 0) + 1,
-        }));
+        const { uid, status } = app;
+  
+        // Check if the uid exists in the map
+        const documentId = uidToDocIdMap[uid];
+        if (documentId) {
+          const applicantRef = doc(db, "applications", documentId);
+          await updateDoc(applicantRef, { status });
+  
+          // Optionally update local stats here
+          setStats((prevStats) => ({
+            ...prevStats,
+            [status.toLowerCase()]: (prevStats[status.toLowerCase()] || 0) + 1,
+          }));
+        } else {
+          console.warn(`No document found for uid: ${uid}`);
+        }
       }
       alert("Statuses updated successfully!");
     } catch (error) {
@@ -82,6 +98,7 @@ export default function AdminDashboard() {
       alert("Failed to update statuses. Please check the console for errors.");
     }
   };
+  
 
   return (
     <AdminRoute>
