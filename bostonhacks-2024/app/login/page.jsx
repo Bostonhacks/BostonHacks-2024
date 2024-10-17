@@ -45,7 +45,7 @@ const Login = () => {
       if (applicationDocSnap.exists()) {
         router.push('/portal'); // If the application exists, redirect to portal
       } else {
-        router.push('/closed'); // If no application exists, redirect to application form
+        router.push('/application'); // If no application exists, redirect to application form
       }
     } catch (err) {
       setError('Failed to log in with Google. Please try again.');
