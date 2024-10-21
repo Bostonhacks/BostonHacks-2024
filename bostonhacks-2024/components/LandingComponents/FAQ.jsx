@@ -47,77 +47,46 @@ const faq =[
         }
     ];
 
-const Question = ({ question, answer }) => {
-    // set up the state (set up as not toggled)
-    const [expanded, setExpanded] = useState(false);
-    const [animate, setAnimate] = useState(false);
-
-    // handle the toggle
-    const handleClick = () => {
-        setExpanded(!expanded);
-        setAnimate(true);
-        console.log('clicked');
-    }
-
-    return (
-        <li onClick={handleClick} className="py-5 hover:cursor-pointer group border-b-2 border-gray-300">
-            <div className="flex mt-2 justify-between items-center">
-                <div className="flex w-full items-center gap-x-5">
-                    <Image className="w-[25px] h-[25px]" src={Astroid} alt="Q: "/>
-                    <h3 className="text-4xl md:text-3xl">
-                        {question}
-                    </h3>
+    const Question = ({ question, answer }) => {
+        const [expanded, setExpanded] = useState(false);
+        const [animate, setAnimate] = useState(false);
+    
+        const handleClick = () => {
+            setExpanded(!expanded);
+            setAnimate(true);
+            console.log('clicked');
+        }
+    
+        return (
+            <li onClick={handleClick} className="py-5 hover:cursor-pointer group border-b-2 border-gray-300">
+                <div className="flex mt-2 justify-between items-center">
+                    <div className="flex w-full items-center gap-x-5">
+                        <Image className="w-[25px] h-[25px]" src={Astroid} alt="Q: "/>
+                        <h3 className="text-4xl md:text-3xl">
+                            {question}
+                        </h3>
+                    </div>
+                    <div className='flex items-center justify-center'>
+                        <Image
+                        src={expanded ? UpToggle: DownToggle} 
+                        alt="toggle arrows"
+                        className={`w-[24px] h-[24px] transition-all duration-100`}
+                        onAnimationEnd={() => {
+                            setExpanded(!expanded);
+                            setAnimate(false);
+                        }}
+                        />  
+                    </div>
                 </div>
-                <div className='flex items-center justify-center'>
-                    <Image
-                    src={expanded ? UpToggle: DownToggle} 
-                    alt="toggle arrows"
-                    className={`w-[24px] h-[24px] transition-all duration-100`}
-                    onAnimationEnd={() => {
-                        setExpanded(!expanded);
-                        setAnimate(false);
-                    }}
-                    />  
-                </div>
-
-
-            </div>
-            {expanded && 
-                <div className={`border-t-2 border-white/25 ${"hidden" && expanded}`}>
-                    <p className="px-12 pt-5 text-2xl">{answer}</p>
-                </div>
-            }
-        </li>
-
-
-    // the below is previous bhacks
-    //     <li
-    //   className="px-3 hover:cursor-pointer border-text-primary flex flex-row py-5 group justify-between"
-    //   onClick={handleClick}
-    // >
-    //   <div className="flex flex-col mt-2">
-    //     <h3 className="text-lg md:text-xl">{question}</h3>
-
-    //     <div
-    //       className={`pt-0 overflow-hidden transition-all duration-500 ease-in-out ${
-    //         expanded ? 'max-h-screen' : 'max-h-0'
-    //       }`}
-    //     >
-    //       <p className="mt-3">{answer}</p>
-    //     </div>
-    //   </div>
-    //   <img
-    //     src={expanded ? OpenChest : ClosedChest}
-    //     alt="Closed Chest"
-    //     className={`w-[48px] h-[41px] ${animate && 'animate-wiggle'}`}
-    //     onAnimationEnd={() => {
-    //       setExpanded(!expanded);
-    //       setAnimate(false);
-    //     }}
-    //   />
-    // </li>
-    );
-};
+                {expanded && 
+                    <div className={`border-t-2 border-white/25 ${"hidden" && expanded}`}>
+                        <p className="px-12 pt-5 text-2xl" dangerouslySetInnerHTML={{ __html: answer }}></p>
+                    </div>
+                }
+            </li>
+        );
+    };
+    
 
 const FAQColumn = ({ questionAnswers }) => {
 
