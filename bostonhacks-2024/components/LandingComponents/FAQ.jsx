@@ -27,7 +27,7 @@ const faq =[
         },
         {
             question: 'Are there any rules?',
-            answer: 'We want to ensure a positive experience for all participants. We encourage you to read the MLH Code of Conduct.'
+        answer: 'We want to ensure a positive experience for all participants. We encourage you to read the <a href="https://mlh.io/code-of-conduct" target="_blank" class="text-blue-500 underline">MLH Code of Conduct</a>.'
         },
         {
             question: 'Do I need experience?',
