@@ -46,18 +46,12 @@ const Sponsors = () => {
         },
         {
             id: 5,
-            name: 'Wolfram',
-            images: wolfram,
-            scale: 75
-        },
-        {
-            id: 6,
             name: 'Interview Cake',
             images: interviewCake,
             scale: 75
         },
         {
-            id: 7,
+            id: 6,
             name: 'Sargent College',
             images: sargent,
             scale: 75
