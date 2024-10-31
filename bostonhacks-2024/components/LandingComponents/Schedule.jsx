@@ -27,12 +27,24 @@ export default function Schedule() {
   const saturday = [
     { time: '9:00 AM', tableEntry: 'Check In' },
     { time: '10:00 AM', tableEntry: 'Opening Ceremony' },
-    { time: '11:00 AM', tableEntry: 'Workshops' },
+    { time: '10:30 AM', tableEntry: 'Hacking Begins!' },
+    { time: '11:00 AM', tableEntry: 'Hackathon 101' },
+    { time: '11:00 AM', tableEntry: 'Intro to GitHub' },
     { time: '12:00 PM', tableEntry: 'Lunch' },
-    { time: '1:00 PM', tableEntry: 'Workshops' },
-    { time: '6:00 PM', tableEntry: 'Dinner' },
+    { time: '1:00 PM', tableEntry: 'Patient Safety Workshop' },
+    { time: '1:00 PM', tableEntry: 'MLH Intro to Figma' },
+    { time: '2:00 AM', tableEntry: 'Intro to Web Dev' },
+    { time: '2:00 AM', tableEntry: 'Intro to APIs' },
+    { time: '3:00 AM', tableEntry: 'MLH Tech Together' },
+    { time: '3:00 AM', tableEntry: 'Intro to Mobile App Dev' },
+    { time: '4:00 AM', tableEntry: 'Intro to Databases' },
+    { time: '5:00 AM', tableEntry: 'Resume Workshop' },
+    { time: '6:30 PM', tableEntry: 'Dinner' },
+    { time: '7:30 PM', tableEntry: 'MLH MSPaint with Bob Ross' },
+    { time: '8:30 PM', tableEntry: 'Intro to Leetcode' },
+    { time: '8:30 PM', tableEntry: 'Video Games' },
     { time: '9:30 PM', tableEntry: 'Sleeping Spaces Open' },
-    { time: '10:30 PM', tableEntry: 'Karaoke' },
+    { time: '10:30 PM', tableEntry: 'Late Night Activities' },
     { time: '12:00 AM', tableEntry: 'Midnight Snack' },
 
     // Add more entries as needed
@@ -40,8 +52,10 @@ export default function Schedule() {
 
   const sunday = [
     { time: '7:50 AM', tableEntry: 'Breakfast' },
-    { time: '9:00 AM', tableEntry: 'Submissions Due' },
+    { time: '9:00 AM', tableEntry: 'Suprise Workshop' },
+    { time: '9:30 AM', tableEntry: 'Submissions Due' },
     { time: '11:00 AM', tableEntry: 'Closing Ceremony' },
+    { time: '12:00 PM', tableEntry: 'End of BostonHacks 2024' },
     // Add more entries as needed
   ];
 
