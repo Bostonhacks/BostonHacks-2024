@@ -94,6 +94,18 @@ const Portal = () => {
   
     return () => unsubscribe(); // Cleanup on unmount
   }, [user, loading, router]);
+
+  const handleCheckIn = async () => {
+    if (application?.status === 'Confirmed') {
+      try {
+        const applicationDocRef = doc(db, 'applications', application.id);
+        await updateDoc(applicationDocRef, { status: 'Checked In' });
+        setApplication((prev) => ({ ...prev, status: 'Checked In' }));
+      } catch (err) {
+        console.error('Error during check-in:', err);
+      }
+    }
+  };
   
 
   return (
@@ -142,19 +154,25 @@ const Portal = () => {
         )}
 
         {application?.status === 'Confirmed' && (
-          <div className="text-center">
-            <h3 className="text-2xl font-ppSupplyMono">
-              Thank you for confirming your attendance!
-            </h3>
-            {/* QR code display could go here */}
+          <div>
+            <h3 className="text-2xl font-ppSupplyMono">Thank you for confirming your attendance!</h3>
+            <p>Please click below to complete your check-in.</p>
+            <button
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-ppSupplyMono py-2 px-4 rounded"
+              onClick={handleCheckIn}
+            >
+              Check In
+            </button>
           </div>
         )}
-
+        {application?.status === 'Checked In' && (
+          <div>
+            <h3 className="text-2xl font-ppSupplyMono">You are checked in. Welcome!</h3>
+          </div>
+        )}
         {application?.status === 'Declined' && (
-          <div className="text-center">
-            <h3 className="text-2xl font-ppSupplyMono">
-              Sorry to hear you can&apos;t attend BostonHacks 2024.
-            </h3>
+          <div>
+            <h3 className="text-2xl font-ppSupplyMono">Sorry to hear you can&apos;t attend BostonHacks 2024.</h3>
           </div>
         )}
 
