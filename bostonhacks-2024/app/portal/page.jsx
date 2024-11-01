@@ -153,7 +153,7 @@ const Portal = () => {
           </div>
         )}
 
-        {application?.status === 'Confirmed' && (
+        {/* {application?.status === 'Confirmed' && (
           <div className="items-center">
             <h3 className="text-2xl font-ppSupplyMono text-center">Thank you for confirming your attendance!</h3>
             <p>Please click below to complete your check-in.</p>
@@ -174,7 +174,7 @@ const Portal = () => {
           <div>
             <h3 className="text-2xl font-ppSupplyMono">Sorry to hear you can&apos;t attend BostonHacks 2024.</h3>
           </div>
-        )}
+        )} */}
 
         {/* Show current status for all application types */}
         {applicationTypes.includes(application?.status) && (
