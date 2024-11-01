@@ -158,7 +158,7 @@ const Portal = () => {
             <h3 className="text-2xl font-ppSupplyMono text-center">Thank you for confirming your attendance!</h3>
             <p>Please click below to complete your check-in.</p>
             <button
-              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-ppSupplyMono py-2 px-4 rounded"
+              className="items-center text-center mt-4 bg-blue-500 hover:bg-blue-700 text-white font-ppSupplyMono py-2 px-4 rounded"
               onClick={handleCheckIn}
             >
               Check In
